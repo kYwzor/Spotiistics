@@ -37,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:fontFamily="@font/oswald"
             tools:text="Token: 089d841ccc194c10a77afad9e1c11d54" />
 
         <Button
