@@ -5,4 +5,6 @@
     <string name="token">Access Token: %1$s</string>
     <string name="nameApp">Spotiistics</string>
     <string name="login">Login</string>
+    <string name="your_playlist">Your Playlists</string>
+    <string name="playlist_followed">Playlist Followed</string>
 </resources>
