@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
         <activity
-            android:name=".ProfileActivity">
+            android:name=".PlaylistsActivity">
         </activity>
         <meta-data
             android:name="com.google.android.actions"
