@@ -3,5 +3,8 @@
     <string name="warning_need_token">You need to request an access token first</string>
     <string name="code">Code: %1$s</string>
     <string name="token">Access Token: %1$s</string>
-    <string name="title_activity_profile">profileActivity</string>
+    <string name="nameApp">Spotiistics</string>
+    <string name="login">Login</string>
+    <string name="your_playlist">Your Playlists</string>
+    <string name="playlist_followed">Playlist Followed</string>
 </resources>

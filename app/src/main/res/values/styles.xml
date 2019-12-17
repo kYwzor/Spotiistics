@@ -34,4 +34,21 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="Title">
+        <item name="android:fontFamily">@font/oswald_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:color">@color/white</item>
+    </style>
+    <style name="Title_Statistitcs">
+        <item name="android:fontFamily">@font/oswald_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:color">@color/white</item>
+    </style>
+    <style name="Text_Statistics">
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:color">@color/white</item>
+    </style>
+
 </resources>
