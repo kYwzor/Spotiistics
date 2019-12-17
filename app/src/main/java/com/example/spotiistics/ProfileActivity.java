@@ -15,12 +15,12 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.menu_playlist);
         JSONObject json_object;
         try {
             json_object = new JSONObject(getIntent().getStringExtra("object"));
             TextView tv = findViewById(R.id.textView);
-            tv.setText("Logged in as " + json_object.getString("display_name"));
+            //tv.setText("Logged in as " + json_object.getString("display_name"));
 
 
         } catch (JSONException e) {

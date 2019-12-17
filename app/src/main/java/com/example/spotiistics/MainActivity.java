@@ -24,13 +24,10 @@ package com.example.spotiistics;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
@@ -40,7 +37,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.Locale;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -52,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     public static final String CLIENT_ID = "31ba52256ea04bad96190373ecbfdfb1";
     public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
-    public static final int AUTH_CODE_REQUEST_CODE = 0x11;
 
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     private String mAccessToken;
@@ -61,9 +56,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle(String.format(
-                Locale.US, "Spotiistics Login"));
+        setContentView(R.layout.login);
     }
 
     @Override
@@ -89,8 +82,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, data);
-        Log.i(TAG, "onActivityResult - type: " + response.getType().toString());
-        Log.i(TAG, "onActivityResult - state: " + response.getState());
+
         switch (response.getType()) {
             case TOKEN:
                 if (AUTH_TOKEN_REQUEST_CODE == requestCode)
@@ -103,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "Default");
                 break;
         }
-        Log.e(TAG, "token: " + mAccessToken);
 
         final Request request = new Request.Builder()
                 .url("https://api.spotify.com/v1/me")
@@ -116,19 +107,16 @@ public class MainActivity extends AppCompatActivity {
         mCall.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                //setResponse("Failed to fetch data: " + e);
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     final JSONObject jsonObject = new JSONObject(response.body().string());
-                    //setResponse(jsonObject.toString(3));
                     Intent mIntent = new Intent(MainActivity.this, ProfileActivity.class);
                     mIntent.putExtra("object", jsonObject.toString());
                     startActivity(mIntent);
                 } catch (JSONException e) {
-                    //setResponse("Failed to parse data: " + e);
                 }
             }
         });
