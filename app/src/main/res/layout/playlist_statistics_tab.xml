@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- duração total -->
+            <TextView
+                android:id="@+id/textview3"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duracao_total_title"
+                android:paddingRight="60dp"
+                android:layout_alignParentStart="true"
+                android:paddingTop="50dp" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview3"
+                android:layout_alignEnd="@+id/textview3"
+                android:layout_below="@+id/textview3"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="60dp"/>
+            <TextView
+                android:id="@+id/duracao_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duracao_total_text"
+                android:layout_alignParentStart="true"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview3"/>
+
+            <!-- duração média de cada track -->
+            <TextView
+                android:id="@+id/textview4"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/textview3"
+                android:paddingTop="50dp"
+                android:text="@string/duracao_media_title" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview4"
+                android:layout_alignEnd="@+id/textview4"
+                android:layout_below="@+id/textview4"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/duracao_media"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duracao_media_text"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/textview4"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview4"/>
+
+            <!-- track menor -->
+            <TextView
+                android:id="@+id/textview5"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/track_menor_title"
+                android:layout_below="@+id/textview3"
+                android:layout_alignEnd="@+id/textview3"
+                android:layout_alignParentStart="true"
+                android:paddingTop="100dp" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview5"
+                android:layout_alignEnd="@+id/textview5"
+                android:layout_below="@+id/textview5"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/track_menor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/track_menor_text"
+                android:layout_alignParentStart="true"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview5"/>
+
+            <!-- track maior -->
+            <TextView
+                android:id="@+id/textview6"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/textview4"
+                android:layout_below="@+id/textview4"
+                android:layout_alignTop="@+id/textview5"
+                android:paddingTop="100dp"
+                android:text="@string/track_maior_title" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview6"
+                android:layout_alignEnd="@+id/textview6"
+                android:layout_below="@+id/textview6"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/track_maior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/track_maior_text"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/textview6"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview6"/>
+
+            <!-- top 3 artistas -->
+            <TextView
+                android:id="@+id/textview7"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/top_artistas"
+                android:layout_below="@+id/textview5"
+                android:paddingTop="70dp" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview7"
+                android:layout_alignEnd="@+id/textview7"
+                android:layout_below="@+id/textview7"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <LinearLayout
+                android:id="@+id/topArtistas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <!-- top 3 albums -->
+            <TextView
+                android:id="@+id/textview8"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/top_albums"
+                android:layout_below="@+id/textview7"
+                android:paddingTop="70dp" />
+            <LinearLayout
+                android:id="@+id/topAlbums"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview8"
+                android:layout_alignEnd="@+id/textview8"
+                android:layout_below="@+id/textview8"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+
+            <!-- mood da playlist -->
+            <TextView
+                android:id="@+id/textview9"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mood_playlist_title"
+                android:layout_below="@+id/textview8"
+                android:layout_alignParentStart="true"
+                android:paddingTop="70dp" />
+
+            <View
+                android:id="@+id/divider7"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview9"
+                android:layout_alignEnd="@+id/textview9"
+                android:layout_below="@+id/textview9"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/mood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mood_playlist_text"
+                android:layout_alignParentStart="true"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview9"/>
+
+            <!-- Ritmo da playlist -->
+            <TextView
+                android:id="@+id/textview10"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/textview4"
+                android:layout_below="@+id/textview4"
+                android:layout_alignTop="@+id/textview9"
+                android:paddingTop="70dp"
+                android:text="@string/ritmo_playlist_title" />
+
+            <View
+                android:id="@+id/divider8"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview10"
+                android:layout_alignEnd="@+id/textview10"
+                android:layout_below="@+id/textview10"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/ritmo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ritmo_playlist_text"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/textview10"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview10"/>
+
+            <!-- top 3 generos -->
+            <TextView
+                android:id="@+id/textview11"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/top_generos"
+                android:layout_below="@+id/textview10"
+                android:paddingTop="70dp" />
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview11"
+                android:layout_alignEnd="@+id/textview11"
+                android:layout_below="@+id/textview11"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <LinearLayout
+                android:id="@+id/topGeneros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </RelativeLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

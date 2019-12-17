@@ -7,4 +7,24 @@
     <string name="login">Login</string>
     <string name="your_playlist">Your Playlists</string>
     <string name="playlist_followed">Playlist Followed</string>
+    <string name="playlist_name">Nome Playlist</string>
+    <string name="playlist_creator">Nome Apelido</string>
+    <string name="tab_statistics">Estatística</string>
+    <string name="tab_info">Informação</string>
+    <string name="duracao_total_title">Duração Total</string>
+    <string name="duracao_total_text">3h</string>
+    <string name="duracao_media_title">Duracação Média das Track</string>
+    <string name="duracao_media_text">3min 5s</string>
+    <string name="track_menor_title">Duração Track Menor</string>
+    <string name="track_menor_text">1min</string>
+    <string name="track_maior_title">Duração Track Maior</string>
+    <string name="track_maior_text">5min 30s</string>
+    <string name="top_artistas">Top 3 Artistas</string>
+    <string name="top_albums">Top 3 Albums</string>
+    <string name="mood_playlist_title">Mood Playlist</string>
+    <string name="mood_playlist_text">Mood</string>
+    <string name="ritmo_playlist_title">Ritmo Playlist</string>
+    <string name="ritmo_playlist_text">Ritmo</string>
+    <string name="top_generos">Top 3 Géneros</string>
+    <string name="lista_track">Lista de Tracks</string>
 </resources>
