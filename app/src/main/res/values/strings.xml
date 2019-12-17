@@ -31,4 +31,11 @@
     <string name="album_artist">Artista</string>
     <string name="ano_title">Ano de Lançamento</string>
     <string name="ano_text">2017</string>
+    <string name="track_name">Nome da Música</string>
+    <string name="album_title">Album</string>
+    <string name="genero_title">Género</string>
+    <string name="genero_text">Metal</string>
+    <string name="duracao_title">Duração</string>
+    <string name="duracao_text">3min 50s</string>
+    <string name="top_playlist">Top 3 Playlists em que está</string>
 </resources>
