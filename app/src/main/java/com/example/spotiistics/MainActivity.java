@@ -43,7 +43,7 @@ import kaaes.spotify.webapi.android.models.UserPrivate;
 import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String TAG = "MainActivity";
+    private static final String TAG = MainActivity.class.getSimpleName();
     public static final String CLIENT_ID = "31ba52256ea04bad96190373ecbfdfb1";
     public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
 
@@ -87,16 +87,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         SpotifyApi api = new SpotifyApi();
-
         api.setAccessToken(mAccessToken);
-
         SpotifyService spotify = api.getService();
-
 
         spotify.getMe(new SpotifyCallback<UserPrivate>() {
             @Override
             public void success(UserPrivate userPrivate, Response response) {
                 Intent mIntent = new Intent(MainActivity.this, ProfileActivity.class);
+                mIntent.putExtra("token", mAccessToken);
                 mIntent.putExtra("user", userPrivate);
                 startActivity(mIntent);
             }
