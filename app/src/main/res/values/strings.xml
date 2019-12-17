@@ -27,4 +27,8 @@
     <string name="ritmo_playlist_text">Ritmo</string>
     <string name="top_generos">Top 3 Géneros</string>
     <string name="lista_track">Lista de Tracks</string>
+    <string name="album_name">Album</string>
+    <string name="album_artist">Artista</string>
+    <string name="ano_title">Ano de Lançamento</string>
+    <string name="ano_text">2017</string>
 </resources>

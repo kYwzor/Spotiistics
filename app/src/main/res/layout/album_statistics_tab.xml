@@ -141,57 +141,6 @@
                 style="@style/Text_Statistics"
                 android:layout_below="@+id/textview6"/>
 
-            <!-- top 3 artistas -->
-            <TextView
-                android:id="@+id/textview7"
-                style="@style/Title_Statistitcs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/top_artistas"
-                android:layout_below="@+id/textview5"
-                android:paddingTop="70dp" />
-
-            <View
-                android:id="@+id/divider5"
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@color/colorAccent"
-                android:layout_alignStart="@+id/textview7"
-                android:layout_alignEnd="@+id/textview7"
-                android:layout_below="@+id/textview7"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"/>
-            <LinearLayout
-                android:id="@+id/topArtistas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
-
-            <!-- top 3 albums -->
-            <TextView
-                android:id="@+id/textview8"
-                style="@style/Title_Statistitcs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/top_albums"
-                android:layout_below="@+id/textview7"
-                android:paddingTop="70dp" />
-            <LinearLayout
-                android:id="@+id/topAlbums"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
-
-            <View
-                android:id="@+id/divider6"
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@color/colorAccent"
-                android:layout_alignStart="@+id/textview8"
-                android:layout_alignEnd="@+id/textview8"
-                android:layout_below="@+id/textview8"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"/>
 
             <!-- mood da playlist -->
             <TextView
@@ -200,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mood_playlist_title"
-                android:layout_below="@+id/textview8"
+                android:layout_below="@+id/textview5"
                 android:layout_alignParentStart="true"
                 android:paddingTop="70dp" />
 
@@ -231,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignStart="@+id/textview4"
-                android:layout_below="@+id/textview4"
+                android:layout_below="@+id/textview6"
                 android:layout_alignTop="@+id/textview9"
                 android:paddingTop="70dp"
                 android:text="@string/ritmo_playlist_title" />
@@ -256,31 +205,6 @@
                 style="@style/Text_Statistics"
                 android:layout_below="@+id/textview10"/>
 
-            <!-- top 3 generos -->
-            <TextView
-                android:id="@+id/textview11"
-                style="@style/Title_Statistitcs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/top_generos"
-                android:layout_below="@+id/textview10"
-                android:paddingTop="70dp" />
-
-            <View
-                android:id="@+id/divider9"
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@color/colorAccent"
-                android:layout_alignStart="@+id/textview11"
-                android:layout_alignEnd="@+id/textview11"
-                android:layout_below="@+id/textview11"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"/>
-            <LinearLayout
-                android:id="@+id/topGeneros"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
         </RelativeLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

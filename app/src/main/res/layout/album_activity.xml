@@ -7,7 +7,7 @@
     android:background="@color/colorPrimaryDark">
 
     <ImageView
-        android:id="@+id/image_playlist"
+        android:id="@+id/image_album"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,39 +15,39 @@
         tools:srcCompat="@tools:sample/avatars[4]"
         android:paddingStart="50dp"
         android:paddingEnd="20dp"
-        android:paddingTop="50dp"
-        android:contentDescription="@string/playlist_name"/>
+        android:contentDescription="@string/album_name"
+        android:paddingTop="50dp"/>
 
     <TextView
-        android:id="@+id/playlist_name"
+        android:id="@+id/album_name"
         style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/playlist_name"
-
         android:paddingTop="50dp"
+        android:text="@string/album_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/image_playlist"
+        app:layout_constraintStart_toEndOf="@+id/image_album"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.050000012" />
 
     <TextView
-        android:id="@+id/playlist_creator"
+        android:id="@+id/album_artist"
         style="@style/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/playlist_creator"
+
+        android:text="@string/album_artist"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/image_playlist"
-        app:layout_constraintTop_toBottomOf="@+id/playlist_name"
+        app:layout_constraintStart_toEndOf="@+id/image_album"
+        app:layout_constraintTop_toBottomOf="@+id/album_name"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_playlist"
+        android:id="@+id/tab_album"
         style="@style/MineCustomTabText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_playlist"
+        app:layout_constraintTop_toBottomOf="@+id/image_album"
         app:layout_constraintVertical_bias="0.07999998"
         app:tabTextColor="@color/white"/>
 
@@ -67,7 +67,9 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_playlist"
+        app:layout_constraintTop_toBottomOf="@+id/tab_album"
         app:layout_constraintVertical_bias="0.0"></androidx.viewpager.widget.ViewPager>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
