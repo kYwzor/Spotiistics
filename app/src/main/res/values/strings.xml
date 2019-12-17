@@ -38,4 +38,14 @@
     <string name="duracao_title">Duração</string>
     <string name="duracao_text">3min 50s</string>
     <string name="top_playlist">Top 3 Playlists em que está</string>
+    <string name="artista">Artista</string>
+    <string name="follow_title">Segue o Artista</string>
+    <string name="follow_text">Sim</string>
+    <string name="n_seguidores_title">Número de seguidores</string>
+    <string name="n_seguidores_text">30</string>
+    <string name="n_track_album_title">Número Médio de Track por Album</string>
+    <string name="n_track_album_text">30</string>
+    <string name="top_track">Top 5 Tracks</string>
+    <string name="genero_artista_title">Género do Artista</string>
+    <string name="list_album">Lista de Albums</string>
 </resources>
