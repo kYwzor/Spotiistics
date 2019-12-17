@@ -35,11 +35,11 @@ import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
 
 import kaaes.spotify.webapi.android.SpotifyApi;
+import kaaes.spotify.webapi.android.SpotifyCallback;
+import kaaes.spotify.webapi.android.SpotifyError;
 import kaaes.spotify.webapi.android.SpotifyService;
 import kaaes.spotify.webapi.android.models.UserPrivate;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         SpotifyService spotify = api.getService();
 
 
-        spotify.getMe(new Callback<UserPrivate>() {
+        spotify.getMe(new SpotifyCallback<UserPrivate>() {
             @Override
             public void success(UserPrivate userPrivate, Response response) {
                 Intent mIntent = new Intent(MainActivity.this, ProfileActivity.class);
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void failure(RetrofitError error) {
+            public void failure(SpotifyError error) {
                 Log.e("Me failure", error.toString());
             }
         });
