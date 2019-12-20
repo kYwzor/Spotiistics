@@ -198,7 +198,28 @@
                 android:text="@string/genero_text"
                 style="@style/Text_Statistics"
                 android:layout_below="@+id/textview8"/>
+            <TextView
+                android:id="@+id/sync"
+                style="@style/last_sync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:paddingTop="50dp"
+                android:text="@string/last_sync"
+                android:textAlignment="textEnd"
+                android:layout_below="@+id/genero_artista"/>
 
+            <TextView
+                android:id="@+id/sync_date"
+                style="@style/last_sync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="@string/last_sync_date"
+                android:layout_below="@+id/sync"
+                android:textAlignment="textEnd"/>
 
         </RelativeLayout>
     </ScrollView>

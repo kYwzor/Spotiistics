@@ -24,6 +24,26 @@
                 android:text="@string/list_album"
                 style="@style/Title_Statistitcs"
                 android:layout_marginTop="50dp"/>
+            <TextView
+                android:id="@+id/sync"
+                style="@style/last_sync"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="50dp"
+                android:paddingTop="50dp"
+                android:paddingRight="50dp"
+                android:text="@string/last_sync"
+                android:textAlignment="textEnd" />
+
+            <TextView
+                android:id="@+id/sync_date"
+                style="@style/last_sync"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="@string/last_sync_date"
+                android:textAlignment="textEnd" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
