@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- Segue o artista -->
+            <TextView
+                android:id="@+id/textview3"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/follow_title"
+                android:paddingEnd="60dp"
+                android:paddingStart="50dp"
+                android:layout_alignParentStart="true"
+                android:paddingTop="50dp"
+                android:paddingRight="0dp"/>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview3"
+                android:layout_alignEnd="@+id/textview3"
+                android:layout_below="@+id/textview3"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="60dp"/>
+            <TextView
+                android:id="@+id/follow_artista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/follow_text"
+                android:layout_alignParentStart="true"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview3"/>
+
+            <!-- Numero de seguidores -->
+            <TextView
+                android:id="@+id/textview4"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/textview3"
+                android:paddingTop="50dp"
+                android:paddingLeft="0dp"
+                android:text="@string/n_seguidores_title" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview4"
+                android:layout_alignEnd="@+id/textview4"
+                android:layout_below="@+id/textview4"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/num_seguidores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/n_seguidores_text"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/textview4"
+                style="@style/Text_Statistics"
+                android:paddingLeft="0dp"
+                android:layout_below="@+id/textview4"/>
+
+            <!-- duracao média de cada track -->
+            <TextView
+                android:id="@+id/textview5"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duracao_media_title"
+                android:layout_below="@+id/textview3"
+                android:layout_alignEnd="@+id/textview3"
+                android:layout_alignParentStart="true"
+                android:paddingTop="100dp" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview5"
+                android:layout_alignEnd="@+id/textview5"
+                android:layout_below="@+id/textview5"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/duracao_media"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duracao_media_text"
+                android:layout_alignParentStart="true"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview5"
+                android:paddingRight="0dp"/>
+
+            <!-- Número médio de track por album -->
+            <TextView
+                android:id="@+id/textview6"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/textview4"
+                android:layout_below="@+id/textview4"
+                android:layout_alignTop="@+id/textview5"
+                android:paddingTop="100dp"
+                android:text="@string/n_track_album_title"
+                android:paddingLeft="0dp"/>
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview6"
+                android:layout_alignEnd="@+id/textview6"
+                android:layout_below="@+id/textview6"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/num_track_album"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/n_track_album_text"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/textview6"
+                style="@style/Text_Statistics"
+                android:paddingLeft="0dp"
+                android:layout_below="@+id/textview6"/>
+
+            <!-- top 5 tracks -->
+            <TextView
+                android:id="@+id/textview7"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/top_track"
+                android:layout_below="@+id/textview5"
+                android:paddingTop="100dp" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview7"
+                android:layout_alignEnd="@+id/textview7"
+                android:layout_below="@+id/textview7"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <LinearLayout
+                android:id="@+id/topTracks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <!-- género do artista -->
+            <TextView
+                android:id="@+id/textview8"
+                style="@style/Title_Statistitcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/genero_artista_title"
+                android:layout_below="@+id/textview7"
+                android:paddingTop="70dp" />
+
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/textview8"
+                android:layout_alignEnd="@+id/textview8"
+                android:layout_below="@+id/textview8"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+            <TextView
+                android:id="@+id/genero_artista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/genero_text"
+                style="@style/Text_Statistics"
+                android:layout_below="@+id/textview8"/>
+            <TextView
+                android:id="@+id/sync"
+                style="@style/last_sync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:paddingTop="50dp"
+                android:text="@string/last_sync"
+                android:textAlignment="textEnd"
+                android:layout_below="@+id/genero_artista"/>
+
+            <TextView
+                android:id="@+id/sync_date"
+                style="@style/last_sync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="@string/last_sync_date"
+                android:layout_below="@+id/sync"
+                android:textAlignment="textEnd"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
