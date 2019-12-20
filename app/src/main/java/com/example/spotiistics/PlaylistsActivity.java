@@ -36,7 +36,7 @@ public class PlaylistsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_playlist);
         Intent intent = getIntent();
-        String mAccessToken = intent.getStringExtra("token");
+        final String mAccessToken = intent.getStringExtra("token");
         user = intent.getParcelableExtra("user");
 
         SpotifyApi api = new SpotifyApi();
@@ -58,7 +58,18 @@ public class PlaylistsActivity extends AppCompatActivity {
             }
         });
 
+        View searchButton = findViewById(R.id.include).findViewById(R.id.imageView5);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent mIntent = new Intent(PlaylistsActivity.this, SearchActivity.class);
+                mIntent.putExtra("token", mAccessToken);
+                startActivity(mIntent);
+            }
+        });
     }
+
+
 
     private void addImagesToThegallery(Pager<PlaylistSimple> playlistSimplePager) {
         LinearLayout yourPlaylist = findViewById(R.id.yourPlaylist);
@@ -112,6 +123,11 @@ public class PlaylistsActivity extends AppCompatActivity {
         tv.setMaxWidth(250);
         tv.setText(name);
         return tv;
+    }
+
+    private void getSearch(){
+        Intent mIntent = new Intent(PlaylistsActivity.this, SearchActivity.class);
+        startActivity(mIntent);
     }
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

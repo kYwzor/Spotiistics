@@ -6,10 +6,29 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="412dp"
+        android:layout_height="554dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/include"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/results"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+    </ScrollView>
+
     <include
         android:id="@+id/include"
-        layout="@layout/menu_bottom" />
-
+        layout="@layout/menu_bottom"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -21,9 +40,11 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:descendantFocusability="afterDescendants">
 
         <ImageView
+            android:id="@+id/search_mag"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="20dp"
@@ -31,28 +52,16 @@
             app:srcCompat="@drawable/search" />
 
         <EditText
+            android:id="@+id/search_box"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:text="@string/search_menu"
+            android:hint="@string/search_menu"
             android:textColor="@color/white_transparency"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:focusable="true"/>
     </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="1.0">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

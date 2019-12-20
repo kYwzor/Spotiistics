@@ -10,17 +10,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity
-            android:name=".PlaylistsActivity">
-        </activity>
+        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".PlaylistsActivity"></activity>
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@drawable/button_background" />
+
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|keyboard|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,8 +43,7 @@
         </activity>
         <activity
             android:name="com.spotify.sdk.android.authentication.LoginActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
