@@ -46,7 +46,7 @@
     <!--Página Track-->
     <string name="track_name">Nome da Música</string>
     <string name="album_title">Album</string>
-    <string name="genero_title">Género</string>
+    <string name="popularidade_title">Popularidade</string>
     <string name="duracao_title">Duração</string>
     <string name="duracao_text">3min 50s</string>
     <string name="top_playlist">Top 3 Playlists em que está</string>
@@ -71,4 +71,5 @@
     <string name="playlist_menu">Playlist</string>
     <string name="search_menu">Search</string>
     <string name="sync_menu">Sync</string>
+
 </resources>

@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent mIntent = new Intent(MainActivity.this, PlaylistsActivity.class);
                 mIntent.putExtra("token", mAccessToken);
                 mIntent.putExtra("user", userPrivate);
+                mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(mIntent);
             }
 

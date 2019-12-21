@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -50,6 +52,8 @@ public class PlaylistsActivity extends AppCompatActivity {
         spotify.getMyPlaylists(options, new SpotifyCallback<Pager<PlaylistSimple>>() {
             @Override
             public void failure(SpotifyError spotifyError) {
+                Toast.makeText(PlaylistsActivity.this,
+                        "Error loading content", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -67,6 +71,8 @@ public class PlaylistsActivity extends AppCompatActivity {
                 startActivity(mIntent);
             }
         });
+
+
     }
 
 
@@ -83,6 +89,7 @@ public class PlaylistsActivity extends AppCompatActivity {
                 LinearLayout LL = setLinearLayout(counter);
                 LL.setOnClickListener(albumClickListener);
                 yourPlaylist.addView(LL);
+                LL.addView(getPlaceHolder());
                 new DownloadImageTask((ImageView) findViewById(R.id.image), LL).execute(playlist.images.get(0).url);
                 LL.addView(getTextView(playlist.name));
             }
@@ -90,11 +97,21 @@ public class PlaylistsActivity extends AppCompatActivity {
                 LinearLayout LL = setLinearLayout(counter);
                 LL.setOnClickListener(albumClickListener);
                 followedPlaylist.addView(LL);
+                LL.addView(getPlaceHolder());
                 new DownloadImageTask((ImageView) findViewById(R.id.image), LL).execute(playlist.images.get(0).url);
                 LL.addView(getTextView(playlist.name));
             }
             counter ++;
         }
+    }
+
+    private View getPlaceHolder() {
+        Drawable dr = getResources().getDrawable(R.drawable.noalbum);
+        Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();
+        Bitmap resized = Bitmap.createScaledBitmap(bitmap,250, 250, true);
+        ImageView imageView = new ImageView(getApplicationContext());
+        imageView.setImageBitmap(resized);
+        return  imageView;
     }
 
     private LinearLayout setLinearLayout(int counter){
@@ -108,11 +125,9 @@ public class PlaylistsActivity extends AppCompatActivity {
     }
 
     private void setImageView(Bitmap result, LinearLayout LL) {
+        ImageView imageView = (ImageView) LL.getChildAt(0);
         Bitmap resized = Bitmap.createScaledBitmap(result,250, 250, true);
-        ImageView imageView = new ImageView(getApplicationContext());
-
         imageView.setImageBitmap(resized);
-        LL.addView(imageView,0);
 
     }
 
@@ -125,6 +140,7 @@ public class PlaylistsActivity extends AppCompatActivity {
         return tv;
     }
 
+    //https://stackoverflow.com/questions/14332296/how-to-set-image-from-url-using-asynctask/15797963
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
         LinearLayout LL;

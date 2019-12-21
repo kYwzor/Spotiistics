@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
-    <include layout="@layout/menu_bottom"/>
+
     <ImageView
         android:id="@+id/image_album"
         android:layout_width="wrap_content"
@@ -45,6 +45,7 @@
         app:layout_constraintStart_toEndOf="@+id/image_album"
         app:layout_constraintTop_toBottomOf="@+id/track_name"
         app:layout_constraintVertical_bias="0.0" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -121,7 +122,7 @@
                 style="@style/Title_Statistitcs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/genero_title"
+                android:text="@string/popularidade_title"
                 android:layout_below="@+id/textview3"
                 android:layout_toEndOf="@id/textview4"
                 android:layout_alignParentStart="true"
@@ -138,7 +139,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"/>
             <TextView
-                android:id="@+id/genero"
+                android:id="@+id/popularidade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/genero_text"
@@ -170,7 +171,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"/>
             <TextView
-                android:id="@+id/track_maior"
+                android:id="@+id/duracao_track"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/duracao_media_text"
@@ -181,42 +182,18 @@
 
 
             <!-- top 3 playlist em que se encontra -->
-            <TextView
-                android:id="@+id/textview9"
-                style="@style/Title_Statistitcs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/top_playlist"
-                android:layout_below="@+id/textview5"
-                android:layout_alignParentStart="true"
-                android:paddingTop="70dp" />
 
-            <View
-                android:id="@+id/divider7"
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@color/colorAccent"
-                android:layout_alignStart="@+id/textview9"
-                android:layout_alignEnd="@+id/textview9"
-                android:layout_below="@+id/textview9"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"/>
-            <LinearLayout
-                android:id="@+id/topPlaylist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
             <TextView
                 android:id="@+id/sync"
                 style="@style/last_sync"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/duracao_track"
                 android:paddingLeft="50dp"
-                android:paddingRight="50dp"
                 android:paddingTop="50dp"
+                android:paddingRight="50dp"
                 android:text="@string/last_sync"
-                android:textAlignment="textEnd"
-                android:layout_below="@+id/textview9"/>
+                android:textAlignment="textEnd" />
 
             <TextView
                 android:id="@+id/sync_date"
@@ -230,6 +207,10 @@
                 android:textAlignment="textEnd"/>
         </RelativeLayout>
     </ScrollView>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/menu_bottom" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
