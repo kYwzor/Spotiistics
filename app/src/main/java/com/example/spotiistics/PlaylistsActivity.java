@@ -125,11 +125,6 @@ public class PlaylistsActivity extends AppCompatActivity {
         return tv;
     }
 
-    private void getSearch(){
-        Intent mIntent = new Intent(PlaylistsActivity.this, SearchActivity.class);
-        startActivity(mIntent);
-    }
-
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
         LinearLayout LL;

@@ -10,8 +10,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".SearchActivity"></activity>
-        <activity android:name=".PlaylistsActivity"></activity>
+        <activity android:name=".TrackActivity"></activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".PlaylistsActivity" />
 
         <meta-data
             android:name="com.google.android.actions"
@@ -43,7 +44,7 @@
         </activity>
         <activity
             android:name="com.spotify.sdk.android.authentication.LoginActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <meta-data
             android:name="preloaded_fonts"
