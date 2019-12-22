@@ -38,13 +38,13 @@
     <string name="genero_text">Metal</string> <!--Artista e Track-->
 
     <!--Página Album-->
-    <string name="album_name">Album</string>
+    <string name="album_name">Nome do Album</string>
     <string name="album_artist">Artista</string>
     <string name="ano_title">Ano de Lançamento</string>
     <string name="ano_text">2017</string>
 
     <!--Página Track-->
-    <string name="track_name">Nome da Música</string>
+    <string name="track_name">Nome da música</string>
     <string name="album_title">Album</string>
     <string name="popularidade_title">Popularidade</string>
     <string name="duracao_title">Duração</string>
@@ -71,5 +71,11 @@
     <string name="playlist_menu">Playlist</string>
     <string name="search_menu">Search</string>
     <string name="sync_menu">Sync</string>
+
+    <!--pagina search-->
+    <string name="artista_search">Artistas</string>
+    <string name="album_search">Albums</string>
+    <string name="track_search">Tracks</string>
+    <string name="playlist_search">Playlists</string>
 
 </resources>

@@ -21,21 +21,22 @@
     <TextView
         android:id="@+id/track_name"
         style="@style/Title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingTop="50dp"
+        android:paddingTop="20dp"
         android:text="@string/track_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/image_album"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.050000012" />
 
     <TextView
         android:id="@+id/track_artist"
         style="@style/title2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:text="@string/album_artist"
@@ -61,10 +62,10 @@
                 style="@style/Title_Statistitcs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/album_title"
                 android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/textview4"
                 android:paddingTop="250dp"
-                android:layout_toEndOf="@id/textview4"/>
+                android:text="@string/album_title" />
 
             <View
                 android:id="@+id/divider"
@@ -82,6 +83,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/album_name"
                 android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/ano"
                 style="@style/Text_Statistics"
                 android:layout_below="@+id/textview3"/>
 
@@ -113,6 +115,7 @@
                 android:text="@string/ano_text"
                 android:layout_alignParentEnd="true"
                 android:layout_alignStart="@+id/textview4"
+
                 style="@style/Text_Statistics"
                 android:layout_below="@+id/textview4"/>
 
@@ -123,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/popularidade_title"
-                android:layout_below="@+id/textview3"
+                android:layout_below="@+id/album_name"
                 android:layout_toEndOf="@id/textview4"
                 android:layout_alignParentStart="true"
                 android:paddingTop="70dp" />

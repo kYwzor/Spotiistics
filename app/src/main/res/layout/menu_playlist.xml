@@ -27,6 +27,7 @@
 
     <!--Exemplo para a Galeria de imagens aqui: https://www.sitepoint.com/handling-displaying-images-android/-->
     <HorizontalScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.06999999"
         android:paddingLeft="50dp"
-        android:paddingRight="50dp">
+        android:paddingRight="0dp">
 
         <LinearLayout
             android:id="@+id/yourPlaylist"
@@ -47,21 +48,22 @@
 
     <TextView
         android:id="@+id/textView2"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/playlist_followed"
-        android:paddingRight="50dp"
         android:paddingLeft="50dp"
-        style="@style/Title"
+        android:paddingRight="50dp"
+        android:text="@string/playlist_followed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/scrollview"
+        app:layout_constraintVertical_bias="0.408" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="50dp"
-        android:paddingRight="50dp"
+        android:paddingRight="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

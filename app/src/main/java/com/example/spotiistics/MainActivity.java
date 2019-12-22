@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
@@ -59,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
                     mAccessToken = response.getAccessToken();
                 break;
             case ERROR:
-                Log.e(TAG, "Error: " + response.getError());
+                Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG).show();
                 break;
             default:
-                Log.e(TAG, "Default");
+                Toast.makeText(MainActivity.this, "Default", Toast.LENGTH_LONG).show();
                 break;
         }
 
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void failure(SpotifyError error) {
-                Log.e("Me failure", error.toString());
+                Toast.makeText(MainActivity.this, "Me failure", Toast.LENGTH_LONG).show();
             }
         });
     }

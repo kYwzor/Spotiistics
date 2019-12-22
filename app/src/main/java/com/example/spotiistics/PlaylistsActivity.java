@@ -1,10 +1,13 @@
 package com.example.spotiistics;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -137,6 +140,11 @@ public class PlaylistsActivity extends AppCompatActivity {
         tv.setMaxLines(1);
         tv.setMaxWidth(250);
         tv.setText(name);
+        tv.setTextColor(Color.WHITE);
+
+        Typeface tf = ResourcesCompat.getFont(getApplicationContext(), R.font.roboto_light);
+        tv.setTypeface(tf);
+        tv.setPadding(0,10, 0,0);
         return tv;
     }
 

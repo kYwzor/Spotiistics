@@ -21,11 +21,11 @@
     <TextView
         android:id="@+id/playlist_name"
         style="@style/Title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/playlist_name"
 
-        android:paddingTop="50dp"
+        android:paddingTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,7 +36,7 @@
     <TextView
         android:id="@+id/playlist_creator"
         style="@style/title2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/playlist_creator"
         app:layout_constraintBottom_toBottomOf="parent"
