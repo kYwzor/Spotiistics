@@ -53,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" />
             </HorizontalScrollView>
+
             <TextView
                 android:id="@+id/album"
                 android:layout_width="match_parent"
@@ -82,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" />
             </HorizontalScrollView>
+
             <TextView
                 android:id="@+id/track"
                 android:layout_width="match_parent"

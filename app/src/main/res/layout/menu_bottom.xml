@@ -14,27 +14,30 @@
         android:paddingBottom="5dp">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/playlistsButton"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_weight="2"
             app:srcCompat="@drawable/playlist"
+            android:onClick="onPlaylistsButtonClicked"
             android:contentDescription="@string/playlist_menu"/>
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/searchButton"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_weight="2"
             app:srcCompat="@drawable/search"
+            android:onClick="onSearchButtonClicked"
             android:contentDescription="@string/search_menu"/>
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/syncButton"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_weight="2"
             app:srcCompat="@drawable/sync"
+            android:onClick="onSyncButtonClicked"
             android:contentDescription="@string/sync_menu"/>
 
     </TableRow>
