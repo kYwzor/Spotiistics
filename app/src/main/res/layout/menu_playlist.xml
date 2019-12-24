@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.06999999"
-        android:paddingLeft="50dp"
+        android:paddingLeft="0dp"
         android:paddingRight="0dp">
 
         <LinearLayout
@@ -62,7 +62,7 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="50dp"
+        android:paddingLeft="0dp"
         android:paddingRight="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

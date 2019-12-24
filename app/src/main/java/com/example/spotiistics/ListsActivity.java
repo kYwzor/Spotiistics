@@ -1,10 +1,14 @@
 package com.example.spotiistics;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.core.content.res.ResourcesCompat;
 
 public abstract class ListsActivity extends BaseLoggedActivity {
     @Override
@@ -21,7 +25,7 @@ public abstract class ListsActivity extends BaseLoggedActivity {
         LinearLayout ll = new LinearLayout(getApplicationContext());
         ll.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        lp.setMargins(0, 0, 0, 50);
+        lp.setMargins(10, 0, 10, 50);
         ll.setLayoutParams(lp);
 
         ImageView iv = new ImageView(getApplicationContext());
@@ -45,6 +49,11 @@ public abstract class ListsActivity extends BaseLoggedActivity {
         tv.setMaxLines(1);
         tv.setMaxWidth(getItemSize());
         tv.setText(name);
+        tv.setTextColor(Color.WHITE);
+
+        Typeface tf = ResourcesCompat.getFont(getApplicationContext(), R.font.roboto_light);
+        tv.setTypeface(tf);
+        tv.setPadding(0,10, 0,0);
         return tv;
     }
 }

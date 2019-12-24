@@ -24,7 +24,7 @@
     <!--String em mais do que uma página-->
     <string name="duracao_total_title">Duração Total</string> <!--Playlist e Album-->
     <string name="duracao_total_text">3h</string> <!--Playlist e Album-->
-    <string name="duracao_media_title">Duracação Média das Track</string> <!--Playlist e Album e Artista-->
+    <string name="duracao_media_title">Duração Média das Track</string> <!--Playlist e Album e Artista-->
     <string name="duracao_media_text">3min 5s</string> <!--Playlist e Album-->
     <string name="track_menor_title">Duração Track Menor</string> <!--Playlist e Album-->
     <string name="track_menor_text">1min</string> <!--Playlist e Album-->
@@ -47,6 +47,7 @@
     <string name="track_name">Nome da música</string>
     <string name="album_title">Album</string>
     <string name="popularidade_title">Popularidade</string>
+    <string name="popularidade_text">Something</string>
     <string name="duracao_title">Duração</string>
     <string name="duracao_text">3min 50s</string>
     <string name="top_playlist">Top 3 Playlists em que está</string>

@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/lista_tracks"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -26,9 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
-                    android:text="@string/ano_title"
-                    android:paddingEnd="20dp"
-                    android:paddingStart="50dp"/>
+                    android:text="@string/ano_title" />
 
                 <TextView
                     style="@style/Text_Statistics"
@@ -48,26 +46,13 @@
                 style="@style/Title_Statistitcs"
                 android:layout_marginTop="20dp"/>
 
-            <TextView
-                android:id="@+id/sync"
-                style="@style/last_sync"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="50dp"
-                android:paddingTop="50dp"
-                android:paddingRight="50dp"
-                android:text="@string/last_sync"
-                android:textAlignment="textEnd" />
 
-            <TextView
-                android:id="@+id/sync_date"
-                style="@style/last_sync"
+            <androidx.viewpager.widget.ViewPager
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:text="@string/last_sync_date"
-                android:textAlignment="textEnd" />
+                android:id="@+id/lista_tracks"/>
+
+            <include layout="@layout/last_sync"></include>
         </LinearLayout>
 
     </ScrollView>

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
-    <include layout="@layout/menu_bottom"/>
     <ImageView
         android:id="@+id/image_playlist"
         android:layout_width="wrap_content"
@@ -59,6 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_playlist"
         app:layout_constraintVertical_bias="0.07999998"
+        android:paddingTop="50dp"
         app:tabTextColor="@color/white"/>
 
 
@@ -72,4 +72,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_playlist"
         app:layout_constraintVertical_bias="0.0" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/menu_bottom"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

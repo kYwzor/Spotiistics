@@ -181,6 +181,7 @@
             android:hint="@string/search_menu"
             android:inputType="text"
             android:textColorHint="@color/white_transparency"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:importantForAutofill="no"/>
     </LinearLayout>
