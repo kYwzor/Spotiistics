@@ -42,8 +42,9 @@ public class TrackActivity extends BaseLoggedActivity {
 
     }
     private void setTrackDetails(Track track){
-        setPlaceHolder((ImageView) findViewById(R.id.image_album));
-        new DownloadImageTask((ImageView) findViewById(R.id.image_album), getItemSize()).execute(track.album.images.get(0).url);
+        ImageView iv = findViewById(R.id.image_album);
+        setPlaceHolder(iv);
+        new DownloadImageTask(iv, getItemSize()).execute(track.album.images.get(0).url);
 
         TextView track_name = findViewById(R.id.track_name);
         track_name.setText(track.name);

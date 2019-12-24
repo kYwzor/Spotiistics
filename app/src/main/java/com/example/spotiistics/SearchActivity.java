@@ -21,12 +21,7 @@ import kaaes.spotify.webapi.android.models.TracksPager;
 import retrofit.client.Response;
 
 
-public class SearchActivity extends BaseLoggedActivity {
-    @Override
-    public int getItemSize() {
-        return 250; // TODO: this should be a scaling value
-    }
-
+public class SearchActivity extends ListsActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,11 +148,24 @@ public class SearchActivity extends BaseLoggedActivity {
         @Override
         public void onClick(View v) {
             int type = (int) v.getTag(R.id.TYPE);
-            if(type == 0) {
-                changeActivity(TrackActivity.class, (String) v.getTag(R.id.ID));
-            }else {
-                Toast.makeText(SearchActivity.this,
-                        Integer.toString(type), Toast.LENGTH_LONG).show();
+            switch (type){
+                case 0:
+                    changeActivity(TrackActivity.class, (String) v.getTag(R.id.ID));
+                    break;
+                case 1:
+                    // TODO
+                    // changeActivity(AlbumActivity.class, (String) v.getTag(R.id.ID));
+                    break;
+                case 2:
+                    // TODO
+                    // changeActivity(ArtistsActivity.class, (String) v.getTag(R.id.ID));
+                    break;
+                case 3:
+                    changeActivity(UserPlaylistsActivity.class, (String) v.getTag(R.id.ID));
+                    break;
+                default:
+                    Toast.makeText(SearchActivity.this,
+                            Integer.toString(type), Toast.LENGTH_LONG).show();
             }
         }
     }

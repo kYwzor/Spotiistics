@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         switch (response.getType()) {
             case TOKEN:
                 if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-                    Intent mIntent = new Intent(MainActivity.this, PlaylistsActivity.class);
+                    Intent mIntent = new Intent(MainActivity.this, UserPlaylistsActivity.class);
                     mIntent.putExtra("token", response.getAccessToken());
                     mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(mIntent);

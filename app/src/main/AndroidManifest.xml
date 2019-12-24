@@ -10,10 +10,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".BaseLoggedActivity"></activity>
+        <activity android:name=".ListsActivity"></activity>
+        <activity android:name=".PlaylistActivity" />
+        <activity android:name=".BaseLoggedActivity" />
         <activity android:name=".TrackActivity" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".PlaylistsActivity" />
+        <activity android:name=".UserPlaylistsActivity" />
 
         <meta-data
             android:name="com.google.android.actions"
