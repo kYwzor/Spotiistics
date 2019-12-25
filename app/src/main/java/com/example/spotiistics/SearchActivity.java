@@ -90,7 +90,7 @@ public class SearchActivity extends ListsActivity {
 
     private void displayTracksSearch(TracksPager tracks) {
         Pager<Track> tracksPager = tracks.tracks;
-        LinearLayout base = findViewById(R.id.results);
+        LinearLayout base = findViewById(R.id.track_search);
         base.removeAllViews();
         itemClickListener itemClickListener = new itemClickListener();
 
@@ -104,7 +104,7 @@ public class SearchActivity extends ListsActivity {
 
     private void displayAlbumsSearch(AlbumsPager albums) {
         Pager<AlbumSimple> albumPager = albums.albums;
-        LinearLayout base = findViewById(R.id.results);
+        LinearLayout base = findViewById(R.id.album_search);
 
         itemClickListener itemClickListener = new itemClickListener();
 
@@ -118,11 +118,12 @@ public class SearchActivity extends ListsActivity {
 
     private void displayArtistsSearch(ArtistsPager artists) {
         Pager<Artist> artistPager = artists.artists;
-        LinearLayout base = findViewById(R.id.results);
+        LinearLayout base = findViewById(R.id.artista_search);
+
         itemClickListener itemClickListener = new itemClickListener();
 
         for (Artist a : artistPager.items) {
-            LinearLayout ll = createLinearLayout(a.name ,a.id, 2);
+            LinearLayout ll = createLinearLayout(a.name, a.id,2);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
             if(a.images.size() !=0) new DownloadImageTask((ImageView) ll.getChildAt(0), getItemSize()).execute(a.images.get(0).url);
@@ -131,7 +132,7 @@ public class SearchActivity extends ListsActivity {
 
     private void displayPlaylistsSearch(PlaylistsPager playlists) {
         Pager<PlaylistSimple> playlistPager = playlists.playlists;
-        LinearLayout base = findViewById(R.id.results);
+        LinearLayout base = findViewById(R.id.playlist_search);
         itemClickListener itemClickListener = new itemClickListener();
 
         for (PlaylistSimple p : playlistPager.items) {
