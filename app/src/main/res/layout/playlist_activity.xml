@@ -47,11 +47,11 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_playlist"
-        style="@style/MineCustomTabText"
+        app:tabTextAppearance="@style/MineCustomTabText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="30dp"
         android:paddingTop="50dp"
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,8 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_playlist"
         app:layout_constraintVertical_bias="0.07999998"
-        app:tabTextColor="@color/white"
-        />
+        app:tabTextColor="@color/white"/>
 
 
     <androidx.viewpager.widget.ViewPager
@@ -73,7 +72,10 @@
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_playlist"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0" >
+
+    </androidx.viewpager.widget.ViewPager>
+
     <include
         android:id="@+id/include"
         layout="@layout/menu_bottom"

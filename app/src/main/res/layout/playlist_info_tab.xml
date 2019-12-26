@@ -9,7 +9,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
 
         <LinearLayout
 
@@ -30,6 +31,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/lista_tracks"/>
 
             <include layout="@layout/last_sync"></include>

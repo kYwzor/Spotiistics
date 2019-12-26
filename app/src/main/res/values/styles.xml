@@ -65,7 +65,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/oswald_bold</item>
         <item name="android:textAllCaps">true</item>
 

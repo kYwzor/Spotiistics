@@ -4,16 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:gravity="start|top"
+            android:orientation="vertical">
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -35,8 +43,8 @@
 
                     <View
                         android:id="@+id/divider"
-                        android:layout_width="wrap_content"
-                        style="@style/divider" />
+                        style="@style/divider"
+                        android:layout_width="wrap_content" />
 
                     <TextView
                         android:id="@+id/duracao_total"
@@ -62,8 +70,8 @@
 
                     <View
                         android:id="@+id/divider1"
-                        android:layout_width="wrap_content"
-                        style="@style/divider" />
+                        style="@style/divider"
+                        android:layout_width="wrap_content" />
 
                     <TextView
                         android:id="@+id/duracao_media"
@@ -73,6 +81,7 @@
                         android:text="@string/duracao_media_text" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -94,8 +103,8 @@
 
                     <View
                         android:id="@+id/divider2"
-                        android:layout_width="wrap_content"
-                        style="@style/divider" />
+                        style="@style/divider"
+                        android:layout_width="wrap_content" />
 
                     <TextView
                         android:id="@+id/track_maior"
@@ -121,8 +130,8 @@
 
                     <View
                         android:id="@+id/divider3"
-                        android:layout_width="wrap_content"
-                        style="@style/divider" />
+                        style="@style/divider"
+                        android:layout_width="wrap_content" />
 
                     <TextView
                         android:id="@+id/track_menor"
@@ -153,12 +162,13 @@
                     android:layout_width="100dp" />
 
                 <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/top_artistas"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/top_artistas"/>
+                    android:layout_height="match_parent" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -179,12 +189,13 @@
                     android:layout_width="100dp" />
 
                 <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/top_albums"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/top_albums"/>
+                    android:layout_height="match_parent" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -206,8 +217,8 @@
 
                     <View
                         android:id="@+id/divider6"
-                        android:layout_width="wrap_content"
-                        style="@style/divider"/>
+                        style="@style/divider"
+                        android:layout_width="wrap_content" />
 
                     <TextView
                         android:id="@+id/mood"
@@ -233,8 +244,8 @@
 
                     <View
                         android:id="@+id/divider7"
-                        android:layout_width="wrap_content"
-                        style="@style/divider"/>
+                        style="@style/divider"
+                        android:layout_width="wrap_content" />
 
                     <TextView
                         android:id="@+id/ritmo"
@@ -244,6 +255,7 @@
                         android:text="@string/ritmo_playlist_text" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -264,14 +276,20 @@
                     android:layout_width="100dp" />
 
                 <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/top_generos"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/top_generos"/>
+                    android:layout_height="match_parent" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
-            <include layout="@layout/last_sync"></include>
+
+            <include
+                layout="@layout/last_sync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></include>
+
         </LinearLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
