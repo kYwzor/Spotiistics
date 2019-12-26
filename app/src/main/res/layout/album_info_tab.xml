@@ -66,7 +66,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/lista_tracks"
-                android:orientation="vertical"/>
+                android:orientation="vertical"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"/>
 
 
             <include layout="@layout/last_sync"></include>

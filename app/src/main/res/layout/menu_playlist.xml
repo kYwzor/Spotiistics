@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         style="@style/Title"
         android:paddingRight="50dp"
-        android:paddingLeft="50dp"
+        android:paddingLeft="30dp"
         android:text="@string/your_playlist"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +51,7 @@
         style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="50dp"
+        android:paddingLeft="30dp"
         android:paddingRight="50dp"
         android:text="@string/playlist_followed"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -28,6 +28,8 @@
             <androidx.viewpager.widget.ViewPager
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
                 android:id="@+id/lista_tracks"/>
 
             <include layout="@layout/last_sync"></include>

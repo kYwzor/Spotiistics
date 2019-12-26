@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars[4]"
-        android:paddingStart="50dp"
+        android:paddingStart="30dp"
         android:paddingEnd="20dp"
         android:contentDescription="@string/album_name"
         android:paddingTop="50dp"/>
