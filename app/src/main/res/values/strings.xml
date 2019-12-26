@@ -30,9 +30,12 @@
     <string name="track_menor_text">1min</string> <!--Playlist e Album-->
     <string name="track_maior_title">Duração Track Maior</string> <!--Playlist e Album-->
     <string name="track_maior_text">5min 30s</string> <!--Playlist e Album-->
-    <string name="mood_playlist_title">Mood Playlist</string> <!--Playlist e Album-->
+    <string name="mood_playlist_title">Mood da Playlist</string> <!--Playlist e Album-->
+    <string name="mood_albums_title">Mood do Album</string> <!--Playlist e Album-->
     <string name="mood_playlist_text">Mood</string> <!--Playlist e Album-->
-    <string name="ritmo_playlist_title">Ritmo Playlist</string> <!--Playlist e Album-->
+    <string name="ritmo_albums_title">Ritmo do Album</string> <!--Playlist e Album-->
+    <string name="ritmo_playlist_title">Ritmo daPlaylist</string> <!--Playlist e Album-->
+
     <string name="ritmo_playlist_text">Ritmo</string> <!--Playlist e Album-->
     <string name="lista_track">Lista de Tracks</string> <!--Playlist e Album-->
     <string name="genero_text">Metal</string> <!--Artista e Track-->
@@ -40,7 +43,7 @@
     <!--Página Album-->
     <string name="album_name">Nome do Album</string>
     <string name="album_artist">Artista</string>
-    <string name="ano_title">Ano de Lançamento</string>
+    <string name="ano_title">Data de Lançamento</string>
     <string name="ano_text">2017</string>
 
     <!--Página Track-->
@@ -58,7 +61,7 @@
     <string name="follow_text">Sim</string>
     <string name="n_seguidores_title">Número de seguidores</string>
     <string name="n_seguidores_text">30</string>
-    <string name="n_track_album_title">Número Médio de Track por Album</string>
+    <string name="n_track_album_title">Número de álbuns, EPs e singles</string>
     <string name="n_track_album_text">30</string>
     <string name="top_track">Top 5 Tracks</string>
     <string name="genero_artista_title">Género do Artista</string>

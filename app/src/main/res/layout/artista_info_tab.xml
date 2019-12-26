@@ -25,10 +25,11 @@
                 style="@style/Title_Statistitcs"
                 android:layout_marginTop="50dp"/>
 
-            <androidx.viewpager.widget.ViewPager
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/lista_albums"/>
+                android:id="@+id/lista_albums"
+                android:orientation="vertical"></LinearLayout>
 
             <include layout="@layout/last_sync"></include>
         </LinearLayout>

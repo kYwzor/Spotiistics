@@ -77,8 +77,6 @@ public class UserPlaylistsActivity extends ListsActivity {
         }
     }
 
-
-
     public class playlistClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {

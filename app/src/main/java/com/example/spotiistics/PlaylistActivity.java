@@ -1,6 +1,5 @@
 package com.example.spotiistics;
 
-import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;

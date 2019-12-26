@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
-                    android:text="@string/duracao_media_title" />
+                    android:text="@string/popularidade_title" />
 
                 <View
                     android:id="@+id/divider2"
@@ -98,11 +98,10 @@
                     style="@style/divider" />
 
                 <TextView
-                    android:id="@+id/duracao_media"
+                    android:id="@+id/popularidade"
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/duracao_media_text" />
+                    android:layout_height="wrap_content" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -152,10 +151,23 @@
                     style="@style/divider"
                     android:layout_width="100dp" />
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/top_track"
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintVertical_bias="0.110000014">
+
+                    <LinearLayout
+                        android:id="@+id/toptracks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -181,7 +193,7 @@
                     android:layout_width="130dp" />
 
                 <TextView
-                    android:id="@+id/n_track_album2"
+                    android:id="@+id/artista_genero"
                     style="@style/Text_Statistics"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

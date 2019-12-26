@@ -1,6 +1,7 @@
 package com.example.spotiistics;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +42,7 @@ public class TrackActivity extends BaseLoggedActivity {
         });
 
     }
-    private void setTrackDetails(Track track){
+    private void setTrackDetails(final Track track){
         ImageView iv = findViewById(R.id.image_album);
         setPlaceHolder(iv);
         new DownloadImageTask(iv, getItemSize()).execute(track.album.images.get(0).url);
@@ -54,6 +55,12 @@ public class TrackActivity extends BaseLoggedActivity {
 
         TextView album_name = findViewById(R.id.album_name);
         album_name.setText(track.album.name);
+        album_name.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                changeActivity(AlbumActivity.class, track.album.id );
+            }
+
+        });
 
         TextView pop = findViewById(R.id.popularidade);
         pop.setText(stringPop(track.popularity));
@@ -86,7 +93,6 @@ public class TrackActivity extends BaseLoggedActivity {
         hashmap.put(5,"6- A mais popular");
 
         int score = pop / 20; //6 categories
-        //TODO: Pretty sure this will only create 5 categories :)
 
         return hashmap.get(score);
     }

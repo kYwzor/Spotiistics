@@ -1,11 +1,16 @@
 package com.example.spotiistics;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import kaaes.spotify.webapi.android.SpotifyCallback;
 import kaaes.spotify.webapi.android.SpotifyError;
@@ -31,33 +36,9 @@ public class SearchActivity extends ListsActivity {
             EditText et = findViewById(R.id.search_box);
             @Override
             public void onClick(View arg0) {
-                spotify.searchTracks(et.getText().toString(), new SpotifyCallback<TracksPager>() {
-                    @Override
-                    public void failure(SpotifyError spotifyError) {
-                        Toast.makeText(SearchActivity.this,
-                                "Error loading content", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void success(TracksPager tracks, Response response) {
-                        displayTracksSearch(tracks);
-                    }
-                });
-
-                spotify.searchAlbums(et.getText().toString(), new SpotifyCallback<AlbumsPager>() {
-                    @Override
-                    public void failure(SpotifyError spotifyError) {
-                        Toast.makeText(SearchActivity.this,
-                                "Error loading content", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void success(AlbumsPager albums, Response response) {
-                        displayAlbumsSearch(albums);
-                    }
-                });
-
-                spotify.searchArtists(et.getText().toString(), new SpotifyCallback<ArtistsPager>() {
+                Map<String, Object> options = new HashMap<>();
+                options.put("market", "PT");
+                spotify.searchArtists(et.getText().toString(), options, new SpotifyCallback<ArtistsPager>() {
                     @Override
                     public void failure(SpotifyError spotifyError) {
                         Toast.makeText(SearchActivity.this,
@@ -70,7 +51,33 @@ public class SearchActivity extends ListsActivity {
                     }
                 });
 
-                spotify.searchPlaylists(et.getText().toString(), new SpotifyCallback<PlaylistsPager>() {
+                spotify.searchAlbums(et.getText().toString(), options, new SpotifyCallback<AlbumsPager>() {
+                    @Override
+                    public void failure(SpotifyError spotifyError) {
+                        Toast.makeText(SearchActivity.this,
+                                "Error loading content", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void success(AlbumsPager albums, Response response) {
+                        displayAlbumsSearch(albums);
+                    }
+                });
+
+                spotify.searchTracks(et.getText().toString(), options, new SpotifyCallback<TracksPager>() {
+                    @Override
+                    public void failure(SpotifyError spotifyError) {
+                        Toast.makeText(SearchActivity.this,
+                                "Error loading content", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void success(TracksPager tracks, Response response) {
+                        displayTracksSearch(tracks);
+                    }
+                });
+
+                spotify.searchPlaylists(et.getText().toString(), options, new SpotifyCallback<PlaylistsPager>() {
                     @Override
                     public void failure(SpotifyError spotifyError) {
                         Toast.makeText(SearchActivity.this,
@@ -82,8 +89,8 @@ public class SearchActivity extends ListsActivity {
                         displayPlaylistsSearch(playlists);
                     }
                 });
-            }
 
+            }
         });
 
     }
@@ -105,6 +112,7 @@ public class SearchActivity extends ListsActivity {
     private void displayAlbumsSearch(AlbumsPager albums) {
         Pager<AlbumSimple> albumPager = albums.albums;
         LinearLayout base = findViewById(R.id.album_search);
+        base.removeAllViews();
 
         itemClickListener itemClickListener = new itemClickListener();
 
@@ -119,6 +127,7 @@ public class SearchActivity extends ListsActivity {
     private void displayArtistsSearch(ArtistsPager artists) {
         Pager<Artist> artistPager = artists.artists;
         LinearLayout base = findViewById(R.id.artista_search);
+        base.removeAllViews();
 
         itemClickListener itemClickListener = new itemClickListener();
 
@@ -133,13 +142,15 @@ public class SearchActivity extends ListsActivity {
     private void displayPlaylistsSearch(PlaylistsPager playlists) {
         Pager<PlaylistSimple> playlistPager = playlists.playlists;
         LinearLayout base = findViewById(R.id.playlist_search);
+        base.removeAllViews();
+
         itemClickListener itemClickListener = new itemClickListener();
 
         for (PlaylistSimple p : playlistPager.items) {
             LinearLayout ll = createLinearLayout(p.name, p.id, 3);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
-            new DownloadImageTask((ImageView) ll.getChildAt(0), getItemSize()).execute(p.images.get(0).url);
+            if(p.images.size() !=0) new DownloadImageTask((ImageView) ll.getChildAt(0), getItemSize()).execute(p.images.get(0).url);
         }
     }
 
@@ -154,12 +165,10 @@ public class SearchActivity extends ListsActivity {
                     changeActivity(TrackActivity.class, (String) v.getTag(R.id.ID));
                     break;
                 case 1:
-                    // TODO
-                    // changeActivity(AlbumActivity.class, (String) v.getTag(R.id.ID));
+                    changeActivity(AlbumActivity.class, (String) v.getTag(R.id.ID));
                     break;
                 case 2:
-                    // TODO
-                    // changeActivity(ArtistsActivity.class, (String) v.getTag(R.id.ID));
+                    changeActivity(ArtistsActivity.class, (String) v.getTag(R.id.ID));
                     break;
                 case 3:
                     changeActivity(UserPlaylistsActivity.class, (String) v.getTag(R.id.ID));

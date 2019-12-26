@@ -12,6 +12,8 @@
         android:theme="@style/NoActionBar">
         <activity android:name=".ListsActivity"></activity>
         <activity android:name=".PlaylistActivity" />
+        <activity android:name=".ArtistsActivity" />
+        <activity android:name=".AlbumActivity" />
         <activity android:name=".BaseLoggedActivity" />
         <activity android:name=".TrackActivity" />
         <activity android:name=".SearchActivity" />

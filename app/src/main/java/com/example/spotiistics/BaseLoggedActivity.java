@@ -34,17 +34,17 @@ public abstract class BaseLoggedActivity extends AppCompatActivity {
     }
 
     public void onPlaylistsButtonClicked(View view){
-        Toast.makeText(getApplicationContext(), "Switching to playlists", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Switching to playlists", Toast.LENGTH_LONG).show();
         changeActivity(UserPlaylistsActivity.class);
     }
 
     public void onSearchButtonClicked(View view){
-        Toast.makeText(getApplicationContext(), "Switching to search", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Switching to search", Toast.LENGTH_LONG).show();
         changeActivity(SearchActivity.class);
     }
 
     public void onSyncButtonClicked(View view){
-        Toast.makeText(getApplicationContext(), "Switching to sync", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Switching to sync", Toast.LENGTH_LONG).show();
         //TODO
         //changeActivity(SyncActivity.class);
     }
@@ -67,4 +67,6 @@ public abstract class BaseLoggedActivity extends AppCompatActivity {
         Bitmap resized = Bitmap.createScaledBitmap(bitmap, getItemSize(), getItemSize(), true);
         iv.setImageBitmap(resized);
     }
+
+
 }
