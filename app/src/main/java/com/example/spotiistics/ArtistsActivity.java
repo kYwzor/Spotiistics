@@ -36,7 +36,7 @@ public class ArtistsActivity extends BaseLoggedActivity {
         TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager(), getApplicationContext(), statsFragment, infoFragment);
         pager.setAdapter(adapter);
 
-        tabLayout = findViewById(R.id.tab_artista);
+        tabLayout = findViewById(R.id.tab);
         tabLayout.setupWithViewPager(pager);
 
         spotify.getArtist(id,  new SpotifyCallback<Artist>() {

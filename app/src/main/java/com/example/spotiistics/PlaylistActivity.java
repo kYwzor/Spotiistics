@@ -35,8 +35,7 @@ public class PlaylistActivity extends BaseLoggedActivity {
         TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager(), getApplicationContext(), statsFragment, infoFragment);
         pager.setAdapter(adapter);
 
-        tabLayout = findViewById(R.id.tab_playlist);
-        //tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout = findViewById(R.id.tab);
         tabLayout.setupWithViewPager(pager);
 
 

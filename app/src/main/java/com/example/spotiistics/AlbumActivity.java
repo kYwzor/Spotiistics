@@ -36,7 +36,7 @@ public class AlbumActivity extends BaseLoggedActivity {
         TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager(), getApplicationContext(), statsFragment, infoFragment);
         pager.setAdapter(adapter);
 
-        tabLayout = findViewById(R.id.tab_album);
+        tabLayout = findViewById(R.id.tab);
         tabLayout.setupWithViewPager(pager);
 
         spotify.getAlbum(id,  new SpotifyCallback<Album>() {

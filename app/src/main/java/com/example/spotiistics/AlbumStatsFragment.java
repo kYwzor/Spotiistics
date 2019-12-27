@@ -24,17 +24,16 @@ public class AlbumStatsFragment extends ItemFragment {
     private static final String TAG = AlbumStatsFragment.class.getSimpleName();
     private WeakReference<AlbumActivity> activityReference;
     private View rootview;
+
+    AlbumStatsFragment(){
+        activityReference = new WeakReference<>((AlbumActivity) getActivity());
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.album_statistics_tab, container, false);
         return rootview;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        activityReference = new WeakReference<>((AlbumActivity) getActivity());
     }
 
     @Override
