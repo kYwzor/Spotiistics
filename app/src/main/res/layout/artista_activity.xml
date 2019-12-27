@@ -15,14 +15,14 @@
         android:paddingStart="30dp"
         android:paddingEnd="20dp"
         android:contentDescription="@string/album_name"
-        android:paddingTop="50dp"/>
+        android:paddingTop="20dp"/>
 
     <TextView
         android:id="@+id/artista_name"
         style="@style/Title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingTop="50dp"
+        android:paddingTop="40dp"
         android:text="@string/artista"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

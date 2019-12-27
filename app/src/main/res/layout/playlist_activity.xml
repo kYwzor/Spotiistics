@@ -14,7 +14,7 @@
         tools:srcCompat="@drawable/noalbum"
         android:paddingStart="30dp"
         android:paddingEnd="20dp"
-        android:paddingTop="50dp"
+        android:paddingTop="20dp"
         android:contentDescription="@string/playlist_name"/>
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/playlist_name"
-        android:paddingTop="20dp"
+        android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
