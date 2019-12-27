@@ -26,9 +26,10 @@
                 style="@style/Title_Statistitcs"
                 android:layout_marginTop="50dp"/>
 
-            <androidx.viewpager.widget.ViewPager
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginTop="10dp"

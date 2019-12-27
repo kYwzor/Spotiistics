@@ -1,10 +1,12 @@
 package com.example.spotiistics;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -27,72 +29,82 @@ import retrofit.client.Response;
 
 
 public class SearchActivity extends BaseLoggedActivity {
+    EditText et;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_activity);
-
+        et = findViewById(R.id.search_box);
+        et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                search();
+                return false;
+            }
+        });
         findViewById(R.id.search_mag).setOnClickListener(new View.OnClickListener() {
-            EditText et = findViewById(R.id.search_box);
             @Override
             public void onClick(View arg0) {
-                Map<String, Object> options = new HashMap<>();
-                options.put("market", user.country);
-                spotify.searchArtists(et.getText().toString(), options, new SpotifyCallback<ArtistsPager>() {
-                    @Override
-                    public void failure(SpotifyError spotifyError) {
-                        Toast.makeText(SearchActivity.this,
-                                "Error loading content", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void success(ArtistsPager artists, Response response) {
-                        displayArtistsSearch(artists);
-                    }
-                });
-
-                spotify.searchAlbums(et.getText().toString(), options, new SpotifyCallback<AlbumsPager>() {
-                    @Override
-                    public void failure(SpotifyError spotifyError) {
-                        Toast.makeText(SearchActivity.this,
-                                "Error loading content", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void success(AlbumsPager albums, Response response) {
-                        displayAlbumsSearch(albums);
-                    }
-                });
-
-                spotify.searchTracks(et.getText().toString(), options, new SpotifyCallback<TracksPager>() {
-                    @Override
-                    public void failure(SpotifyError spotifyError) {
-                        Toast.makeText(SearchActivity.this,
-                                "Error loading content", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void success(TracksPager tracks, Response response) {
-                        displayTracksSearch(tracks);
-                    }
-                });
-
-                spotify.searchPlaylists(et.getText().toString(), options, new SpotifyCallback<PlaylistsPager>() {
-                    @Override
-                    public void failure(SpotifyError spotifyError) {
-                        Toast.makeText(SearchActivity.this,
-                                "Error loading content", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void success(PlaylistsPager playlists, Response response) {
-                        displayPlaylistsSearch(playlists);
-                    }
-                });
-
+                search();
             }
         });
 
+    }
+
+    private void search(){
+        Map<String, Object> options = new HashMap<>();
+        options.put("market", user.country);
+        spotify.searchArtists(et.getText().toString(), options, new SpotifyCallback<ArtistsPager>() {
+            @Override
+            public void failure(SpotifyError spotifyError) {
+                Toast.makeText(SearchActivity.this,
+                        "Error loading content", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void success(ArtistsPager artists, Response response) {
+                displayArtistsSearch(artists);
+            }
+        });
+
+        spotify.searchAlbums(et.getText().toString(), options, new SpotifyCallback<AlbumsPager>() {
+            @Override
+            public void failure(SpotifyError spotifyError) {
+                Toast.makeText(SearchActivity.this,
+                        "Error loading content", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void success(AlbumsPager albums, Response response) {
+                displayAlbumsSearch(albums);
+            }
+        });
+
+        spotify.searchTracks(et.getText().toString(), options, new SpotifyCallback<TracksPager>() {
+            @Override
+            public void failure(SpotifyError spotifyError) {
+                Toast.makeText(SearchActivity.this,
+                        "Error loading content", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void success(TracksPager tracks, Response response) {
+                displayTracksSearch(tracks);
+            }
+        });
+
+        spotify.searchPlaylists(et.getText().toString(), options, new SpotifyCallback<PlaylistsPager>() {
+            @Override
+            public void failure(SpotifyError spotifyError) {
+                Toast.makeText(SearchActivity.this,
+                        "Error loading content", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void success(PlaylistsPager playlists, Response response) {
+                displayPlaylistsSearch(playlists);
+            }
+        });
     }
 
     private void displayTracksSearch(TracksPager tracks) {
@@ -110,6 +122,7 @@ public class SearchActivity extends BaseLoggedActivity {
                 Glide
                         .with(this)
                         .load(t.album.images.get(0).url)
+                        .placeholder(R.drawable.noalbum)
                         .into((ImageView) ll.getChildAt(0));
             }
         }
@@ -131,6 +144,7 @@ public class SearchActivity extends BaseLoggedActivity {
                 Glide
                         .with(this)
                         .load(a.images.get(0).url)
+                        .placeholder(R.drawable.noalbum)
                         .into((ImageView) ll.getChildAt(0));
             }
         }
@@ -152,6 +166,7 @@ public class SearchActivity extends BaseLoggedActivity {
                 Glide
                         .with(this)
                         .load(a.images.get(0).url)
+                        .placeholder(R.drawable.noalbum)
                         .into((ImageView) ll.getChildAt(0));
             }
         }
@@ -173,6 +188,7 @@ public class SearchActivity extends BaseLoggedActivity {
                 Glide
                         .with(this)
                         .load(p.images.get(0).url)
+                        .placeholder(R.drawable.noalbum)
                         .into((ImageView) ll.getChildAt(0));
             }
         }

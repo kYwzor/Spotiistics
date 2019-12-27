@@ -69,7 +69,7 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(MainActivity.this, "Couldn't login (Error)", Toast.LENGTH_LONG).show();
                 break;
             default:
-                Log.e(TAG, response.toString());
+                Log.e(TAG, response.getState());
                 Toast.makeText(MainActivity.this, "Couldn't login (Default)", Toast.LENGTH_LONG).show();
                 break;
         }

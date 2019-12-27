@@ -97,6 +97,7 @@ public class ArtistsStatsFragment extends ItemFragment {
                         Glide
                                 .with(aa)
                                 .load(a.album.images.get(0).url)
+                                .placeholder(R.drawable.noalbum)
                                 .into((ImageView) ll.getChildAt(0));
                     }
                 }

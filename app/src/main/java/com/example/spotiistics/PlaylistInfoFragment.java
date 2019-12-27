@@ -4,9 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
+
+import kaaes.spotify.webapi.android.models.PlaylistTrack;
 
 public class PlaylistInfoFragment extends ItemFragment {
     private WeakReference<PlaylistActivity> activityReference;
@@ -26,6 +31,23 @@ public class PlaylistInfoFragment extends ItemFragment {
 
     @Override
     public void updateData() {
-        // rootview.findViewById();
+        final PlaylistActivity pa = activityReference.get();
+        if (pa==null) return;
+        LinearLayout base = rootview.findViewById(R.id.lista_tracks);
+
+        itemClickListener itemClickListener = new itemClickListener();
+        for(PlaylistTrack track : pa.playlist.tracks.items) {
+            TextView tv = pa.createTextView(track.track.name);
+            tv.setOnClickListener(itemClickListener);
+            tv.setTag(track.track.id);
+            base.addView(tv);
+        }
+    }
+
+    public class itemClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            activityReference.get().changeActivity(TrackActivity.class, (String) v.getTag());
+        }
     }
 }

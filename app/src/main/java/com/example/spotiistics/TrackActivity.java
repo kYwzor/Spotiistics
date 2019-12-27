@@ -1,6 +1,7 @@
 package com.example.spotiistics;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import kaaes.spotify.webapi.android.models.Track;
 import retrofit.client.Response;
 
 public class TrackActivity extends BaseLoggedActivity {
+    private static final String TAG = TrackActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,7 @@ public class TrackActivity extends BaseLoggedActivity {
         spotify.getTrack(id, new SpotifyCallback<Track>() {
             @Override
             public void failure(SpotifyError spotifyError) {
+                Log.e(TAG, spotifyError.getMessage());
                 Toast.makeText(TrackActivity.this,
                         "Error loading content", Toast.LENGTH_LONG).show();
             }
@@ -44,6 +47,7 @@ public class TrackActivity extends BaseLoggedActivity {
             Glide
                     .with(getApplicationContext())
                     .load(track.album.images.get(0).url)
+                    .placeholder(R.drawable.noalbum)
                     .into(iv);
         }
 

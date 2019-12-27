@@ -71,6 +71,7 @@ public class ArtistsActivity extends BaseLoggedActivity {
                     Glide
                             .with(getApplicationContext())
                             .load(a.images.get(0).url)
+                            .placeholder(R.drawable.noalbum)
                             .into(iv);
                 }
 

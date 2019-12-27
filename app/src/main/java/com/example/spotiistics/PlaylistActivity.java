@@ -61,6 +61,7 @@ public class PlaylistActivity extends BaseLoggedActivity {
                     Glide
                             .with(getApplicationContext())
                             .load(playlist.images.get(0).url)
+                            .placeholder(R.drawable.noalbum)
                             .into(iv);
                 }
 
