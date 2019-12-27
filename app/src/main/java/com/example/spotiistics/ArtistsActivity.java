@@ -8,33 +8,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 
 import kaaes.spotify.webapi.android.SpotifyCallback;
 import kaaes.spotify.webapi.android.SpotifyError;
-import kaaes.spotify.webapi.android.models.Album;
 import kaaes.spotify.webapi.android.models.Artist;
-import kaaes.spotify.webapi.android.models.Pager;
-import kaaes.spotify.webapi.android.models.Playlist;
-import kaaes.spotify.webapi.android.models.Tracks;
-import kaaes.spotify.webapi.android.models.UserPrivate;
 import retrofit.client.Response;
 
-public class ArtistsActivity extends ListsActivity {
+public class ArtistsActivity extends BaseLoggedActivity {
     private static final String TAG = ArtistsActivity.class.getSimpleName();
     TabLayout tabLayout;
     Artist artist;
-    UserPrivate user;
     private ItemFragment statsFragment;
     private ItemFragment infoFragment;
     boolean isFollowing;
-
-
-
-    @Override
-    public int getItemSize() {
-        return 350;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,27 +39,6 @@ public class ArtistsActivity extends ListsActivity {
         tabLayout = findViewById(R.id.tab_artista);
         tabLayout.setupWithViewPager(pager);
 
-        spotify.getMe(new SpotifyCallback<UserPrivate>() {
-            @Override
-            public void success(UserPrivate userPrivate, Response response) {
-                user = userPrivate;
-                getArtist();
-            }
-
-            @Override
-            public void failure(SpotifyError error) {
-                //TODO should we retry?
-                if(error.hasErrorDetails()){
-                    Log.e(TAG, error.getErrorDetails().message);
-                }
-                Toast.makeText(getApplicationContext(), "Failure getting user data", Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-    }
-
-    private void getArtist() {
         spotify.getArtist(id,  new SpotifyCallback<Artist>() {
             @Override
             public void failure(SpotifyError spotifyError) {
@@ -99,8 +66,13 @@ public class ArtistsActivity extends ListsActivity {
                 });
 
                 ImageView iv = findViewById(R.id.image_artista);
-                setPlaceHolder(iv);
-                if(a.images.size() != 0) new DownloadImageTask(iv, getItemSize()).execute(a.images.get(0).url);
+                if(a.images.size() != 0){
+                    // new DownloadImageTask(iv).execute(a.images.get(0).url);
+                    Glide
+                            .with(getApplicationContext())
+                            .load(a.images.get(0).url)
+                            .into(iv);
+                }
 
                 TextView artistName = findViewById(R.id.artista_name);
                 artistName.setText(a.name);

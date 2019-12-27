@@ -13,8 +13,8 @@ import java.lang.ref.WeakReference;
 import kaaes.spotify.webapi.android.models.PlaylistTrack;
 
 public class PlaylistStatsFragment extends ItemFragment {
-    WeakReference<PlaylistActivity> activityReference;
-    View rootview;
+    private WeakReference<PlaylistActivity> activityReference;
+    private View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,12 +33,11 @@ public class PlaylistStatsFragment extends ItemFragment {
         PlaylistActivity pa = activityReference.get();
         if (pa==null) return;
 
-        Long minDuration = Long.MAX_VALUE;
-        Long maxDuration = -1L;
-        Long totalDuration = 0L;
-        int count = 0;
+        long minDuration = Long.MAX_VALUE;
+        long maxDuration = 0L;
+        long totalDuration = 0L;
         for (PlaylistTrack track : pa.playlist.tracks.items){
-            Long duration_ms = track.track.duration_ms;
+            long duration_ms = track.track.duration_ms;
             totalDuration += duration_ms;
             if(duration_ms < minDuration){
                 minDuration = duration_ms;
@@ -46,23 +45,22 @@ public class PlaylistStatsFragment extends ItemFragment {
             if(duration_ms > maxDuration){
                 maxDuration = duration_ms;
             }
-            count ++;
         }
-        Long meanDuration = 0L;
-        if(count > 0) {
-            meanDuration = totalDuration / count;
+        long meanDuration = 0L;
+        if(pa.playlist.tracks.items.size() > 0) {
+            meanDuration = totalDuration / pa.playlist.tracks.items.size();
         }
         TextView dt = rootview.findViewById(R.id.duracao_total);
-        dt.setText(totalDuration.toString());
+        dt.setText(Helper.msToString(totalDuration));
 
         TextView dm = rootview.findViewById(R.id.duracao_media);
-        dm.setText(meanDuration.toString());
+        dm.setText(Helper.msToString(meanDuration));
 
         TextView tb = rootview.findViewById(R.id.track_maior);
-        tb.setText(maxDuration.toString());
+        tb.setText(Helper.msToString(maxDuration));
 
         TextView ts = rootview.findViewById(R.id.track_menor);
-        ts.setText(minDuration.toString());
+        ts.setText(Helper.msToString(minDuration));
 
     }
 }

@@ -7,11 +7,11 @@
     android:background="@color/colorPrimaryDark">
     <ImageView
         android:id="@+id/image_playlist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/imageview_full_size"
+        android:layout_height="@dimen/imageview_full_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars[4]"
+        tools:srcCompat="@drawable/noalbum"
         android:paddingStart="30dp"
         android:paddingEnd="20dp"
         android:paddingTop="50dp"
@@ -23,7 +23,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/playlist_name"
-
         android:paddingTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +51,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:paddingTop="50dp"
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,9 +70,7 @@
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_playlist"
-        app:layout_constraintVertical_bias="0.0" >
-
-    </androidx.viewpager.widget.ViewPager>
+        app:layout_constraintVertical_bias="0.0" />
 
     <include
         android:id="@+id/include"

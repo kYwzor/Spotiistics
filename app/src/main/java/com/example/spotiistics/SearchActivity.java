@@ -1,13 +1,13 @@
 package com.example.spotiistics;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +26,7 @@ import kaaes.spotify.webapi.android.models.TracksPager;
 import retrofit.client.Response;
 
 
-public class SearchActivity extends ListsActivity {
+public class SearchActivity extends BaseLoggedActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +37,7 @@ public class SearchActivity extends ListsActivity {
             @Override
             public void onClick(View arg0) {
                 Map<String, Object> options = new HashMap<>();
-                options.put("market", "PT");
+                options.put("market", user.country);
                 spotify.searchArtists(et.getText().toString(), options, new SpotifyCallback<ArtistsPager>() {
                     @Override
                     public void failure(SpotifyError spotifyError) {
@@ -105,7 +105,13 @@ public class SearchActivity extends ListsActivity {
             LinearLayout ll = createLinearLayout(t.name, t.id, 0);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
-            new DownloadImageTask((ImageView) ll.getChildAt(0), getItemSize()).execute(t.album.images.get(0).url);
+            // new DownloadImageTask((ImageView) ll.getChildAt(0)).execute(t.album.images.get(0).url);
+            if(t.album.images.size() != 0) {
+                Glide
+                        .with(this)
+                        .load(t.album.images.get(0).url)
+                        .into((ImageView) ll.getChildAt(0));
+            }
         }
     }
 
@@ -120,7 +126,13 @@ public class SearchActivity extends ListsActivity {
             LinearLayout ll = createLinearLayout(a.name, a.id, 1);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
-            new DownloadImageTask((ImageView) ll.getChildAt(0), getItemSize()).execute(a.images.get(0).url);
+            //new DownloadImageTask((ImageView) ll.getChildAt(0)).execute(a.images.get(0).url);
+            if(a.images.size() != 0) {
+                Glide
+                        .with(this)
+                        .load(a.images.get(0).url)
+                        .into((ImageView) ll.getChildAt(0));
+            }
         }
     }
 
@@ -135,7 +147,13 @@ public class SearchActivity extends ListsActivity {
             LinearLayout ll = createLinearLayout(a.name, a.id,2);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
-            if(a.images.size() !=0) new DownloadImageTask((ImageView) ll.getChildAt(0), getItemSize()).execute(a.images.get(0).url);
+            if(a.images.size() !=0){
+                //new DownloadImageTask((ImageView) ll.getChildAt(0)).execute(a.images.get(0).url);
+                Glide
+                        .with(this)
+                        .load(a.images.get(0).url)
+                        .into((ImageView) ll.getChildAt(0));
+            }
         }
     }
 
@@ -150,13 +168,18 @@ public class SearchActivity extends ListsActivity {
             LinearLayout ll = createLinearLayout(p.name, p.id, 3);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
-            if(p.images.size() !=0) new DownloadImageTask((ImageView) ll.getChildAt(0), getItemSize()).execute(p.images.get(0).url);
+            if(p.images.size() !=0){
+                //new DownloadImageTask((ImageView) ll.getChildAt(0)).execute(p.images.get(0).url);
+                Glide
+                        .with(this)
+                        .load(p.images.get(0).url)
+                        .into((ImageView) ll.getChildAt(0));
+            }
         }
     }
 
 
     public class itemClickListener implements View.OnClickListener {
-
         @Override
         public void onClick(View v) {
             int type = (int) v.getTag(R.id.TYPE);
@@ -171,7 +194,7 @@ public class SearchActivity extends ListsActivity {
                     changeActivity(ArtistsActivity.class, (String) v.getTag(R.id.ID));
                     break;
                 case 3:
-                    changeActivity(UserPlaylistsActivity.class, (String) v.getTag(R.id.ID));
+                    changeActivity(PlaylistActivity.class, (String) v.getTag(R.id.ID));
                     break;
                 default:
                     Toast.makeText(SearchActivity.this,

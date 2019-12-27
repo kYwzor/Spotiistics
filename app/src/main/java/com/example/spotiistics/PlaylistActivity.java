@@ -8,26 +8,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 
 import kaaes.spotify.webapi.android.SpotifyCallback;
 import kaaes.spotify.webapi.android.SpotifyError;
 import kaaes.spotify.webapi.android.models.Playlist;
-import kaaes.spotify.webapi.android.models.UserPrivate;
 import retrofit.client.Response;
 
 public class PlaylistActivity extends BaseLoggedActivity {
     private static final String TAG = PlaylistActivity.class.getSimpleName();
     TabLayout tabLayout;
     Playlist playlist;
-    UserPrivate user;
     private ItemFragment statsFragment;
     private ItemFragment infoFragment;
-
-    @Override
-    public int getItemSize() {
-        return 150;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,30 +39,10 @@ public class PlaylistActivity extends BaseLoggedActivity {
         //tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(pager);
 
-        spotify.getMe(new SpotifyCallback<UserPrivate>() {
-            @Override
-            public void success(UserPrivate userPrivate, Response response) {
-                user = userPrivate;
-                getPlaylist();
-            }
 
-            @Override
-            public void failure(SpotifyError error) {
-                //TODO should we retry?
-                if(error.hasErrorDetails()){
-                    Log.e(TAG, error.getErrorDetails().message);
-                }
-                Toast.makeText(getApplicationContext(), "Failure getting user data", Toast.LENGTH_LONG).show();
-            }
-        });
-
-    }
-
-    private void getPlaylist() {
-        spotify.getPlaylist(id, user.id, new SpotifyCallback<Playlist>() {
+        spotify.getPlaylist(user.id, id, new SpotifyCallback<Playlist>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                // TODO: This fails because endpoint changed!
                 if(spotifyError.hasErrorDetails()){
                     Log.e(TAG, spotifyError.getErrorDetails().message);
                 }
@@ -81,11 +55,20 @@ public class PlaylistActivity extends BaseLoggedActivity {
                 playlist = p;
 
                 ImageView iv = findViewById(R.id.image_playlist);
-                setPlaceHolder(iv);
-                new DownloadImageTask(iv, getItemSize()).execute(playlist.images.get(0).url);
+                //new DownloadImageTask(iv).execute(playlist.images.get(0).url);
+                if(playlist.images.size() != 0) {
+                    // new DownloadImageTask(iv).execute(a.images.get(0).url);
+                    Glide
+                            .with(getApplicationContext())
+                            .load(playlist.images.get(0).url)
+                            .into(iv);
+                }
 
                 TextView playlistName = findViewById(R.id.playlist_name);
                 playlistName.setText(p.name);
+
+                TextView playlistOwner = findViewById(R.id.playlist_creator);
+                playlistOwner.setText(p.owner.display_name);
 
                 statsFragment.updateData();
                 infoFragment.updateData();

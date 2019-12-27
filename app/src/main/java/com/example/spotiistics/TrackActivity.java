@@ -6,6 +6,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,12 +19,6 @@ import kaaes.spotify.webapi.android.models.Track;
 import retrofit.client.Response;
 
 public class TrackActivity extends BaseLoggedActivity {
-
-    @Override
-    public int getItemSize() {
-        return 350; // TODO: this should be a scaling value
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +40,12 @@ public class TrackActivity extends BaseLoggedActivity {
     }
     private void setTrackDetails(final Track track){
         ImageView iv = findViewById(R.id.image_album);
-        setPlaceHolder(iv);
-        new DownloadImageTask(iv, getItemSize()).execute(track.album.images.get(0).url);
+        if(track.album.images.size() != 0) {
+            Glide
+                    .with(getApplicationContext())
+                    .load(track.album.images.get(0).url)
+                    .into(iv);
+        }
 
         TextView track_name = findViewById(R.id.track_name);
         track_name.setText(track.name);
@@ -66,7 +66,7 @@ public class TrackActivity extends BaseLoggedActivity {
         pop.setText(stringPop(track.popularity));
 
         TextView duracao = findViewById(R.id.duracao_track);
-        duracao.setText(msToString(track.duration_ms));
+        duracao.setText(Helper.msToString(track.duration_ms));
 
         spotify.getAlbum(track.album.id, new SpotifyCallback<Album>() {
             @Override
@@ -109,13 +109,5 @@ public class TrackActivity extends BaseLoggedActivity {
             loopDelim = ", ";
         }
         return sb.toString();
-    }
-
-    private String msToString(long ms){
-        long minutes;
-        long seconds;
-        minutes = (ms / 1000) / 60;
-        seconds = (ms / 1000) % 60;
-        return minutes + "min " + seconds +"sec";   // TODO: hardcoded strings
     }
 }

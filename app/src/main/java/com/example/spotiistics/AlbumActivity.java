@@ -9,30 +9,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 
 import kaaes.spotify.webapi.android.SpotifyCallback;
 import kaaes.spotify.webapi.android.SpotifyError;
 import kaaes.spotify.webapi.android.models.Album;
-import kaaes.spotify.webapi.android.models.Artist;
-import kaaes.spotify.webapi.android.models.Pager;
-import kaaes.spotify.webapi.android.models.Playlist;
-import kaaes.spotify.webapi.android.models.Tracks;
-import kaaes.spotify.webapi.android.models.UserPrivate;
 import retrofit.client.Response;
 
-public class AlbumActivity extends ListsActivity {
+public class AlbumActivity extends BaseLoggedActivity {
     private static final String TAG = AlbumActivity.class.getSimpleName();
     TabLayout tabLayout;
     Album album;
-    UserPrivate user;
     private ItemFragment statsFragment;
     private ItemFragment infoFragment;
-
-    @Override
-    public int getItemSize() {
-        return 350;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,33 +39,10 @@ public class AlbumActivity extends ListsActivity {
         tabLayout = findViewById(R.id.tab_album);
         tabLayout.setupWithViewPager(pager);
 
-        spotify.getMe(new SpotifyCallback<UserPrivate>() {
-            @Override
-            public void success(UserPrivate userPrivate, Response response) {
-                user = userPrivate;
-                getAlbum();
-            }
-
-            @Override
-            public void failure(SpotifyError error) {
-                //TODO should we retry?
-                if(error.hasErrorDetails()){
-                    Log.e(TAG, error.getErrorDetails().message);
-                }
-                Toast.makeText(getApplicationContext(), "Failure getting user data", Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-    }
-
-    private void getAlbum() {
         spotify.getAlbum(id,  new SpotifyCallback<Album>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                if(spotifyError.hasErrorDetails()){
-                    Log.e(TAG, spotifyError.getErrorDetails().message);
-                }
+                Log.e(TAG, spotifyError.getMessage());
                 Toast.makeText(getApplicationContext(),
                         "Error loading content", Toast.LENGTH_LONG).show();
             }
@@ -86,8 +53,13 @@ public class AlbumActivity extends ListsActivity {
 
 
                 ImageView iv = findViewById(R.id.image_album);
-                setPlaceHolder(iv);
-                if(a.images.size() != 0) new DownloadImageTask(iv, getItemSize()).execute(a.images.get(0).url);
+                if(a.images.size() != 0) {
+                    // new DownloadImageTask(iv).execute(a.images.get(0).url);
+                    Glide
+                            .with(getApplicationContext())
+                            .load(a.images.get(0).url)
+                            .into(iv);
+                }
 
                 TextView albumName = findViewById(R.id.album_name);
                 albumName.setText(a.name);
@@ -104,5 +76,7 @@ public class AlbumActivity extends ListsActivity {
                 infoFragment.updateData();
             }
         });
+
     }
+
 }

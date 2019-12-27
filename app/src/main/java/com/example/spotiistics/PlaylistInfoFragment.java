@@ -9,8 +9,8 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 
 public class PlaylistInfoFragment extends ItemFragment {
-    WeakReference<PlaylistActivity> activityReference;
-    View rootview;
+    private WeakReference<PlaylistActivity> activityReference;
+    private View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -14,16 +14,25 @@ import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
+import kaaes.spotify.webapi.android.SpotifyApi;
+import kaaes.spotify.webapi.android.SpotifyCallback;
+import kaaes.spotify.webapi.android.SpotifyError;
+import kaaes.spotify.webapi.android.models.UserPrivate;
+import retrofit.client.Response;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends BaseActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String CLIENT_ID = "31ba52256ea04bad96190373ecbfdfb1";
     public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
+    SpotifyApi api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        api = new SpotifyApi();
+        spotify = api.getService();
     }
 
     public void onGetUserProfileClicked(View view) {
@@ -33,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         final AuthenticationRequest requestToken = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, uri.toString())
                 .setShowDialog(false)
-                .setScopes(new String[]{"user-read-email"})
-                .setCampaign("your-campaign-token")
+                .setScopes(new String[]{"playlist-read-collaborative", "user-read-private", "playlist-read-private", "user-follow-read", "user-library-read"})
                 .build();
         AuthenticationClient.openLoginActivity(this, AUTH_TOKEN_REQUEST_CODE, requestToken);
     }
@@ -48,24 +56,43 @@ public class MainActivity extends AppCompatActivity {
         switch (response.getType()) {
             case TOKEN:
                 if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-                    Intent mIntent = new Intent(MainActivity.this, UserPlaylistsActivity.class);
-                    mIntent.putExtra("token", response.getAccessToken());
-                    mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(mIntent);
+                    api.setAccessToken(response.getAccessToken());
+                    getUser();
                 }
                 else {
-                    Toast.makeText(MainActivity.this, "Wrong request code", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Couldn't login (Wrong request code)", Toast.LENGTH_LONG).show();
                 }
 
                 break;
             case ERROR:
                 Log.e(TAG, response.getError());
-                Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Couldn't login (Error)", Toast.LENGTH_LONG).show();
                 break;
             default:
                 Log.e(TAG, response.toString());
-                Toast.makeText(MainActivity.this, "Default", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Couldn't login (Default)", Toast.LENGTH_LONG).show();
                 break;
         }
+    }
+
+    private void getUser(){
+        spotify.getMe(new SpotifyCallback<UserPrivate>() {
+            @Override
+            public void success(UserPrivate userPrivate, Response response) {
+                user = userPrivate;
+                Intent mIntent = new Intent(MainActivity.this, UserPlaylistsActivity.class);
+                mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(mIntent);
+            }
+
+            @Override
+            public void failure(SpotifyError error) {
+                //TODO should we retry?
+                if(error.hasErrorDetails()){
+                    Log.e(TAG, error.getErrorDetails().message);
+                }
+                Toast.makeText(getApplicationContext(), "Failure getting user data", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
