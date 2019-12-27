@@ -1,74 +1,88 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
+    android:background="@color/colorPrimary"
     android:gravity="bottom|start">
 
-    <TableRow
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="start"
-        android:background="@color/colorPrimary"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:onClick="onPlaylistsButtonClicked">
 
         <ImageView
             android:id="@+id/playlistsButton"
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="2"
-            app:srcCompat="@drawable/playlist"
-            android:onClick="onPlaylistsButtonClicked"
-            android:contentDescription="@string/playlist_menu"/>
-
-        <ImageView
-            android:id="@+id/searchButton"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="2"
-            app:srcCompat="@drawable/search"
-            android:onClick="onSearchButtonClicked"
-            android:contentDescription="@string/search_menu"/>
-
-        <ImageView
-            android:id="@+id/syncButton"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="2"
-            app:srcCompat="@drawable/sync"
-            android:onClick="onSyncButtonClicked"
-            android:contentDescription="@string/sync_menu"/>
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:paddingBottom="5dp">
+            android:contentDescription="@string/playlist_menu"
+            app:srcCompat="@drawable/playlist" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="@string/playlist_menu"
             android:fontFamily="@font/roboto_light"
-            android:textSize="12sp"
+            android:text="@string/playlist_menu"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:onClick="onSearchButtonClicked">
+        <ImageView
+            android:id="@+id/SearchButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="2"
+            android:contentDescription="@string/search_menu"
+            app:srcCompat="@drawable/search" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="@string/search_menu"
             android:fontFamily="@font/roboto_light"
-            android:textSize="12sp"
+            android:text="@string/search_menu"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:onClick="onSyncButtonClicked">
+        <ImageView
+            android:id="@+id/SyncButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="2"
+            android:contentDescription="@string/sync_menu"
+            app:srcCompat="@drawable/sync" />
 
         <TextView
             android:id="@+id/textView8"
@@ -76,11 +90,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:fontFamily="@font/roboto_light"
-            android:textSize="12sp"
             android:text="@string/sync_menu"
             android:textAlignment="center"
-            android:textColor="@color/white" />
-    </TableRow>
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
 
-</TableLayout>
-
+</LinearLayout>
