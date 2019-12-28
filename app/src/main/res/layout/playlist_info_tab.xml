@@ -22,13 +22,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView3"
-                style="@style/Title_Statistitcs"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="@string/lista_track" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/Title_Statistitcs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/lista_track" />
+
+                <TextView
+                    android:id="@+id/playlist_n_track"
+                    style="@style/Text_Statistics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:text="@string/n_track_album_text" />
+            </TableRow>
 
             <LinearLayout
                 android:id="@+id/lista_tracks"

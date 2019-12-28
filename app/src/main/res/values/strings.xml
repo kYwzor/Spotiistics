@@ -16,8 +16,8 @@
     <!--Página Playlist-->
     <string name="playlist_name">Nome Playlist</string>
     <string name="playlist_creator">Nome Apelido</string>
-    <string name="top_artistas">Top 3 Artistas</string>
-    <string name="top_albums">Top 3 Albums</string>
+    <string name="top_artistas">Top 5 Artistas</string>
+    <string name="top_albums">Top 5 Albums</string>
     <string name="top_generos">Top 3 Géneros</string>
 
 

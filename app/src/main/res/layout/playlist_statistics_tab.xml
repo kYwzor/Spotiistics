@@ -161,10 +161,23 @@
                     style="@style/divider"
                     android:layout_width="100dp" />
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/top_artistas"
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintVertical_bias="0.110000014">
+
+                    <LinearLayout
+                        android:id="@+id/top_artists"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -188,10 +201,23 @@
                     style="@style/divider"
                     android:layout_width="100dp" />
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/top_albums"
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintVertical_bias="0.110000014">
+
+                    <LinearLayout
+                        android:id="@+id/top_albums"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -254,33 +280,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/ritmo_playlist_text" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    style="@style/Title_Statistitcs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="@string/top_generos" />
-
-                <View
-                    android:id="@+id/divider8"
-                    style="@style/divider"
-                    android:layout_width="100dp" />
-
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/top_generos"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <include
