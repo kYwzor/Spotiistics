@@ -6,8 +6,8 @@
     <string name="nameApp">Spotiistics</string>
     <string name="login">Login</string>
     <!--Menu Playlist-->
-    <string name="your_playlist">Your Playlists</string>
-    <string name="playlist_followed">Playlist Followed</string>
+    <string name="your_playlist">Tuas Playlists</string>
+    <string name="playlist_followed">Playlist que segues</string>
 
     <!--Tabs-->
     <string name="tab_statistics">Estatística</string>
@@ -17,43 +17,41 @@
     <string name="playlist_name">Nome Playlist</string>
     <string name="playlist_creator">Nome Apelido</string>
     <string name="top_artistas">Top 5 Artistas</string>
-    <string name="top_albums">Top 5 Albums</string>
-    <string name="top_generos">Top 3 Géneros</string>
+    <string name="top_albums">Top 5 Álbums</string>
 
 
     <!--String em mais do que uma página-->
     <string name="duracao_total_title">Duração Total</string> <!--Playlist e Album-->
     <string name="duracao_total_text">3h</string> <!--Playlist e Album-->
-    <string name="duracao_media_title">Duração Média das Track</string> <!--Playlist e Album e Artista-->
+    <string name="duracao_media_title">Duração Média das Músicas</string> <!--Playlist e Album e Artista-->
     <string name="duracao_media_text">3min 5s</string> <!--Playlist e Album-->
-    <string name="track_menor_title">Duração Track Menor</string> <!--Playlist e Album-->
+    <string name="track_menor_title">Duração Música Menor</string> <!--Playlist e Album-->
     <string name="track_menor_text">1min</string> <!--Playlist e Album-->
-    <string name="track_maior_title">Duração Track Maior</string> <!--Playlist e Album-->
+    <string name="track_maior_title">Duração Música Maior</string> <!--Playlist e Album-->
     <string name="track_maior_text">5min 30s</string> <!--Playlist e Album-->
     <string name="mood_playlist_title">Mood da Playlist</string> <!--Playlist e Album-->
-    <string name="mood_albums_title">Mood do Album</string> <!--Playlist e Album-->
+    <string name="mood_albums_title">Mood do Álbum</string> <!--Playlist e Album-->
     <string name="mood_playlist_text">Mood</string> <!--Playlist e Album-->
-    <string name="ritmo_albums_title">Ritmo do Album</string> <!--Playlist e Album-->
-    <string name="ritmo_playlist_title">Ritmo daPlaylist</string> <!--Playlist e Album-->
+    <string name="ritmo_albums_title">Ritmo do Álbum</string> <!--Playlist e Album-->
+    <string name="ritmo_playlist_title">Ritmo da Playlist</string> <!--Playlist e Album-->
 
     <string name="ritmo_playlist_text">Ritmo</string> <!--Playlist e Album-->
-    <string name="lista_track">Lista de Tracks</string> <!--Playlist e Album-->
+    <string name="lista_track">Lista de Músicas</string> <!--Playlist e Album-->
     <string name="genero_text">Metal</string> <!--Artista e Track-->
 
     <!--Página Album-->
-    <string name="album_name">Nome do Album</string>
+    <string name="album_name">Nome do Álbum</string>
     <string name="album_artist">Artista</string>
     <string name="ano_title">Data de Lançamento</string>
     <string name="ano_text">2017</string>
 
     <!--Página Track-->
     <string name="track_name">Nome da música</string>
-    <string name="album_title">Album</string>
+    <string name="album_title">Álbum</string>
     <string name="popularidade_title">Popularidade</string>
     <string name="popularidade_text">Something</string>
     <string name="duracao_title">Duração</string>
     <string name="duracao_text">3min 50s</string>
-    <string name="top_playlist">Top 3 Playlists em que está</string>
 
     <!--Página Artista-->
     <string name="artista">Artista</string>
@@ -63,9 +61,9 @@
     <string name="n_seguidores_text">30</string>
     <string name="n_track_album_title">Número de álbuns, EPs e singles</string>
     <string name="n_track_album_text">30</string>
-    <string name="top_track">Top 5 Tracks</string>
+    <string name="top_track">Top 5 Músicas</string>
     <string name="genero_artista_title">Género do Artista</string>
-    <string name="list_album">Lista de Albums</string>
+    <string name="list_album">Lista de Álbuns</string>
 
     <!--Ultima Sincronização-->
     <string name="last_sync">Última Sicronização</string>
@@ -78,8 +76,8 @@
 
     <!--pagina search-->
     <string name="artista_search">Artistas</string>
-    <string name="album_search">Albums</string>
-    <string name="track_search">Tracks</string>
+    <string name="album_search">Álbuns</string>
+    <string name="track_search">Músicas</string>
     <string name="playlist_search">Playlists</string>
 
     <!-- TODO: Remove or change this placeholder text -->
