@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.spotiistics.Database.AppDatabase;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
@@ -57,6 +59,9 @@ public class MainActivity extends BaseActivity {
             case TOKEN:
                 if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
                     api.setAccessToken(response.getAccessToken());
+                    database = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "appdb")
+                            .allowMainThreadQueries()   //TODO: make it async
+                            .build();
                     getUser();
                 }
                 else {

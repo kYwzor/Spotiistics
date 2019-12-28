@@ -57,7 +57,7 @@ public class ArtistsStatsFragment extends ItemFragment {
         else isFollowing.setText("Não");
 
         TextView pop = rootview.findViewById(R.id.popularidade);
-        pop.setText(stringPop(artist.popularity));
+        pop.setText(Helper.stringPop(artist.popularity));
 
         TextView genero = rootview.findViewById(R.id.artista_genero);
         if(artist.genres.size()!=0) genero.setText(TextUtils.join(" | ", artist.genres));
@@ -107,20 +107,6 @@ public class ArtistsStatsFragment extends ItemFragment {
                 Toast.makeText(aa.getApplicationContext(), "Error loading", Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    private String stringPop(int pop){
-        HashMap<Integer,String> hashmap = new HashMap();
-        // TODO: hardcoded strings
-        hashmap.put(0,"1- O que é isto?");
-        hashmap.put(1,"2- Underground");
-        hashmap.put(2,"3- Só para alguns");
-        hashmap.put(3,"4- Bastante Popular");
-        hashmap.put(4,"5- Topo das tabelas");
-        hashmap.put(5,"6- A mais popular");
-
-        int score = pop / 20; //6 categories
-        return hashmap.get(score);
     }
 
 

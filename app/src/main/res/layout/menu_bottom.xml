@@ -20,7 +20,6 @@
             android:layout_height="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_weight="2"
             android:contentDescription="@string/playlist_menu"
             app:srcCompat="@drawable/playlist" />
 
@@ -28,7 +27,6 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
             android:fontFamily="@font/roboto_light"
             android:text="@string/playlist_menu"
             android:textAlignment="center"
@@ -50,7 +48,6 @@
             android:layout_height="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_weight="2"
             android:contentDescription="@string/search_menu"
             app:srcCompat="@drawable/search" />
 
@@ -58,7 +55,7 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+
             android:fontFamily="@font/roboto_light"
             android:text="@string/search_menu"
             android:textAlignment="center"
@@ -80,7 +77,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_weight="2"
+
             android:contentDescription="@string/sync_menu"
             app:srcCompat="@drawable/sync" />
 
@@ -88,7 +85,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+
             android:fontFamily="@font/roboto_light"
             android:text="@string/sync_menu"
             android:textAlignment="center"

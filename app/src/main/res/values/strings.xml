@@ -82,7 +82,4 @@
     <string name="track_search">Tracks</string>
     <string name="playlist_search">Playlists</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>

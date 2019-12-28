@@ -67,7 +67,6 @@ public class ArtistsActivity extends BaseLoggedActivity {
 
                 ImageView iv = findViewById(R.id.image_artista);
                 if(a.images.size() != 0){
-                    // new DownloadImageTask(iv).execute(a.images.get(0).url);
                     Glide
                             .with(getApplicationContext())
                             .load(a.images.get(0).url)
