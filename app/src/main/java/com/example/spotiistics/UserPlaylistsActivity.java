@@ -21,6 +21,11 @@ public class UserPlaylistsActivity extends BaseLoggedActivity {
     private static final String TAG = UserPlaylistsActivity.class.getSimpleName();
 
     @Override
+    public void onPlaylistsButtonClicked(View view){
+        // Override to do nothing
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_playlist);
