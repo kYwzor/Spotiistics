@@ -30,6 +30,12 @@ import retrofit.client.Response;
 
 public class SearchActivity extends BaseLoggedActivity {
     EditText et;
+
+    @Override
+    public void onSearchButtonClicked(View view){
+        // Override to do nothing
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

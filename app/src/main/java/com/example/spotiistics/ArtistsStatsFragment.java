@@ -30,7 +30,6 @@ import retrofit.client.Response;
 public class ArtistsStatsFragment extends ItemFragment {
     private WeakReference<ArtistsActivity> activityReference;
     private View rootview;
-    int total;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

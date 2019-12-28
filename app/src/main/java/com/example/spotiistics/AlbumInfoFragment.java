@@ -17,15 +17,17 @@ public class AlbumInfoFragment extends ItemFragment {
     private WeakReference<AlbumActivity> activityReference;
     private View rootview;
 
-    AlbumInfoFragment(){
-        activityReference = new WeakReference<>((AlbumActivity) getActivity());
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.album_info_tab, container, false);
         return rootview;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        activityReference = new WeakReference<>((AlbumActivity) getActivity());
     }
 
     @Override
