@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
@@ -23,7 +24,7 @@ import kaaes.spotify.webapi.android.models.Album;
 import kaaes.spotify.webapi.android.models.Pager;
 import retrofit.client.Response;
 
-public class ArtistsInfoFragment extends ItemFragment {
+public class ArtistsInfoFragment extends Fragment {
     private static final String TAG = ArtistsInfoFragment.class.getSimpleName();
     private WeakReference<ArtistsActivity> activityReference;
     private View rootview;
@@ -40,8 +41,7 @@ public class ArtistsInfoFragment extends ItemFragment {
         activityReference = new WeakReference<>((ArtistsActivity) getActivity());
     }
 
-    @Override
-    public void updateData() {
+    void updateData() {
         final ArtistsActivity aa = activityReference.get();
         if (aa==null) return;
         Map<String, Object> options  = new HashMap<>();

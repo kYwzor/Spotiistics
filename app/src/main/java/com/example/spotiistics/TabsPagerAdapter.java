@@ -11,10 +11,10 @@ import java.lang.ref.WeakReference;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter {
     private WeakReference<Context> contextReference;
-    private ItemFragment statsFragment;
-    private ItemFragment infoFragment;
+    private Fragment statsFragment;
+    private Fragment infoFragment;
 
-    TabsPagerAdapter(FragmentManager fm, Context context, ItemFragment statsFragment, ItemFragment infoFragment) {
+    TabsPagerAdapter(FragmentManager fm, Context context, Fragment statsFragment, Fragment infoFragment) {
         super(fm);
         contextReference = new WeakReference<>(context);
         this.statsFragment = statsFragment;

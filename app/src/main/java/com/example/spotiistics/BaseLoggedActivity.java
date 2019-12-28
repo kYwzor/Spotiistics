@@ -1,10 +1,14 @@
 package com.example.spotiistics;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,7 +16,13 @@ import android.widget.TextView;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 public abstract class BaseLoggedActivity extends BaseActivity {
+    private static final String TAG = BaseLoggedActivity.class.getSimpleName();
     protected String id;
 
     @Override
@@ -62,7 +72,7 @@ public abstract class BaseLoggedActivity extends BaseActivity {
         iv.getLayoutParams().height = (int) getResources().getDimension(R.dimen.imageview_thumbnail_size);
         iv.getLayoutParams().width = (int) getResources().getDimension(R.dimen.imageview_thumbnail_size);
 
-        ll.addView(createTextView(name));
+        ll.addView(Helper.createTextView(name, getApplicationContext()));
 
         ll.setTag(R.id.ID, id);
         return ll;
@@ -74,18 +84,25 @@ public abstract class BaseLoggedActivity extends BaseActivity {
         return ll;
     }
 
-    TextView createTextView(String name) {
-        TextView tv = new TextView(getApplicationContext());
-        tv.setEllipsize(TextUtils.TruncateAt.END);
-        tv.setMaxLines(1);
-        //tv.getLayoutParams().width = (int) getResources().getDimension(R.dimen.imageview_thumbnail_size);
-        //tv.setMaxWidth(getItemSize());
-        tv.setText(name);
-        tv.setTextColor(Color.WHITE);
+    public void saveBitmap(String fileName, Bitmap bitmap) {
+        FileOutputStream outputStream;
+        try {
+            outputStream = getApplicationContext().openFileOutput(fileName, Context.MODE_PRIVATE);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+            outputStream.close();
+        } catch (Exception e) {
+            Log.e(TAG, "Writing bitmap error", e);
+        }
+    }
 
-        Typeface tf = ResourcesCompat.getFont(getApplicationContext(), R.font.roboto_light);
-        tv.setTypeface(tf);
-        tv.setPadding(0,15, 0,0);   //TODO: should be scaling
-        return tv;
+    public void loadBitmap(String fileName, ImageView iv){
+        FileInputStream inputStream;
+        try {
+            inputStream = getApplicationContext().openFileInput(fileName);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            iv.setImageBitmap(bitmap);
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, "Reading bitmap error", e);
+        }
     }
 }

@@ -20,8 +20,8 @@ public class ArtistsActivity extends BaseLoggedActivity {
     private static final String TAG = ArtistsActivity.class.getSimpleName();
     TabLayout tabLayout;
     Artist artist;
-    private ItemFragment statsFragment;
-    private ItemFragment infoFragment;
+    private ArtistsStatsFragment statsFragment;
+    private ArtistsInfoFragment infoFragment;
     boolean isFollowing;
 
     @Override

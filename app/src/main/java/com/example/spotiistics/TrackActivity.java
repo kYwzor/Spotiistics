@@ -1,10 +1,5 @@
 package com.example.spotiistics;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,9 +18,6 @@ import com.bumptech.glide.request.target.Target;
 import com.example.spotiistics.Database.TrackData;
 import com.example.spotiistics.Database.TrackDataDao;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.List;
 
 import kaaes.spotify.webapi.android.SpotifyCallback;
@@ -49,13 +41,13 @@ public class TrackActivity extends BaseLoggedActivity {
         trackDataDao = database.trackDataDao();
         TrackData[] ts = trackDataDao.get(id);;
         if(ts.length==0){
-            Toast.makeText(TrackActivity.this, "Nothing in database", Toast.LENGTH_LONG).show();
+            //Toast.makeText(TrackActivity.this, "Nothing in database", Toast.LENGTH_LONG).show();
             startSync();
         }
         else {
             inDatabase = true;
-            Toast.makeText(TrackActivity.this, "Read from database", Toast.LENGTH_LONG).show();
-            read(ts[0].albumdId, (ImageView) findViewById(R.id.image_album));
+            //Toast.makeText(TrackActivity.this, "Read from database", Toast.LENGTH_LONG).show();
+            loadBitmap(ts[0].albumdId, (ImageView) findViewById(R.id.image_album));
             updateView(ts[0]);
         }
 
@@ -72,13 +64,13 @@ public class TrackActivity extends BaseLoggedActivity {
             @Override
             public void success(Track track, Response response) {
                 TrackActivity.this.track = track;
-                middleSync();
+                midSync();
             }
         });
     }
 
 
-    public void middleSync(){
+    private void midSync(){
         // Only needed because library is bugged
         spotify.getAlbum(track.album.id, new SpotifyCallback<Album>() {
             @Override
@@ -95,26 +87,26 @@ public class TrackActivity extends BaseLoggedActivity {
         });
     }
 
-    public void endSync(){
+    private void endSync(){
         ImageView iv = findViewById(R.id.image_album);
         if (track.album.images.size() != 0) {
             Glide
-                    .with(getApplicationContext())
-                    .load(track.album.images.get(0).url)
-                    .placeholder(R.drawable.noalbum)
-                    .listener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            return false;
-                        }
+                .with(getApplicationContext())
+                .load(track.album.images.get(0).url)
+                .placeholder(R.drawable.noalbum)
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        return false;
+                    }
 
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            write(track.album.id, Helper.drawableToBitmap(resource));
-                            return false;
-                        }
-                    })
-                    .into(iv);
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        saveBitmap(track.album.id, Helper.drawableToBitmap(resource));
+                        return false;
+                    }
+                })
+                .into(iv);
         }
 
         TrackData t = new TrackData(
@@ -137,27 +129,6 @@ public class TrackActivity extends BaseLoggedActivity {
         updateView(t);
     }
 
-    public void write(String fileName, Bitmap bitmap) {
-        FileOutputStream outputStream;
-        try {
-            outputStream = getApplicationContext().openFileOutput(fileName, Context.MODE_PRIVATE);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-            outputStream.close();
-        } catch (Exception error) {
-            Log.e(TAG, "Writing error");
-        }
-    }
-
-    public void read(String fileName, ImageView iv){
-        FileInputStream inputStream;
-        try {
-            inputStream = getApplicationContext().openFileInput(fileName);
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-            iv.setImageBitmap(bitmap);
-        } catch (FileNotFoundException e) {
-            Log.e(TAG, "Reading error");
-        }
-    }
 
     private void updateView(final TrackData t){
         TextView track_name = findViewById(R.id.track_name);

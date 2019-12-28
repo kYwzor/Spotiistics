@@ -20,8 +20,8 @@ public class PlaylistActivity extends BaseLoggedActivity {
     private static final String TAG = PlaylistActivity.class.getSimpleName();
     TabLayout tabLayout;
     Playlist playlist;
-    private ItemFragment statsFragment;
-    private ItemFragment infoFragment;
+    private PlaylistStatsFragment statsFragment;
+    private PlaylistInfoFragment infoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

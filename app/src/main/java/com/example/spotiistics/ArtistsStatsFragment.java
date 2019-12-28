@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
@@ -27,7 +28,7 @@ import kaaes.spotify.webapi.android.models.Track;
 import kaaes.spotify.webapi.android.models.Tracks;
 import retrofit.client.Response;
 
-public class ArtistsStatsFragment extends ItemFragment {
+public class ArtistsStatsFragment extends Fragment {
     private WeakReference<ArtistsActivity> activityReference;
     private View rootview;
     @Override
@@ -43,8 +44,7 @@ public class ArtistsStatsFragment extends ItemFragment {
         activityReference = new WeakReference<>((ArtistsActivity) getActivity());
     }
 
-    @Override
-    public void updateData() {
+    void updateData() {
         final ArtistsActivity aa = activityReference.get();
         if (aa==null) return;
         Artist artist = aa.artist;

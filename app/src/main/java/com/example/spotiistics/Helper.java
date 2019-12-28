@@ -1,9 +1,16 @@
 package com.example.spotiistics;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.widget.TextView;
+
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.HashMap;
 
@@ -29,7 +36,7 @@ abstract class Helper {
     }
 
     // copied from https://stackoverflow.com/a/10600736
-    public static Bitmap drawableToBitmap (Drawable drawable) {
+    static Bitmap drawableToBitmap (Drawable drawable) {
         Bitmap bitmap = null;
 
         if (drawable instanceof BitmapDrawable) {
@@ -49,5 +56,20 @@ abstract class Helper {
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    static TextView createTextView(String name, Context context) {
+        TextView tv = new TextView(context);
+        tv.setEllipsize(TextUtils.TruncateAt.END);
+        tv.setMaxLines(1);
+        //tv.getLayoutParams().width = (int) getResources().getDimension(R.dimen.imageview_thumbnail_size);
+        //tv.setMaxWidth(getItemSize());
+        tv.setText(name);
+        tv.setTextColor(Color.WHITE);
+
+        Typeface tf = ResourcesCompat.getFont(context, R.font.roboto_light);
+        tv.setTypeface(tf);
+        tv.setPadding(0,15, 0,0);   //TODO: should be scaling
+        return tv;
     }
 }
