@@ -3,37 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimaryDark">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="50dp">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView3"
+                style="@style/Title_Statistitcs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lista_track"
-                style="@style/Title_Statistitcs"
-                android:layout_marginTop="50dp"/>
+                android:layout_marginTop="50dp"
+                android:text="@string/lista_track" />
 
             <LinearLayout
+                android:id="@+id/lista_tracks"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/lista_tracks"/>
+                android:layout_marginEnd="30dp"
+                android:orientation="vertical" />
 
             <include layout="@layout/last_sync"></include>
         </LinearLayout>
