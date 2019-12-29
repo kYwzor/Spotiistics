@@ -26,4 +26,10 @@
 
     <dimen name="imageview_thumbnail_size">100dp</dimen>
     <dimen name="imageview_full_size">200dp</dimen>
+    
+    <dimen name="dpTen">10dp</dimen>
+    <dimen name="dpTwenty">20dp</dimen>
+    <dimen name="dpFifty">50dp</dimen>
+    <dimen name="dpFifteen">10dp</dimen>
+
 </resources>

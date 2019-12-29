@@ -88,7 +88,7 @@ abstract class Helper {
         LinearLayout ll = new LinearLayout(context);
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        lp.setMargins(20, 0, 10, 50);   //TODO: should be scaling
+        lp.setMargins((int) resources.getDimension(R.dimen.dpTwenty), 0, (int) resources.getDimension(R.dimen.dpTen), (int) resources.getDimension(R.dimen.dpFifty));
         ll.setLayoutParams(lp);
 
         ll.addView(iv);
@@ -97,16 +97,16 @@ abstract class Helper {
 
         TextView tv = new TextView(context);
         tv.setEllipsize(TextUtils.TruncateAt.END);
-        tv.setMaxLines(1);
+        tv.setMaxLines(4);
         tv.setText(name);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.setMargins(15,0,0,0);    //TODO: should be scaling
+        params.setMargins((int) resources.getDimension(R.dimen.dpFifteen),0,0,0);
         tv.setLayoutParams(params);
         tv.setTextColor(Color.WHITE);
 
         Typeface tf = ResourcesCompat.getFont(context, R.font.roboto_light);
         tv.setTypeface(tf);
-        tv.setPadding(0,10, 0,0);       //TODO: should be scaling
+        tv.setPadding(0,(int) resources.getDimension(R.dimen.dpTen), 0,0);
         ll.addView(tv);
 
         ll.setTag(R.id.ID, id);
@@ -119,7 +119,7 @@ abstract class Helper {
         ll.setOrientation(LinearLayout.VERTICAL);
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        lp.setMargins(10, 0, 10, 0);   //TODO: should be scaling
+        lp.setMargins((int) resources.getDimension(R.dimen.dpTen), 0, (int) resources.getDimension(R.dimen.dpTen), 0);
         ll.setLayoutParams(lp);
 
         ll.addView(iv);
@@ -147,7 +147,7 @@ abstract class Helper {
 
         Typeface tf = ResourcesCompat.getFont(context, R.font.roboto_light);
         tv.setTypeface(tf);
-        tv.setPadding(0,15, 0,0);   //TODO: should be scaling
+        tv.setPadding(0,(int) context.getResources().getDimension(R.dimen.dpFifteen), 0,0);
         return tv;
     }
 }
