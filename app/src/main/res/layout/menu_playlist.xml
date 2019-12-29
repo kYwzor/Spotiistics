@@ -10,14 +10,13 @@
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginBottom="50dp"
-        android:layout_marginTop="20dp">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,10 +38,10 @@
                 android:id="@+id/scrollview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp">
 
                 <LinearLayout
                     android:id="@+id/yourPlaylist"
@@ -64,17 +63,16 @@
                 android:id="@+id/horizontalScrollView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp">
 
                 <LinearLayout
                     android:id="@+id/followedPlaylist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    />
+                    android:orientation="horizontal" />
             </HorizontalScrollView>
 
             <include
