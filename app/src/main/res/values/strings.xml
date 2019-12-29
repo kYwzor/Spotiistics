@@ -75,4 +75,11 @@
     <string name="track_search">Músicas</string>
     <string name="playlist_search">Playlists</string>
 
+    <!--Toasts e Notifications-->
+    <string name="login_request_code">Request Code errado, tente novamente</string>
+    <string name="login_fail">Login falhado, tente novamente</string>
+    <string name="sync_fail">Erro a sincronizar</string>
+    <string name="already_syncing">Sincronização já está em curso</string>
+    <string name="sync_done">Sincronização completa</string>
+    <string name="sync_done_context">A sincronização do Spotiistics foi completada</string>
 </resources>

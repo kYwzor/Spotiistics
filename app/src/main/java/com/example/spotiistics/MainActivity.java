@@ -70,7 +70,7 @@ public class MainActivity extends BaseActivity {
                     getUser();
                 }
                 else {
-                    Toast.makeText(MainActivity.this, "Couldn't login (Wrong request code)", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, R.string.login_request_code, Toast.LENGTH_LONG).show();
                 }
 
                 break;
@@ -80,7 +80,7 @@ public class MainActivity extends BaseActivity {
             default:
                 String error = response.getError();
                 if(error!=null) Log.e(TAG, error);
-                Toast.makeText(MainActivity.this, "Couldn't login, please retry", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, R.string.login_fail, Toast.LENGTH_LONG).show();
                 loginButton.setEnabled(true);
                 loginButton.setBackground(getResources().getDrawable(R.drawable.button_background));
                 break;
@@ -98,11 +98,9 @@ public class MainActivity extends BaseActivity {
             }
 
             @Override
-            public void failure(SpotifyError error) {
-                if(error.hasErrorDetails()){
-                    Log.e(TAG, error.getErrorDetails().message);
-                }
-                Toast.makeText(getApplicationContext(), "Failure getting user data", Toast.LENGTH_LONG).show();
+            public void failure(SpotifyError spotifyError) {
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
+                Log.e(TAG, spotifyError.getMessage());
             }
         });
     }

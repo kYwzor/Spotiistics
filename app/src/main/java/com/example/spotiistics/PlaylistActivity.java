@@ -128,7 +128,7 @@ public class PlaylistActivity extends SyncableActivity implements FragmentListen
 
                     @Override
                     public void failure(SpotifyError spotifyError) {
-                        Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                         Log.e(TAG, spotifyError.getMessage());
                     }
                 });
@@ -278,7 +278,7 @@ public class PlaylistActivity extends SyncableActivity implements FragmentListen
 
                         @Override
                         public void failure(SpotifyError spotifyError) {
-                            Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                             Log.e(TAG, spotifyError.getMessage());
                         }
                     });
@@ -314,7 +314,7 @@ public class PlaylistActivity extends SyncableActivity implements FragmentListen
 
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                 Log.e(TAG, spotifyError.getMessage());
             }
         });

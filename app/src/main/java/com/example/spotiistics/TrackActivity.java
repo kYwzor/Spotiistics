@@ -61,7 +61,7 @@ public class TrackActivity extends SyncableActivity {
         spotify.getTrack(id, new SpotifyCallback<Track>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                 Log.e(TAG, spotifyError.getMessage());
             }
 
@@ -79,7 +79,7 @@ public class TrackActivity extends SyncableActivity {
         spotify.getAlbum(track.album.id, new SpotifyCallback<Album>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                 Log.e(TAG, spotifyError.getMessage());
             }
 

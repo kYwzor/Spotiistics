@@ -19,7 +19,7 @@ public abstract class SyncableActivity extends BaseLoggedActivity {
             startSync();
         }
         else {
-            Toast.makeText(getApplicationContext(), "Already syncing", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.already_syncing, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -29,8 +29,8 @@ public abstract class SyncableActivity extends BaseLoggedActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.sync)
                 .setLargeIcon(bm)
-                .setContentTitle("Sync done")
-                .setContentText("Spotiistics syncronization is finished")
+                .setContentTitle(getResources().getString(R.string.sync_done))
+                .setContentText(getResources().getString(R.string.sync_done_context))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

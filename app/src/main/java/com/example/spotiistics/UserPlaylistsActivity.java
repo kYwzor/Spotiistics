@@ -2,6 +2,7 @@ package com.example.spotiistics;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -83,8 +84,8 @@ public class UserPlaylistsActivity extends SyncableActivity {
         spotify.getMyPlaylists(options, new SpotifyCallback<Pager<PlaylistSimple>>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(UserPlaylistsActivity.this,
-                        "Error loading content", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
+                Log.e(TAG, spotifyError.getMessage());
             }
 
             @Override

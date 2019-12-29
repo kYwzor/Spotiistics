@@ -126,7 +126,7 @@ public class ArtistActivity extends SyncableActivity implements FragmentListener
 
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                 Log.e(TAG, spotifyError.getMessage());
             }
         });
@@ -140,7 +140,7 @@ public class ArtistActivity extends SyncableActivity implements FragmentListener
 
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                 Log.e(TAG, spotifyError.getMessage());
             }
         });
@@ -186,7 +186,7 @@ public class ArtistActivity extends SyncableActivity implements FragmentListener
 
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                 Log.e(TAG, spotifyError.getMessage());
             }
         });
@@ -235,7 +235,7 @@ public class ArtistActivity extends SyncableActivity implements FragmentListener
 
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(getApplicationContext(), "Error syncing", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
                 Log.e(TAG, spotifyError.getMessage());
             }
         });
