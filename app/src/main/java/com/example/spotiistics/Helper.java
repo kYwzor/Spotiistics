@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,24 +25,9 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 abstract class Helper {
-    static String msToString(long ms){
+    static String msToString(String placeholder, long ms){
         long seconds = ms / 1000;
-        return seconds / 60 + "min " + seconds % 60 + "sec";   // TODO: hardcoded strings
-    }
-
-    static String stringPop(int pop){
-        HashMap<Integer,String> hashmap = new HashMap();
-        // TODO: hardcoded strings
-        hashmap.put(0,"1- O que é isto?");
-        hashmap.put(1,"2- Underground");
-        hashmap.put(2,"3- Só para alguns");
-        hashmap.put(3,"4- Bastante Popular");
-        hashmap.put(4,"5- Topo das tabelas");
-        hashmap.put(5,"6- A mais popular");
-
-        int score = pop / 20; //6 categories
-
-        return hashmap.get(score);
+        return String.format(placeholder, seconds / 60, seconds % 60);
     }
 
     // taken from https://stackoverflow.com/a/10600736

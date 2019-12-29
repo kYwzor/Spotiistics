@@ -22,15 +22,14 @@ public abstract class SyncableActivity extends BaseLoggedActivity {
     }
 
     void onSyncDone(){
-        Toast.makeText(getApplicationContext(), "Syncing done", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Syncing done", Toast.LENGTH_SHORT).show();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.sync)
                 .setContentTitle("Sync done")
-                .setContentText("Spottistics syncronization is finished")
+                .setContentText("Spotiistics syncronization is finished")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(1, builder.build());
-
     }
 }

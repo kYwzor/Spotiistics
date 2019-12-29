@@ -44,7 +44,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/follow_text" />
+                    android:text="@string/loading_placeholder" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -71,7 +71,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/n_seguidores_text" />
+                    android:text="@string/loading_placeholder" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -131,7 +131,7 @@
                         style="@style/Text_Statistics"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/n_track_album_text" />
+                        android:text="@string/loading_placeholder" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -200,7 +200,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/n_track_album_text" />
+                    android:text="@string/loading_placeholder" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>

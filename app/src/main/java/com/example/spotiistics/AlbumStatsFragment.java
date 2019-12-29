@@ -28,21 +28,22 @@ public class AlbumStatsFragment extends ItemFragment {
     }
 
     void updateData(AlbumData a) {
+        String placeholder = getResources().getString(R.string.duration);
         TextView duracao = rootview.findViewById(R.id.duracao_total);
-        duracao.setText(Helper.msToString(a.totalDuration));
+        duracao.setText(Helper.msToString(placeholder, a.totalDuration));
 
         TextView duracao_media = rootview.findViewById(R.id.duracao_media);
-        duracao_media.setText(Helper.msToString(a.meanDuration));
+        duracao_media.setText(Helper.msToString(placeholder, a.meanDuration));
 
         TextView track_maior = rootview.findViewById(R.id.track_maior);
-        track_maior.setText(Helper.msToString(a.maxDuration));
+        track_maior.setText(Helper.msToString(placeholder, a.maxDuration));
 
         TextView track_menor = rootview.findViewById(R.id.track_menor);
-        track_menor.setText(Helper.msToString(a.minDuration));
+        track_menor.setText(Helper.msToString(placeholder, a.minDuration));
 
         TextView ritmo = rootview.findViewById(R.id.ritmo);
-        String ritmo_string = a.meanTempo + " bpm";
-        ritmo.setText(ritmo_string);    // TODO: Hardcoded strings
+        String ritmo_string = String.format(getResources().getString(R.string.average_bpm), a.meanTempo);
+        ritmo.setText(ritmo_string);
 
         TextView mood = rootview.findViewById(R.id.mood);
         mood.setText(String.valueOf(a.meanMood));

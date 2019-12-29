@@ -34,19 +34,18 @@ public class ArtistStatsFragment extends ItemFragment {
     void updateData(ArtistData artistData, ArrayList<ImageView> topIvs) {
         TextView followers = rootview.findViewById(R.id.n_seguidores);
         followers.setText(String.valueOf(artistData.n_followers));
-        String sim = "Sim";
-        String nao = "Não";
-        String nao_disponivel = "Não disponível";
+
         TextView isFollowing = rootview.findViewById(R.id.follow_artist);
-        if(artistData.isFollowing) isFollowing.setText(sim);  //TODO: Hardcoded strings
-        else isFollowing.setText(nao);
+        if(artistData.isFollowing) isFollowing.setText(getResources().getString(R.string.yes));
+        else isFollowing.setText(getResources().getString(R.string.no));
 
         TextView pop = rootview.findViewById(R.id.popularidade);
-        pop.setText(Helper.stringPop(artistData.popularity));
+        String[] popText = getResources().getStringArray(R.array.popularity);
+        pop.setText(popText[artistData.popularity/20]);
 
         TextView genero = rootview.findViewById(R.id.artista_genero);
         if(artistData.genres.size()!=0) genero.setText(TextUtils.join(" | ", artistData.genres));
-        else genero.setText(nao_disponivel); //TODO: Hardcoded strings
+        else genero.setText(getResources().getString(R.string.not_available));
 
         TextView n_album = rootview.findViewById(R.id.n_track_album);
         n_album.setText(String.valueOf(artistData.albumNames.size()));

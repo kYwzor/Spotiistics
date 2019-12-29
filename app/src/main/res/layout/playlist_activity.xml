@@ -15,14 +15,14 @@
         android:paddingStart="30dp"
         android:paddingEnd="20dp"
         android:paddingTop="20dp"
-        android:contentDescription="@string/playlist_name"/>
+        android:contentDescription="@string/loading_placeholder"/>
 
     <TextView
         android:id="@+id/playlist_name"
         style="@style/Title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/playlist_name"
+        android:text="@string/loading_placeholder"
         android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
         style="@style/title2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/playlist_creator"
+        android:text="@string/loading_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

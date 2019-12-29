@@ -112,15 +112,16 @@ public class TrackActivity extends SyncableActivity {
                 })
                 .into(iv);
         }
-
+        String placeholder = getResources().getString(R.string.duration);
+        String[] popText = getResources().getStringArray(R.array.popularity);
         TrackData t = new TrackData(
                 id,
                 track.name,
                 join(track.artists),
                 track.album.name,
                 track.album.id,
-                Helper.stringPop(track.popularity),
-                Helper.msToString(track.duration_ms),
+                popText[track.popularity/20],
+                Helper.msToString(placeholder, track.duration_ms),
                 album.release_date
         );
         if(inDatabase){

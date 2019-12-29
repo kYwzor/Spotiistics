@@ -14,7 +14,7 @@
         tools:srcCompat="@drawable/noalbum"
         android:paddingStart="30dp"
         android:paddingEnd="20dp"
-        android:contentDescription="@string/album_name"
+        android:contentDescription="@string/loading_placeholder"
         android:paddingTop="20dp"/>
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:text="@string/album_name"
+        android:text="@string/loading_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,7 +36,7 @@
         style="@style/title2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/album_artist"
+        android:text="@string/loading_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

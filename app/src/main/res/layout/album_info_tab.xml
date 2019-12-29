@@ -34,7 +34,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ano_text"
+                    android:text="@string/loading_placeholder"
                     android:layout_marginTop="50dp"
                     android:paddingStart="0dp"
                     android:paddingEnd="0dp"/>
@@ -57,7 +57,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/n_track_album_text"
+                    android:text="@string/loading_placeholder"
                     android:layout_marginTop="20dp"
                     android:paddingStart="0dp"
                     android:paddingEnd="0dp"/>

@@ -5,6 +5,9 @@
     <string name="token">Access Token: %1$s</string>
     <string name="nameApp">Spotiistics</string>
     <string name="login">Login</string>
+
+    <string name="loading_placeholder">Loading</string>
+
     <!--Menu Playlist-->
     <string name="your_playlist">Tuas Playlists</string>
     <string name="playlist_followed">Playlist que segues</string>
@@ -14,60 +17,51 @@
     <string name="tab_info">Informação</string>
 
     <!--Página Playlist-->
-    <string name="playlist_name">Loading</string>
-    <string name="playlist_creator">Loading</string>
     <string name="top_artistas">Top 5 Artistas</string>
     <string name="top_albums">Top 5 Álbums</string>
 
-
     <!--String em mais do que uma página-->
     <string name="duracao_total_title">Duração Total</string> <!--Playlist e Album-->
-    <string name="duracao_total_text">Loading</string> <!--Playlist e Album-->
     <string name="duracao_media_title">Duração Média das Músicas</string> <!--Playlist e Album e Artista-->
-    <string name="duracao_media_text">Loading</string> <!--Playlist e Album-->
     <string name="track_menor_title">Duração Música Menor</string> <!--Playlist e Album-->
-    <string name="track_menor_text">Loading</string> <!--Playlist e Album-->
     <string name="track_maior_title">Duração Música Maior</string> <!--Playlist e Album-->
-    <string name="track_maior_text">Loading</string> <!--Playlist e Album-->
     <string name="mood_playlist_title">Mood da Playlist</string> <!--Playlist e Album-->
     <string name="mood_albums_title">Mood do Álbum</string> <!--Playlist e Album-->
-    <string name="mood_playlist_text">Loading</string> <!--Playlist e Album-->
     <string name="ritmo_albums_title">Ritmo do Álbum</string> <!--Playlist e Album-->
     <string name="ritmo_playlist_title">Ritmo da Playlist</string> <!--Playlist e Album-->
-
-    <string name="ritmo_playlist_text">Loading</string> <!--Playlist e Album-->
     <string name="lista_track">Lista de Músicas</string> <!--Playlist e Album-->
-    <string name="genero_text">Loading</string> <!--Artista e Track-->
+    <string name="average_bpm">%1$f bpm</string><!--Playlist e Album-->
+    <string name="n_tracks">%1$d tracks</string><!--Playlist e Album-->
+    <string name="duration">%1$d min %2$d sec</string> <!--Playlist e Album e Track-->
+    <string-array name="popularity">
+        <item>1- O que é isto?</item>
+        <item>2- Underground</item>
+        <item>3- Só para alguns</item>
+        <item>4- Bastante Popular</item>
+        <item>5- Topo das tabelas</item>
+        <item>6- A mais popular</item>
+    </string-array>
 
     <!--Página Album-->
-    <string name="album_name">Loading</string>
-    <string name="album_artist">Loading</string>
     <string name="ano_title">Data de Lançamento</string>
-    <string name="ano_text">Loading</string>
 
     <!--Página Track-->
-    <string name="track_name">Loading</string>
-    <string name="album_title">Loading</string>
     <string name="popularidade_title">Popularidade</string>
-    <string name="popularidade_text">Loading</string>
     <string name="duracao_title">Duração</string>
-    <string name="duracao_text">Loading</string>
 
     <!--Página Artista-->
-    <string name="artista">Loading</string>
     <string name="follow_title">Segue o Artista</string>
-    <string name="follow_text">Loading</string>
     <string name="n_seguidores_title">Número de seguidores</string>
-    <string name="n_seguidores_text">Loading</string>
     <string name="n_track_album_title">Número de álbuns, EPs e singles</string>
-    <string name="n_track_album_text">Loading</string>
     <string name="top_track">Top 5 Músicas</string>
     <string name="genero_artista_title">Género do Artista</string>
     <string name="list_album">Lista de Álbuns</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="not_available">Não disponível</string>
 
     <!--Ultima Sincronização-->
     <string name="last_sync">Última Sicronização</string>
-    <string name="last_sync_date">Loading</string>
 
     <!--menu-->
     <string name="playlist_menu">Playlist</string>

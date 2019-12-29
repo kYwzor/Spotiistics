@@ -44,7 +44,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/duracao_total_text" />
+                    android:text="@string/loading_placeholder" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -71,7 +71,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/duracao_media_text" />
+                    android:text="@string/loading_placeholder" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -103,7 +103,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/track_maior_text" />
+                    android:text="@string/loading_placeholder" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -130,7 +130,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/track_menor_text" />
+                    android:text="@string/loading_placeholder" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -163,7 +163,7 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mood_playlist_text" />
+                    android:text="@string/loading_placeholder" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -190,10 +190,10 @@
                     style="@style/Text_Statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ritmo_playlist_text" />
+                    android:text="@string/loading_placeholder" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
-            <include layout="@layout/last_sync"></include>
+            <include layout="@layout/last_sync" />
         </LinearLayout>
 
     </ScrollView>

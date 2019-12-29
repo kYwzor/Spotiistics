@@ -41,7 +41,7 @@
                     android:layout_marginTop="20dp"
                     android:paddingStart="0dp"
                     android:paddingEnd="0dp"
-                    android:text="@string/n_track_album_text" />
+                    android:text="@string/loading_placeholder" />
             </TableRow>
 
             <LinearLayout

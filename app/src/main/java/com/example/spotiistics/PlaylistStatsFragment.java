@@ -31,17 +31,18 @@ public class PlaylistStatsFragment extends ItemFragment {
 
 
     void updateData(PlaylistData playlistData, ArrayList<ImageView> artistIvs, ArrayList<ImageView> albumIvs) {
+        String placeholder = getResources().getString(R.string.duration);
         TextView dt = rootview.findViewById(R.id.duracao_total);
-        dt.setText(Helper.msToString(playlistData.totalDuration));
+        dt.setText(Helper.msToString(placeholder, playlistData.totalDuration));
 
         TextView dm = rootview.findViewById(R.id.duracao_media);
-        dm.setText(Helper.msToString(playlistData.meanDuration));
+        dm.setText(Helper.msToString(placeholder, playlistData.meanDuration));
 
         TextView tb = rootview.findViewById(R.id.track_maior);
-        tb.setText(Helper.msToString(playlistData.maxDuration));
+        tb.setText(Helper.msToString(placeholder, playlistData.maxDuration));
 
         TextView ts = rootview.findViewById(R.id.track_menor);
-        ts.setText(Helper.msToString(playlistData.minDuration));
+        ts.setText(Helper.msToString(placeholder, playlistData.minDuration));
 
 
         LinearLayout base = rootview.findViewById(R.id.top_artists);
@@ -61,8 +62,8 @@ public class PlaylistStatsFragment extends ItemFragment {
         }
 
         TextView ritmo = rootview.findViewById(R.id.ritmo);
-        String ritmo_string = playlistData.meanTempo + " bpm";
-        ritmo.setText(ritmo_string);    // TODO: Hardcoded strings
+        String ritmo_string = String.format(getResources().getString(R.string.average_bpm), playlistData.meanTempo);
+        ritmo.setText(ritmo_string);
 
         TextView mood = rootview.findViewById(R.id.mood);
         mood.setText(String.valueOf(playlistData.meanMood));
