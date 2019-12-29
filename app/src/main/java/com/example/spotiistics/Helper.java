@@ -96,8 +96,8 @@ abstract class Helper {
         iv.getLayoutParams().width = (int) resources.getDimension(R.dimen.imageview_thumbnail_size);
 
         TextView tv = new TextView(context);
-        tv.setEllipsize(TextUtils.TruncateAt.END);
         tv.setMaxLines(4);
+        tv.setEllipsize(TextUtils.TruncateAt.END);
         tv.setText(name);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.setMargins((int) resources.getDimension(R.dimen.dpFifteen),0,0,0);
@@ -140,8 +140,8 @@ abstract class Helper {
 
     static TextView createTextView(String name, Context context) {
         TextView tv = new TextView(context);
-        tv.setEllipsize(TextUtils.TruncateAt.END);
         tv.setMaxLines(1);
+        tv.setEllipsize(TextUtils.TruncateAt.END);
         tv.setText(name);
         tv.setTextColor(Color.WHITE);
 
