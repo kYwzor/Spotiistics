@@ -27,12 +27,13 @@ import kaaes.spotify.webapi.android.models.ArtistSimple;
 import kaaes.spotify.webapi.android.models.Track;
 import retrofit.client.Response;
 
-public class TrackActivity extends BaseLoggedActivity {
+public class TrackActivity extends SyncableActivity {
     private static final String TAG = TrackActivity.class.getSimpleName();
     Track track;
     Album album;
-    boolean inDatabase = false;
+    boolean inDatabase;
     TrackDataDao trackDataDao;
+    boolean dataReady;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +49,15 @@ public class TrackActivity extends BaseLoggedActivity {
             inDatabase = true;
             //Toast.makeText(TrackActivity.this, "Read from database", Toast.LENGTH_LONG).show();
             loadBitmap(ts[0].albumdId, (ImageView) findViewById(R.id.image_album));
+            dataReady = true;
             updateView(ts[0]);
         }
 
     }
 
-    public void startSync() {
+    @Override
+    void startSync() {
+        dataReady = false;
         spotify.getTrack(id, new SpotifyCallback<Track>() {
             @Override
             public void failure(SpotifyError spotifyError) {
@@ -126,6 +130,8 @@ public class TrackActivity extends BaseLoggedActivity {
             trackDataDao.insert(t);
             inDatabase = true;
         }
+        dataReady = true;
+        onSyncDone();
         updateView(t);
     }
 
@@ -153,6 +159,11 @@ public class TrackActivity extends BaseLoggedActivity {
 
         TextView track_year = findViewById(R.id.ano);
         track_year.setText(t.releaseDate);
+    }
+
+    @Override
+    boolean isReady() {
+        return dataReady;
     }
 
 

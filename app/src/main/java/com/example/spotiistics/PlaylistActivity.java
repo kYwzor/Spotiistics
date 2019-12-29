@@ -36,7 +36,7 @@ import kaaes.spotify.webapi.android.models.Playlist;
 import kaaes.spotify.webapi.android.models.PlaylistTrack;
 import retrofit.client.Response;
 
-public class PlaylistActivity extends BaseLoggedActivity implements FragmentListener {
+public class PlaylistActivity extends SyncableActivity implements FragmentListener {
     private static final String TAG = PlaylistActivity.class.getSimpleName();
     TabLayout tabLayout;
     private PlaylistStatsFragment statsFragment;
@@ -72,7 +72,6 @@ public class PlaylistActivity extends BaseLoggedActivity implements FragmentList
         playlistDataDao = database.playlistDataDao();
         PlaylistData[] ps = playlistDataDao.get(id);
         if (ps.length==0){
-            playlistData = new PlaylistData(id);
             startSync();
         }
         else {
@@ -106,6 +105,8 @@ public class PlaylistActivity extends BaseLoggedActivity implements FragmentList
     }
 
     public void startSync() {
+        Arrays.fill(dataReady, false);
+        playlistData = new PlaylistData(id);
         spotify.getPlaylist(user.id, id, new SpotifyCallback<Playlist>() {
             @Override
             public void success(final Playlist p, Response response) {
@@ -323,7 +324,7 @@ public class PlaylistActivity extends BaseLoggedActivity implements FragmentList
     public void checkReady(int n){
         dataReady[n] = true;
 
-        if (dataReady[0] && dataReady[1]){
+        if (isReady()){
             if(inDatabase){
                 playlistDataDao.update(playlistData);
             }
@@ -331,8 +332,14 @@ public class PlaylistActivity extends BaseLoggedActivity implements FragmentList
                 playlistDataDao.insert(playlistData);
                 inDatabase = true;
             }
+            onSyncDone();
             updateView();
         }
+    }
+
+    @Override
+    boolean isReady() {
+        return dataReady[0] && dataReady[1];
     }
 
     private void updateView(){
@@ -363,11 +370,11 @@ public class PlaylistActivity extends BaseLoggedActivity implements FragmentList
     public void onFragmentSet(boolean isStats) {
         if (isStats){
             statsReady = true;
-            if (dataReady[0] && dataReady[1]) statsFragment.updateData(playlistData, artistIvs, albumIvs);
+            if (isReady()) statsFragment.updateData(playlistData, artistIvs, albumIvs);
         }
         else {
             infoReady = true;
-            if (dataReady[0] && dataReady[1]) infoFragment.updateData(playlistData, trackIvs);
+            if (isReady()) infoFragment.updateData(playlistData, trackIvs);
         }
     }
 }

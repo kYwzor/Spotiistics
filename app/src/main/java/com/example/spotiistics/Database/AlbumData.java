@@ -39,6 +39,6 @@ public class AlbumData {
         this.maxDuration = maxDuration;
         this.meanTempo = meanTempo;
         this.meanMood = meanMood;
-        timestamp = System.currentTimeMillis()/1000;
+        timestamp = System.currentTimeMillis();
     }
 }

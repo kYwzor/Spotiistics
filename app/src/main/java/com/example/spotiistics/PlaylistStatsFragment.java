@@ -71,7 +71,7 @@ public class PlaylistStatsFragment extends ItemFragment {
     public class artistClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            ((PlaylistActivity) getActivity()).changeActivity(ArtistsActivity.class, (String) v.getTag(R.id.ID));
+            ((PlaylistActivity) getActivity()).changeActivity(ArtistActivity.class, (String) v.getTag(R.id.ID));
         }
     }
 

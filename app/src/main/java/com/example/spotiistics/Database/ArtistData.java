@@ -25,6 +25,6 @@ public class ArtistData {
 
     public ArtistData(@NonNull String id) {
         this.id = id;
-        timestamp = System.currentTimeMillis()/1000;
+        timestamp = System.currentTimeMillis();
     }
 }

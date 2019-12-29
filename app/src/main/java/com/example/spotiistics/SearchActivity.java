@@ -217,7 +217,7 @@ public class SearchActivity extends BaseLoggedActivity {
                     changeActivity(AlbumActivity.class, (String) v.getTag(R.id.ID));
                     break;
                 case 2:
-                    changeActivity(ArtistsActivity.class, (String) v.getTag(R.id.ID));
+                    changeActivity(ArtistActivity.class, (String) v.getTag(R.id.ID));
                     break;
                 case 3:
                     changeActivity(PlaylistActivity.class, (String) v.getTag(R.id.ID));

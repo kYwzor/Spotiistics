@@ -35,9 +35,7 @@ public abstract class BaseLoggedActivity extends BaseActivity {
     }
 
     public void onSyncButtonClicked(View view){
-        //Toast.makeText(getApplicationContext(), "Switching to sync", Toast.LENGTH_LONG).show();
-        //TODO
-        //changeActivity(SyncActivity.class);
+        // Has no effect it it's not a SyncableActivity
     }
     void changeActivity(Class c){
         Intent mIntent = new Intent(getApplicationContext(), c);

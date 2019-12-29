@@ -27,6 +27,6 @@ public class TrackData {
         this.popularity = popularity;
         this.duration = duration;
         this.releaseDate = releaseDate;
-        timestamp = System.currentTimeMillis()/1000;
+        timestamp = System.currentTimeMillis();
     }
 }

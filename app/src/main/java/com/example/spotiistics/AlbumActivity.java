@@ -31,17 +31,17 @@ import kaaes.spotify.webapi.android.models.AudioFeaturesTracks;
 import kaaes.spotify.webapi.android.models.TrackSimple;
 import retrofit.client.Response;
 
-public class AlbumActivity extends BaseLoggedActivity implements FragmentListener {
+public class AlbumActivity extends SyncableActivity implements FragmentListener {
     private static final String TAG = AlbumActivity.class.getSimpleName();
     TabLayout tabLayout;
     Album album;
     AudioFeaturesTracks af;
     private AlbumStatsFragment statsFragment;
     private AlbumInfoFragment infoFragment;
-    boolean inDatabase = false;
-    boolean statsReady = false;
-    boolean infoReady = false;
-    boolean dataReady = false;
+    boolean inDatabase;
+    boolean statsReady;
+    boolean infoReady;
+    boolean dataReady;
     AlbumDataDao albumDataDao;
     AlbumData albumData;
 
@@ -70,11 +70,14 @@ public class AlbumActivity extends BaseLoggedActivity implements FragmentListene
         else {
             inDatabase = true;
             albumData = as[0];
+            dataReady = true;
             updateView();
         }
     }
 
-    public void startSync() {
+    @Override
+    void startSync() {
+        dataReady = false;
         spotify.getAlbum(id,  new SpotifyCallback<Album>() {
             @Override
             public void failure(SpotifyError spotifyError) {
@@ -174,6 +177,8 @@ public class AlbumActivity extends BaseLoggedActivity implements FragmentListene
             albumDataDao.insert(albumData);
             inDatabase = true;
         }
+        dataReady = true;
+        onSyncDone();
         updateView();
     }
 
@@ -185,13 +190,29 @@ public class AlbumActivity extends BaseLoggedActivity implements FragmentListene
         artistName.setText(albumData.artistName);
         artistName.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                changeActivity(ArtistsActivity.class, albumData.artistId);
+                changeActivity(ArtistActivity.class, albumData.artistId);
             }
         });
 
-        dataReady = true;
         if (statsReady) statsFragment.updateData(albumData);
         if (infoReady) infoFragment.updateData(albumData);
+    }
+
+    @Override
+    public void onFragmentSet(boolean isStats) {
+        if(isStats){
+            statsReady = true;
+            if (dataReady) statsFragment.updateData(albumData);
+        }
+        else {
+            infoReady = true;
+            if (dataReady) infoFragment.updateData(albumData);
+        }
+    }
+
+    @Override
+    boolean isReady() {
+        return dataReady;
     }
 
     // based on https://stackoverflow.com/questions/63150/whats-the-best-way-to-build-a-string-of-delimited-items-in-java
@@ -205,17 +226,5 @@ public class AlbumActivity extends BaseLoggedActivity implements FragmentListene
             loopDelim = ",";
         }
         return sb.toString();
-    }
-
-    @Override
-    public void onFragmentSet(boolean isStats) {
-        if(isStats){
-            statsReady = true;
-            if (dataReady) statsFragment.updateData(albumData);
-        }
-        else {
-            infoReady = true;
-            if (dataReady) infoFragment.updateData(albumData);
-        }
     }
 }

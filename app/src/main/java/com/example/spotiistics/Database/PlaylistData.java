@@ -30,6 +30,6 @@ public class PlaylistData {
 
     public PlaylistData(@NonNull String id) {
         this.id = id;
-        timestamp = System.currentTimeMillis()/1000;
+        timestamp = System.currentTimeMillis();
     }
 }
