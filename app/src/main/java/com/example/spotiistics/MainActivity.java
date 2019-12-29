@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity {
                 if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
                     api.setAccessToken(response.getAccessToken());
                     database = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "appdb")
-                            .allowMainThreadQueries()   //TODO: make it async
+                            .allowMainThreadQueries()
                             .build();
                     getUser();
                 }
@@ -92,7 +92,6 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void failure(SpotifyError error) {
-                //TODO should we retry?
                 if(error.hasErrorDetails()){
                     Log.e(TAG, error.getErrorDetails().message);
                 }

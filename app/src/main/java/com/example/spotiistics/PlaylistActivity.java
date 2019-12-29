@@ -282,7 +282,6 @@ public class PlaylistActivity extends SyncableActivity implements FragmentListen
                             Log.e(TAG, spotifyError.getMessage());
                         }
                     });
-                    //TODO get image
                 }
                 playlistData.topArtistNames = topArtistNames;
                 playlistData.topArtistIds = topArtistIds;
