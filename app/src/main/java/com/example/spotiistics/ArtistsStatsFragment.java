@@ -57,7 +57,7 @@ public class ArtistsStatsFragment extends ItemFragment {
 
         for (int i = 0; i<artistData.topTrackNames.size(); i++) {
             if(i >= 5) break;
-            LinearLayout ll = Helper.createLinearLayout(artistData.topTrackNames.get(i), artistData.topTrackIds.get(i), topIvs.get(i), getContext());
+            LinearLayout ll = Helper.createVerticalLinearLayout(artistData.topTrackNames.get(i), artistData.topTrackIds.get(i), topIvs.get(i), getContext());
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
         }

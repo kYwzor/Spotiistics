@@ -1,8 +1,6 @@
 package com.example.spotiistics;
 
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +30,6 @@ import kaaes.spotify.webapi.android.models.ArtistSimple;
 import kaaes.spotify.webapi.android.models.AudioFeaturesTrack;
 import kaaes.spotify.webapi.android.models.AudioFeaturesTracks;
 import kaaes.spotify.webapi.android.models.PlaylistTrack;
-import kaaes.spotify.webapi.android.models.Track;
-import kaaes.spotify.webapi.android.models.TrackSimple;
-import kaaes.spotify.webapi.android.models.Tracks;
 import retrofit.client.Response;
 
 public class PlaylistStatsFragment extends Fragment {
@@ -105,7 +100,7 @@ public class PlaylistStatsFragment extends Fragment {
 
                     artistClickListener artistClickListener = new artistClickListener();
 
-                    LinearLayout ll = Helper.createLinearLayout(artist.name, artist.id, pa);
+                    LinearLayout ll = Helper.createVerticalLinearLayout(artist.name, artist.id, pa);
                     ll.setOnClickListener(artistClickListener);
                     base.addView(ll);
                     if(artist.images.size() !=0){
@@ -143,7 +138,7 @@ public class PlaylistStatsFragment extends Fragment {
 
                     albumClickListener albumClickListener = new albumClickListener();
 
-                    LinearLayout ll = Helper.createLinearLayout(album.name, album.id, pa);
+                    LinearLayout ll = Helper.createVerticalLinearLayout(album.name, album.id, pa);
                     ll.setOnClickListener(albumClickListener);
                     base.addView(ll);
                     if(album.images.size() !=0){

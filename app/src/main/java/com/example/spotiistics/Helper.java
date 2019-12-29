@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -61,11 +62,41 @@ abstract class Helper {
         return bitmap;
     }
 
-    static LinearLayout createLinearLayout(String name, String id, ImageView iv, Context context){
+    static LinearLayout createHorizontalLinearLayout(String name, String id, ImageView iv, Context context){
+        Resources resources = context.getResources();
+        LinearLayout ll = new LinearLayout(context);
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(20, 0, 10, 50);   //TODO: should be scaling
+        ll.setLayoutParams(lp);
+
+        ll.addView(iv);
+        iv.getLayoutParams().height = (int) resources.getDimension(R.dimen.imageview_thumbnail_size);
+        iv.getLayoutParams().width = (int) resources.getDimension(R.dimen.imageview_thumbnail_size);
+
+        TextView tv = new TextView(context);
+        tv.setEllipsize(TextUtils.TruncateAt.END);
+        tv.setMaxLines(1);
+        tv.setText(name);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.setMargins(15,0,0,0);    //TODO: should be scaling
+        tv.setLayoutParams(params);
+        tv.setTextColor(Color.WHITE);
+
+        Typeface tf = ResourcesCompat.getFont(context, R.font.roboto_light);
+        tv.setTypeface(tf);
+        tv.setPadding(0,10, 0,0);       //TODO: should be scaling
+        ll.addView(tv);
+
+        ll.setTag(R.id.ID, id);
+        return ll;
+    }
+
+    static LinearLayout createVerticalLinearLayout(String name, String id, ImageView iv, Context context){
         Resources resources = context.getResources();
         LinearLayout ll = new LinearLayout(context);
         ll.setOrientation(LinearLayout.VERTICAL);
-        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.imageview_thumbnail_size), (int) getResources().getDimension(R.dimen.imageview_thumbnail_size));
+
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         lp.setMargins(10, 0, 10, 0);   //TODO: should be scaling
         ll.setLayoutParams(lp);
@@ -80,18 +111,16 @@ abstract class Helper {
         return ll;
     }
 
-    static LinearLayout createLinearLayout(String name, String id, Context context){
+    static LinearLayout createVerticalLinearLayout(String name, String id, Context context){
         ImageView iv = new ImageView(context);
         iv.setImageDrawable(context.getResources().getDrawable(R.drawable.noalbum));    //placeholder
-        return createLinearLayout(name, id, iv, context);
+        return createVerticalLinearLayout(name, id, iv, context);
     }
 
     static TextView createTextView(String name, Context context) {
         TextView tv = new TextView(context);
         tv.setEllipsize(TextUtils.TruncateAt.END);
         tv.setMaxLines(1);
-        //tv.getLayoutParams().width = (int) getResources().getDimension(R.dimen.imageview_thumbnail_size);
-        //tv.setMaxWidth(getItemSize());
         tv.setText(name);
         tv.setTextColor(Color.WHITE);
 

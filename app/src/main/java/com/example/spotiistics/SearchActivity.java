@@ -120,7 +120,7 @@ public class SearchActivity extends BaseLoggedActivity {
         itemClickListener itemClickListener = new itemClickListener();
 
         for (Track t : tracksPager.items) {
-            LinearLayout ll = Helper.createLinearLayout(t.name, t.id, getApplicationContext());
+            LinearLayout ll = Helper.createVerticalLinearLayout(t.name, t.id, getApplicationContext());
             ll.setTag(R.id.TYPE, 0);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
@@ -143,7 +143,7 @@ public class SearchActivity extends BaseLoggedActivity {
         itemClickListener itemClickListener = new itemClickListener();
 
         for (AlbumSimple a : albumPager.items) {
-            LinearLayout ll = Helper.createLinearLayout(a.name, a.id, getApplicationContext());
+            LinearLayout ll = Helper.createVerticalLinearLayout(a.name, a.id, getApplicationContext());
             ll.setTag(R.id.TYPE, 1);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
@@ -166,7 +166,7 @@ public class SearchActivity extends BaseLoggedActivity {
         itemClickListener itemClickListener = new itemClickListener();
 
         for (Artist a : artistPager.items) {
-            LinearLayout ll = Helper.createLinearLayout(a.name, a.id, getApplicationContext());
+            LinearLayout ll = Helper.createVerticalLinearLayout(a.name, a.id, getApplicationContext());
             ll.setTag(R.id.TYPE, 2);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
@@ -189,7 +189,7 @@ public class SearchActivity extends BaseLoggedActivity {
         itemClickListener itemClickListener = new itemClickListener();
 
         for (PlaylistSimple p : playlistPager.items) {
-            LinearLayout ll = Helper.createLinearLayout(p.name, p.id, getApplicationContext());
+            LinearLayout ll = Helper.createVerticalLinearLayout(p.name, p.id, getApplicationContext());
             ll.setTag(R.id.TYPE, 3);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);

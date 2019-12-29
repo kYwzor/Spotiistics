@@ -1,10 +1,6 @@
 package com.example.spotiistics;
 
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.core.content.res.ResourcesCompat;
 import com.bumptech.glide.Glide;
 
 import java.lang.ref.WeakReference;
@@ -23,7 +18,6 @@ import java.lang.ref.WeakReference;
 import kaaes.spotify.webapi.android.SpotifyCallback;
 import kaaes.spotify.webapi.android.SpotifyError;
 import kaaes.spotify.webapi.android.models.Album;
-import kaaes.spotify.webapi.android.models.Pager;
 import kaaes.spotify.webapi.android.models.PlaylistTrack;
 import retrofit.client.Response;
 
@@ -50,63 +44,18 @@ public class PlaylistInfoFragment extends Fragment {
         n_track.setText(pa.playlist.tracks.total + " tracks");     //TODO: Hardcoded text);
 
         LinearLayout base = rootview.findViewById(R.id.lista_tracks);
-
+        itemClickListener itemClickListener = new itemClickListener();
         for(final PlaylistTrack track : pa.playlist.tracks.items) {
-            BaseActivity.spotify.getAlbum(track.track.album.id, new SpotifyCallback<Album>() {
-                @Override
-                public void success(Album a, Response response) {
-                    LinearLayout base = rootview.findViewById(R.id.lista_tracks);
-
-                    itemClickListener itemClickListener = new itemClickListener();
-
-                    LinearLayout ll = new LinearLayout(pa.getApplicationContext());
-                    ll.setOnClickListener(itemClickListener);
-                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    lp.setMargins(20, 0, 10, 50);
-                    ll.setLayoutParams(lp);
-                    ll.setTag(R.id.ID, track.track.id);
-
-
-                    ImageView iv = new ImageView(pa.getApplicationContext());
-                    iv.setImageDrawable(getResources().getDrawable(R.drawable.noalbum));    //placeholder
-                    ll.addView(iv);
-                    iv.getLayoutParams().height = (int) getResources().getDimension(R.dimen.imageview_thumbnail_size);
-                    iv.getLayoutParams().width = (int) getResources().getDimension(R.dimen.imageview_thumbnail_size);
-
-
-                    TextView tv = new TextView(pa.getApplicationContext());
-                    tv.setEllipsize(TextUtils.TruncateAt.END);
-                    tv.setMaxLines(1);
-                    tv.setText(track.track.name);
-                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    params.setMargins(15,0,0,0);
-                    tv.setLayoutParams(params);
-                    tv.setTextColor(Color.WHITE);
-
-                    Typeface tf = ResourcesCompat.getFont(pa.getApplicationContext(), R.font.roboto_light);
-                    tv.setTypeface(tf);
-                    tv.setPadding(0,10, 0,0);
-                    ll.addView(tv);
-
-                    base.addView(ll);
-                    if (a.images.size() != 0){
-                        // new DownloadImageTask((ImageView) ll.getChildAt(0)).execute(a.images.get(0).url);
-                        Glide
-                                .with(pa)
-                                .load(a.images.get(0).url)
-                                .placeholder(R.drawable.noalbum)
-                                .into((ImageView) ll.getChildAt(0));
-                    }
-
-
-
-                }
-
-                @Override
-                public void failure(SpotifyError error) {
-                    Toast.makeText(pa, "Error loading", Toast.LENGTH_LONG).show();
-                }
-            });
+            LinearLayout ll = Helper.createHorizontalLinearLayout(track.track.name, track.track.id, new ImageView(getContext()), getContext());
+            ll.setOnClickListener(itemClickListener);
+            base.addView(ll);
+            if (track.track.album.images.size() != 0){
+                Glide
+                        .with(pa)
+                        .load(track.track.album.images.get(0).url)
+                        .placeholder(R.drawable.noalbum)
+                        .into((ImageView) ll.getChildAt(0));
+            }
         }
 
 

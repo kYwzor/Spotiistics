@@ -71,7 +71,7 @@ public class TrackActivity extends BaseLoggedActivity {
 
 
     private void midSync(){
-        // Only needed because library is bugged
+        // Only needed because we want release date
         spotify.getAlbum(track.album.id, new SpotifyCallback<Album>() {
             @Override
             public void failure(SpotifyError spotifyError) {
