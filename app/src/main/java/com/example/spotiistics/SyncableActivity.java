@@ -1,5 +1,7 @@
 package com.example.spotiistics;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.widget.Toast;
 
@@ -23,8 +25,10 @@ public abstract class SyncableActivity extends BaseLoggedActivity {
 
     void onSyncDone(){
         //Toast.makeText(getApplicationContext(), "Syncing done", Toast.LENGTH_SHORT).show();
+        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.logo);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.sync)
+                .setLargeIcon(bm)
                 .setContentTitle("Sync done")
                 .setContentText("Spotiistics syncronization is finished")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
