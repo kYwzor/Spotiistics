@@ -138,6 +138,9 @@ public class TrackActivity extends SyncableActivity {
 
 
     private void updateView(final TrackData t){
+        TextView sync = findViewById(R.id.sync_date);
+        sync.setText(Helper.timestampToReadable(t.timestamp));
+
         TextView track_name = findViewById(R.id.track_name);
         track_name.setText(t.name);
 

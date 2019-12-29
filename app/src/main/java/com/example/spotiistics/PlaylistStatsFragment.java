@@ -31,6 +31,9 @@ public class PlaylistStatsFragment extends ItemFragment {
 
 
     void updateData(PlaylistData playlistData, ArrayList<ImageView> artistIvs, ArrayList<ImageView> albumIvs) {
+        TextView sync = rootview.findViewById(R.id.sync_date);
+        sync.setText(Helper.timestampToReadable(playlistData.timestamp));
+
         String placeholder = getResources().getString(R.string.duration);
         TextView dt = rootview.findViewById(R.id.duracao_total);
         dt.setText(Helper.msToString(placeholder, playlistData.totalDuration));

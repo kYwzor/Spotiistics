@@ -28,6 +28,9 @@ public class PlaylistInfoFragment extends ItemFragment {
     }
 
     void updateData(PlaylistData playlistData, ArrayList<ImageView> trackIvs) {
+        TextView sync = rootview.findViewById(R.id.sync_date);
+        sync.setText(Helper.timestampToReadable(playlistData.timestamp));
+
         TextView n_track = rootview.findViewById(R.id.playlist_n_track);
         String n_track_string = String.format(getResources().getString(R.string.n_tracks), playlistData.trackNames.size());
         n_track.setText(n_track_string);

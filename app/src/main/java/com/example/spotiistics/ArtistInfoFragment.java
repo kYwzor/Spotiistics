@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -32,6 +33,9 @@ public class ArtistInfoFragment extends ItemFragment {
 
 
     void updateData(ArtistData artistData, ArrayList<ImageView> albumIvs) {
+        TextView sync = rootview.findViewById(R.id.sync_date);
+        sync.setText(Helper.timestampToReadable(artistData.timestamp));
+
         LinearLayout base = rootview.findViewById(R.id.lista_albums);
         base.removeAllViews();
         itemClickListener itemClickListener = new itemClickListener();

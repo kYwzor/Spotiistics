@@ -13,11 +13,11 @@ public abstract class SyncableActivity extends BaseLoggedActivity {
     @Override
     public void onSyncButtonClicked(View view) {
         if (isReady()){
-            Toast.makeText(getApplicationContext(), "Syncing started", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Syncing started", Toast.LENGTH_SHORT).show();
             startSync();
         }
         else {
-            Toast.makeText(getApplicationContext(), "Not ready to sync", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Already syncing", Toast.LENGTH_SHORT).show();
         }
     }
 

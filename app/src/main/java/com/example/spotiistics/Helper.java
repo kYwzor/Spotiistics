@@ -9,7 +9,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.text.format.DateUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -19,12 +19,16 @@ import androidx.core.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
 abstract class Helper {
+    static CharSequence timestampToReadable(long timestamp){
+        //return DateFormat.getDateInstance().format(new Date(timestamp));
+        return DateUtils.getRelativeTimeSpanString(timestamp, System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
+    }
+
     static String msToString(String placeholder, long ms){
         long seconds = ms / 1000;
         return String.format(placeholder, seconds / 60, seconds % 60);

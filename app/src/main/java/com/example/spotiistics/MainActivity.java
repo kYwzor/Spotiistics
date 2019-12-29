@@ -4,11 +4,12 @@ package com.example.spotiistics;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.room.Room;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.spotiistics.Database.AppDatabase;
@@ -28,6 +29,7 @@ public class MainActivity extends BaseActivity {
     public static final String CLIENT_ID = "31ba52256ea04bad96190373ecbfdfb1";
     public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
     SpotifyApi api;
+    Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +37,12 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.login);
         api = new SpotifyApi();
         spotify = api.getService();
+        loginButton = findViewById(R.id.login);
     }
 
     public void onGetUserProfileClicked(View view) {
+        loginButton.setEnabled(false);
+        loginButton.setBackground(getResources().getDrawable(R.drawable.button_clicked_background));
         Uri uri = new Uri.Builder()
                 .scheme(getString(R.string.com_spotify_sdk_redirect_scheme))
                 .authority(getString(R.string.com_spotify_sdk_redirect_host))
@@ -70,12 +75,14 @@ public class MainActivity extends BaseActivity {
 
                 break;
             case ERROR:
-                Log.e(TAG, response.getError());
-                Toast.makeText(MainActivity.this, "Couldn't login (Error)", Toast.LENGTH_LONG).show();
+
                 break;
             default:
-                Log.e(TAG, response.toString());
-                Toast.makeText(MainActivity.this, "Couldn't login (Default)", Toast.LENGTH_LONG).show();
+                String error = response.getError();
+                if(error!=null) Log.e(TAG, error);
+                Toast.makeText(MainActivity.this, "Couldn't login, please retry", Toast.LENGTH_LONG).show();
+                loginButton.setEnabled(true);
+                loginButton.setBackground(getResources().getDrawable(R.drawable.button_background));
                 break;
         }
     }

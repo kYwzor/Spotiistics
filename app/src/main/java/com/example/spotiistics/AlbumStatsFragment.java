@@ -28,6 +28,9 @@ public class AlbumStatsFragment extends ItemFragment {
     }
 
     void updateData(AlbumData a) {
+        TextView sync = rootview.findViewById(R.id.sync_date);
+        sync.setText(Helper.timestampToReadable(a.timestamp));
+
         String placeholder = getResources().getString(R.string.duration);
         TextView duracao = rootview.findViewById(R.id.duracao_total);
         duracao.setText(Helper.msToString(placeholder, a.totalDuration));

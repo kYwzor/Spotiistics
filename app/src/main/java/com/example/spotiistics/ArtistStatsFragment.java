@@ -32,6 +32,9 @@ public class ArtistStatsFragment extends ItemFragment {
     }
 
     void updateData(ArtistData artistData, ArrayList<ImageView> topIvs) {
+        TextView sync = rootview.findViewById(R.id.sync_date);
+        sync.setText(Helper.timestampToReadable(artistData.timestamp));
+
         TextView followers = rootview.findViewById(R.id.n_seguidores);
         followers.setText(String.valueOf(artistData.n_followers));
 

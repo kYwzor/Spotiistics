@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -64,7 +65,7 @@ public class UserPlaylistsActivity extends SyncableActivity {
             }
 
             otherIvs = new ArrayList<>();
-            for (String playlistId : userPlaylistsData.otherPlaylistNames){
+            for (String playlistId : userPlaylistsData.otherPlaylistIds){
                 ImageView iv = new ImageView(this);
                 otherIvs.add(iv);
                 loadBitmap(playlistId, iv);
@@ -133,6 +134,13 @@ public class UserPlaylistsActivity extends SyncableActivity {
                 userPlaylistsData.otherPlaylistIds = otherPlaylistIds;
 
                 dataReady = true;
+                if(inDatabase){
+                    userPlaylistsDataDao.update(userPlaylistsData);
+                }
+                else {
+                    userPlaylistsDataDao.insert(userPlaylistsData);
+                    inDatabase = true;
+                }
                 onSyncDone();
                 updateView();
             }
@@ -145,6 +153,8 @@ public class UserPlaylistsActivity extends SyncableActivity {
     }
 
     private void updateView() {
+        TextView sync = findViewById(R.id.sync_date);
+        sync.setText(Helper.timestampToReadable(userPlaylistsData.timestamp));
         playlistClickListener playlistClickListener = new playlistClickListener();
 
         LinearLayout yourPlaylist = findViewById(R.id.yourPlaylist);

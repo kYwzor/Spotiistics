@@ -28,6 +28,9 @@ public class AlbumInfoFragment extends ItemFragment {
     }
 
     void updateData(AlbumData a) {
+        TextView sync = rootview.findViewById(R.id.sync_date);
+        sync.setText(Helper.timestampToReadable(a.timestamp));
+
         TextView data_lancamento = rootview.findViewById(R.id.album_data);
         data_lancamento.setText(a.releaseDate);
 
