@@ -7,21 +7,30 @@
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <TextView
         android:id="@+id/nameApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/oswald_bold"
+        android:fontFamily="@font/oswald_light"
         android:text="@string/nameApp"
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/login"
@@ -29,6 +38,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_background"
         android:fontFamily="@font/oswald_bold"
+        android:onClick="onGetUserProfileClicked"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:paddingBottom="5dp"
@@ -37,11 +47,9 @@
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:onClick="onGetUserProfileClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameApp"
-        app:layout_constraintVertical_bias="0.35000002"/>
+        app:layout_constraintVertical_bias="0.53" />
 </androidx.constraintlayout.widget.ConstraintLayout>
