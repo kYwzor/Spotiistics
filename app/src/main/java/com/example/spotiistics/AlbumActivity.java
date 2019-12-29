@@ -31,7 +31,7 @@ import kaaes.spotify.webapi.android.models.AudioFeaturesTracks;
 import kaaes.spotify.webapi.android.models.TrackSimple;
 import retrofit.client.Response;
 
-public class AlbumActivity extends BaseLoggedActivity implements InflationListener{
+public class AlbumActivity extends BaseLoggedActivity implements FragmentListener {
     private static final String TAG = AlbumActivity.class.getSimpleName();
     TabLayout tabLayout;
     Album album;
@@ -211,7 +211,7 @@ public class AlbumActivity extends BaseLoggedActivity implements InflationListen
     }
 
     @Override
-    public void onViewCreated(boolean isStats) {
+    public void onFragmentSet(boolean isStats) {
         if(isStats){
             statsReady = true;
             if (dataReady) statsFragment.updateData(albumData);

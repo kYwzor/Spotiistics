@@ -18,13 +18,13 @@ public class AlbumInfoFragment extends ItemFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.album_info_tab, container, false);
-        this.mInflationListener.onViewCreated(false);
         return rootview;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        this.mFragmentListener.onFragmentSet(false);
     }
 
     void updateData(AlbumData a) {

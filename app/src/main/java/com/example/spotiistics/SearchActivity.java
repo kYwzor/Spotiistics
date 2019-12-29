@@ -120,7 +120,8 @@ public class SearchActivity extends BaseLoggedActivity {
         itemClickListener itemClickListener = new itemClickListener();
 
         for (Track t : tracksPager.items) {
-            LinearLayout ll = createLinearLayout(t.name, t.id, 0);
+            LinearLayout ll = Helper.createLinearLayout(t.name, t.id, getApplicationContext());
+            ll.setTag(R.id.TYPE, 0);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
             // new DownloadImageTask((ImageView) ll.getChildAt(0)).execute(t.album.images.get(0).url);
@@ -142,7 +143,8 @@ public class SearchActivity extends BaseLoggedActivity {
         itemClickListener itemClickListener = new itemClickListener();
 
         for (AlbumSimple a : albumPager.items) {
-            LinearLayout ll = createLinearLayout(a.name, a.id, 1);
+            LinearLayout ll = Helper.createLinearLayout(a.name, a.id, getApplicationContext());
+            ll.setTag(R.id.TYPE, 1);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
             //new DownloadImageTask((ImageView) ll.getChildAt(0)).execute(a.images.get(0).url);
@@ -164,7 +166,8 @@ public class SearchActivity extends BaseLoggedActivity {
         itemClickListener itemClickListener = new itemClickListener();
 
         for (Artist a : artistPager.items) {
-            LinearLayout ll = createLinearLayout(a.name, a.id,2);
+            LinearLayout ll = Helper.createLinearLayout(a.name, a.id, getApplicationContext());
+            ll.setTag(R.id.TYPE, 2);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
             if(a.images.size() !=0){
@@ -186,7 +189,8 @@ public class SearchActivity extends BaseLoggedActivity {
         itemClickListener itemClickListener = new itemClickListener();
 
         for (PlaylistSimple p : playlistPager.items) {
-            LinearLayout ll = createLinearLayout(p.name, p.id, 3);
+            LinearLayout ll = Helper.createLinearLayout(p.name, p.id, getApplicationContext());
+            ll.setTag(R.id.TYPE, 3);
             ll.setOnClickListener(itemClickListener);
             base.addView(ll);
             if(p.images.size() !=0){

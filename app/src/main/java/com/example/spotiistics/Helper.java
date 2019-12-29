@@ -1,6 +1,7 @@
 package com.example.spotiistics;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,6 +9,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.core.content.res.ResourcesCompat;
@@ -56,6 +59,31 @@ abstract class Helper {
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    static LinearLayout createLinearLayout(String name, String id, ImageView iv, Context context){
+        Resources resources = context.getResources();
+        LinearLayout ll = new LinearLayout(context);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.imageview_thumbnail_size), (int) getResources().getDimension(R.dimen.imageview_thumbnail_size));
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(10, 0, 10, 0);   //TODO: should be scaling
+        ll.setLayoutParams(lp);
+
+        ll.addView(iv);
+        iv.getLayoutParams().height = (int) resources.getDimension(R.dimen.imageview_thumbnail_size);
+        iv.getLayoutParams().width = (int) resources.getDimension(R.dimen.imageview_thumbnail_size);
+
+        ll.addView(Helper.createTextView(name, context));
+
+        ll.setTag(R.id.ID, id);
+        return ll;
+    }
+
+    static LinearLayout createLinearLayout(String name, String id, Context context){
+        ImageView iv = new ImageView(context);
+        iv.setImageDrawable(context.getResources().getDrawable(R.drawable.noalbum));    //placeholder
+        return createLinearLayout(name, id, iv, context);
     }
 
     static TextView createTextView(String name, Context context) {

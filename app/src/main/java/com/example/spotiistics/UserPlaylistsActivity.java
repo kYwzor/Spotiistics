@@ -52,7 +52,7 @@ public class UserPlaylistsActivity extends BaseLoggedActivity {
 
         playlistClickListener playlistClickListener = new playlistClickListener();
         for (PlaylistSimple playlist : playlistSimplePager.items) {
-            LinearLayout ll = createLinearLayout(playlist.name, playlist.id);
+            LinearLayout ll = Helper.createLinearLayout(playlist.name, playlist.id, getApplicationContext());
             ll.setOnClickListener(playlistClickListener);
 
             //new DownloadImageTask((ImageView) ll.getChildAt(0)).execute(playlist.images.get(0).url);
