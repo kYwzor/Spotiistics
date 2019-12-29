@@ -59,11 +59,8 @@ public class AlbumActivity extends BaseLoggedActivity implements FragmentListene
 
         tabLayout = findViewById(R.id.tab);
         tabLayout.setupWithViewPager(pager);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+
         loadBitmap(id, (ImageView) findViewById(R.id.image_album)); // might fail but it's ok
         albumDataDao = database.albumDataDao();
         AlbumData[] as = albumDataDao.get(id);

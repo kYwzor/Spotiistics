@@ -16,7 +16,12 @@ import android.widget.TextView;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 abstract class Helper {
     static String msToString(long ms){
@@ -39,7 +44,7 @@ abstract class Helper {
         return hashmap.get(score);
     }
 
-    // copied from https://stackoverflow.com/a/10600736
+    // taken from https://stackoverflow.com/a/10600736
     static Bitmap drawableToBitmap (Drawable drawable) {
         Bitmap bitmap = null;
 
@@ -60,6 +65,32 @@ abstract class Helper {
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    // taken from https://stackoverflow.com/a/21466546
+    static <K, V extends Comparable<? super V>> List<Map.Entry<K, V>> findGreatest(Map<K, V> map, int n) {
+        Comparator<? super Map.Entry<K, V>> comparator = new Comparator<Map.Entry<K, V>>() {
+            @Override
+            public int compare(Map.Entry<K, V> e0, Map.Entry<K, V> e1){
+                V v0 = e0.getValue();
+                V v1 = e1.getValue();
+                return v0.compareTo(v1);
+            }
+        };
+        PriorityQueue<Map.Entry<K, V>> highest = new PriorityQueue<>(n, comparator);
+        for (Map.Entry<K, V> entry : map.entrySet()){
+            highest.offer(entry);
+            while (highest.size() > n){
+                highest.poll();
+            }
+        }
+
+        List<Map.Entry<K, V>> result = new ArrayList<>();
+        while (highest.size() > 0){
+            result.add(highest.poll());
+        }
+
+        return result;
     }
 
     static LinearLayout createHorizontalLinearLayout(String name, String id, ImageView iv, Context context){

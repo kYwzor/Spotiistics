@@ -12,11 +12,10 @@ import androidx.annotation.Nullable;
 
 import com.example.spotiistics.Database.ArtistData;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class ArtistsInfoFragment extends ItemFragment {
-    private WeakReference<ArtistsActivity> activityReference;
+
     private View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,7 +28,6 @@ public class ArtistsInfoFragment extends ItemFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         this.mFragmentListener.onFragmentSet(false);
-        activityReference = new WeakReference<>((ArtistsActivity) getActivity());
     }
 
 
@@ -48,7 +46,7 @@ public class ArtistsInfoFragment extends ItemFragment {
 
         @Override
         public void onClick(View v) {
-            activityReference.get().changeActivity(AlbumActivity.class, (String) v.getTag(R.id.ID));
+            ((ArtistsActivity) getActivity()).changeActivity(AlbumActivity.class, (String) v.getTag(R.id.ID));
         }
     }
 

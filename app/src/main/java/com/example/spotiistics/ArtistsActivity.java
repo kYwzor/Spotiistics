@@ -44,8 +44,8 @@ public class ArtistsActivity extends BaseLoggedActivity implements FragmentListe
     ArrayList<ImageView> topIvs;
 
     boolean inDatabase;
-    boolean statsReady = false;
-    boolean infoReady = false;
+    boolean statsReady;
+    boolean infoReady;
     boolean[] dataReady = new boolean[4];
 
     @Override
@@ -62,11 +62,7 @@ public class ArtistsActivity extends BaseLoggedActivity implements FragmentListe
 
         tabLayout = findViewById(R.id.tab);
         tabLayout.setupWithViewPager(pager);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
         loadBitmap(id, (ImageView) findViewById(R.id.image_artista)); // might fail but it's ok
         artistDataDao = database.artistDataDao();
         ArtistData[] as = artistDataDao.get(id);
@@ -104,8 +100,6 @@ public class ArtistsActivity extends BaseLoggedActivity implements FragmentListe
                 artistData.popularity = a.popularity;
                 artistData.genres = new ArrayList<>(a.genres);
                 artistData.name = a.name;
-                TextView artistName = findViewById(R.id.artista_name);
-                artistName.setText(a.name);
                 ImageView iv = findViewById(R.id.image_artista);
                 if(a.images.size() != 0){
                     Glide
@@ -263,6 +257,8 @@ public class ArtistsActivity extends BaseLoggedActivity implements FragmentListe
     }
 
     private void updateView() {
+        TextView artistName = findViewById(R.id.artista_name);
+        artistName.setText(artistData.name);
         if(statsReady) statsFragment.updateData(artistData, topIvs);
         if(infoReady) infoFragment.updateData(artistData, albumIvs);
     }

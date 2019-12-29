@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import androidx.fragment.app.Fragment;
 
-public class ItemFragment extends Fragment {
+public abstract class ItemFragment extends Fragment {
     FragmentListener mFragmentListener;
     @Override
     public void onAttach(Activity activity) {
