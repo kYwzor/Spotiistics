@@ -1,6 +1,7 @@
 package com.example.spotiistics;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -29,6 +30,7 @@ import retrofit.client.Response;
 
 
 public class SearchActivity extends BaseLoggedActivity {
+    private static final String TAG = SearchActivity.class.getSimpleName();
     EditText et;
 
     @Override
