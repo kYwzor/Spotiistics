@@ -46,6 +46,7 @@ public class PlaylistStatsFragment extends ItemFragment {
 
 
         LinearLayout base = rootview.findViewById(R.id.top_artists);
+        base.removeAllViews();
         artistClickListener artistClickListener = new artistClickListener();
         for (int i = 0; i<playlistData.topArtistNames.size(); i++){
             LinearLayout ll = Helper.createVerticalLinearLayout(playlistData.topArtistNames.get(i), playlistData.topArtistIds.get(i), artistIvs.get(i), getContext());
@@ -54,6 +55,7 @@ public class PlaylistStatsFragment extends ItemFragment {
         }
 
         base = rootview.findViewById(R.id.top_albums);
+        base.removeAllViews();
         albumClickListener albumClickListener = new albumClickListener();
         for (int i = 0; i<playlistData.topAlbumNames.size(); i++){
             LinearLayout ll = Helper.createVerticalLinearLayout(playlistData.topAlbumNames.get(i), playlistData.topAlbumIds.get(i), albumIvs.get(i), getContext());

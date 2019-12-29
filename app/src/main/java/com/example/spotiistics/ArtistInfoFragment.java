@@ -33,7 +33,7 @@ public class ArtistInfoFragment extends ItemFragment {
 
     void updateData(ArtistData artistData, ArrayList<ImageView> albumIvs) {
         LinearLayout base = rootview.findViewById(R.id.lista_albums);
-
+        base.removeAllViews();
         itemClickListener itemClickListener = new itemClickListener();
         for (int i=0; i<artistData.albumNames.size(); i++){
             LinearLayout ll = Helper.createHorizontalLinearLayout(artistData.albumNames.get(i), artistData.albumIds.get(i), albumIvs.get(i), getContext());

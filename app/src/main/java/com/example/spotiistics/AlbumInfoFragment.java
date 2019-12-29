@@ -36,8 +36,8 @@ public class AlbumInfoFragment extends ItemFragment {
         n_track.setText(n_track_string);
 
         LinearLayout base = rootview.findViewById(R.id.lista_tracks);
+        base.removeAllViews();
         itemClickListener itemClickListener = new itemClickListener();
-
         for (int i=0; i <a.trackNames.size(); i++){
             TextView tv = Helper.createTextView(a.trackNames.get(i), getContext());
             tv.setOnClickListener(itemClickListener);

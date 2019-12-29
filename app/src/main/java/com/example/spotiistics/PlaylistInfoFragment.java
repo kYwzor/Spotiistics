@@ -33,6 +33,7 @@ public class PlaylistInfoFragment extends ItemFragment {
         n_track.setText(n_track_string);
 
         LinearLayout base = rootview.findViewById(R.id.lista_tracks);
+        base.removeAllViews();
         itemClickListener itemClickListener = new itemClickListener();
         for (int i=0; i<playlistData.trackNames.size(); i++) {
             LinearLayout ll = Helper.createHorizontalLinearLayout(playlistData.trackNames.get(i), playlistData.trackIds.get(i), trackIvs.get(i), getContext());

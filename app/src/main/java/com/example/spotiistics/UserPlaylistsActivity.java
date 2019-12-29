@@ -148,6 +148,7 @@ public class UserPlaylistsActivity extends SyncableActivity {
         playlistClickListener playlistClickListener = new playlistClickListener();
 
         LinearLayout yourPlaylist = findViewById(R.id.yourPlaylist);
+        yourPlaylist.removeAllViews();
         for (int i = 0; i<userPlaylistsData.ownPlaylistNames.size(); i++){
             LinearLayout ll = Helper.createVerticalLinearLayout(userPlaylistsData.ownPlaylistNames.get(i), userPlaylistsData.ownPlaylistIds.get(i), ownIvs.get(i), getApplicationContext());
             ll.setOnClickListener(playlistClickListener);
@@ -155,6 +156,7 @@ public class UserPlaylistsActivity extends SyncableActivity {
         }
 
         LinearLayout followedPlaylist = findViewById(R.id.followedPlaylist);
+        followedPlaylist.removeAllViews();
         for (int i = 0; i<userPlaylistsData.otherPlaylistNames.size(); i++){
             LinearLayout ll = Helper.createVerticalLinearLayout(userPlaylistsData.otherPlaylistNames.get(i), userPlaylistsData.otherPlaylistIds.get(i), otherIvs.get(i), getApplicationContext());
             ll.setOnClickListener(playlistClickListener);

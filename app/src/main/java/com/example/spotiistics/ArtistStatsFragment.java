@@ -52,8 +52,8 @@ public class ArtistStatsFragment extends ItemFragment {
 
 
         LinearLayout base = rootview.findViewById(R.id.toptracks);
+        base.removeAllViews();
         itemClickListener itemClickListener = new itemClickListener();
-
         for (int i = 0; i<artistData.topTrackNames.size(); i++) {
             if(i >= 5) break;
             LinearLayout ll = Helper.createVerticalLinearLayout(artistData.topTrackNames.get(i), artistData.topTrackIds.get(i), topIvs.get(i), getContext());
