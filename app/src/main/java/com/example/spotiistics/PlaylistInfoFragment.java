@@ -29,7 +29,8 @@ public class PlaylistInfoFragment extends ItemFragment {
 
     void updateData(PlaylistData playlistData, ArrayList<ImageView> trackIvs) {
         TextView n_track = rootview.findViewById(R.id.playlist_n_track);
-        n_track.setText(playlistData.trackNames.size() + " tracks");     //TODO: Hardcoded text);
+        String n_track_string = playlistData.trackNames.size() + " tracks";
+        n_track.setText(n_track_string);     //TODO: Hardcoded text);
 
         LinearLayout base = rootview.findViewById(R.id.lista_tracks);
         itemClickListener itemClickListener = new itemClickListener();

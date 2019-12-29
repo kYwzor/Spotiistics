@@ -1,6 +1,7 @@
 package com.example.spotiistics;
 
 import android.os.Bundle;
+import android.telephony.mbms.StreamingServiceInfo;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,17 +34,19 @@ public class ArtistStatsFragment extends ItemFragment {
     void updateData(ArtistData artistData, ArrayList<ImageView> topIvs) {
         TextView followers = rootview.findViewById(R.id.n_seguidores);
         followers.setText(String.valueOf(artistData.n_followers));
-
+        String sim = "Sim";
+        String nao = "Não";
+        String nao_disponivel = "Não disponível";
         TextView isFollowing = rootview.findViewById(R.id.follow_artist);
-        if(artistData.isFollowing) isFollowing.setText("Sim");  //TODO: Hardcoded strings
-        else isFollowing.setText("Não");
+        if(artistData.isFollowing) isFollowing.setText(sim);  //TODO: Hardcoded strings
+        else isFollowing.setText(nao);
 
         TextView pop = rootview.findViewById(R.id.popularidade);
         pop.setText(Helper.stringPop(artistData.popularity));
 
         TextView genero = rootview.findViewById(R.id.artista_genero);
         if(artistData.genres.size()!=0) genero.setText(TextUtils.join(" | ", artistData.genres));
-        else genero.setText("Não disponível."); //TODO: Hardcoded strings
+        else genero.setText(nao_disponivel); //TODO: Hardcoded strings
 
         TextView n_album = rootview.findViewById(R.id.n_track_album);
         n_album.setText(String.valueOf(artistData.albumNames.size()));

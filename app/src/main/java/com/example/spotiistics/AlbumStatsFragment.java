@@ -41,7 +41,8 @@ public class AlbumStatsFragment extends ItemFragment {
         track_menor.setText(Helper.msToString(a.minDuration));
 
         TextView ritmo = rootview.findViewById(R.id.ritmo);
-        ritmo.setText(a.meanTempo + " bpm");    // TODO: Hardcoded strings
+        String ritmo_string = a.meanTempo + " bpm";
+        ritmo.setText(ritmo_string);    // TODO: Hardcoded strings
 
         TextView mood = rootview.findViewById(R.id.mood);
         mood.setText(String.valueOf(a.meanMood));

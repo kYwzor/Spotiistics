@@ -14,60 +14,60 @@
     <string name="tab_info">Informação</string>
 
     <!--Página Playlist-->
-    <string name="playlist_name">Nome Playlist</string>
-    <string name="playlist_creator">Nome Apelido</string>
+    <string name="playlist_name">Loading</string>
+    <string name="playlist_creator">Loading</string>
     <string name="top_artistas">Top 5 Artistas</string>
     <string name="top_albums">Top 5 Álbums</string>
 
 
     <!--String em mais do que uma página-->
     <string name="duracao_total_title">Duração Total</string> <!--Playlist e Album-->
-    <string name="duracao_total_text">3h</string> <!--Playlist e Album-->
+    <string name="duracao_total_text">Loading</string> <!--Playlist e Album-->
     <string name="duracao_media_title">Duração Média das Músicas</string> <!--Playlist e Album e Artista-->
-    <string name="duracao_media_text">3min 5s</string> <!--Playlist e Album-->
+    <string name="duracao_media_text">Loading</string> <!--Playlist e Album-->
     <string name="track_menor_title">Duração Música Menor</string> <!--Playlist e Album-->
-    <string name="track_menor_text">1min</string> <!--Playlist e Album-->
+    <string name="track_menor_text">Loading</string> <!--Playlist e Album-->
     <string name="track_maior_title">Duração Música Maior</string> <!--Playlist e Album-->
-    <string name="track_maior_text">5min 30s</string> <!--Playlist e Album-->
+    <string name="track_maior_text">Loading</string> <!--Playlist e Album-->
     <string name="mood_playlist_title">Mood da Playlist</string> <!--Playlist e Album-->
     <string name="mood_albums_title">Mood do Álbum</string> <!--Playlist e Album-->
-    <string name="mood_playlist_text">Mood</string> <!--Playlist e Album-->
+    <string name="mood_playlist_text">Loading</string> <!--Playlist e Album-->
     <string name="ritmo_albums_title">Ritmo do Álbum</string> <!--Playlist e Album-->
     <string name="ritmo_playlist_title">Ritmo da Playlist</string> <!--Playlist e Album-->
 
-    <string name="ritmo_playlist_text">Ritmo</string> <!--Playlist e Album-->
+    <string name="ritmo_playlist_text">Loading</string> <!--Playlist e Album-->
     <string name="lista_track">Lista de Músicas</string> <!--Playlist e Album-->
-    <string name="genero_text">Metal</string> <!--Artista e Track-->
+    <string name="genero_text">Loading</string> <!--Artista e Track-->
 
     <!--Página Album-->
-    <string name="album_name">Nome do Álbum</string>
-    <string name="album_artist">Artista</string>
+    <string name="album_name">Loading</string>
+    <string name="album_artist">Loading</string>
     <string name="ano_title">Data de Lançamento</string>
-    <string name="ano_text">2017</string>
+    <string name="ano_text">Loading</string>
 
     <!--Página Track-->
-    <string name="track_name">Nome da música</string>
-    <string name="album_title">Álbum</string>
+    <string name="track_name">Loading</string>
+    <string name="album_title">Loading</string>
     <string name="popularidade_title">Popularidade</string>
-    <string name="popularidade_text">Something</string>
+    <string name="popularidade_text">Loading</string>
     <string name="duracao_title">Duração</string>
-    <string name="duracao_text">3min 50s</string>
+    <string name="duracao_text">Loading</string>
 
     <!--Página Artista-->
-    <string name="artista">Artista</string>
+    <string name="artista">Loading</string>
     <string name="follow_title">Segue o Artista</string>
-    <string name="follow_text">Sim</string>
+    <string name="follow_text">Loading</string>
     <string name="n_seguidores_title">Número de seguidores</string>
-    <string name="n_seguidores_text">30</string>
+    <string name="n_seguidores_text">Loading</string>
     <string name="n_track_album_title">Número de álbuns, EPs e singles</string>
-    <string name="n_track_album_text">30</string>
+    <string name="n_track_album_text">Loading</string>
     <string name="top_track">Top 5 Músicas</string>
     <string name="genero_artista_title">Género do Artista</string>
     <string name="list_album">Lista de Álbuns</string>
 
     <!--Ultima Sincronização-->
     <string name="last_sync">Última Sicronização</string>
-    <string name="last_sync_date">16/12/2019 19:00</string>
+    <string name="last_sync_date">Loading</string>
 
     <!--menu-->
     <string name="playlist_menu">Playlist</string>

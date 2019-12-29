@@ -32,7 +32,8 @@ public class AlbumInfoFragment extends ItemFragment {
         data_lancamento.setText(a.releaseDate);
 
         TextView n_track = rootview.findViewById(R.id.n_track);
-        n_track.setText(a.trackNames.size() + " tracks");     //TODO: Hardcoded text
+        String n_track_string = a.trackNames.size() + " tracks";
+        n_track.setText(n_track_string);     //TODO: Hardcoded text
 
         LinearLayout base = rootview.findViewById(R.id.lista_tracks);
         itemClickListener itemClickListener = new itemClickListener();
