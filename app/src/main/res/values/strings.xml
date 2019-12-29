@@ -48,6 +48,7 @@
     <!--Página Track-->
     <string name="popularidade_title">Popularidade</string>
     <string name="duracao_title">Duração</string>
+    <string name="album_title">Álbum</string>
 
     <!--Página Artista-->
     <string name="follow_title">Segue o Artista</string>
