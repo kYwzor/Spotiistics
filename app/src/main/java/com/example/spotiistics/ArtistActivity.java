@@ -91,7 +91,8 @@ public class ArtistActivity extends SyncableActivity implements FragmentListener
         }
     }
 
-    public void startSync() {
+    @Override
+    void startSync() {
         Arrays.fill(dataReady, false);
         artistData = new ArtistData(id);
         spotify.getArtist(id,  new SpotifyCallback<Artist>() {

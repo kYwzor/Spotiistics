@@ -104,7 +104,8 @@ public class PlaylistActivity extends SyncableActivity implements FragmentListen
         }
     }
 
-    public void startSync() {
+    @Override
+    void startSync() {
         Arrays.fill(dataReady, false);
         playlistData = new PlaylistData(id);
         spotify.getPlaylist(user.id, id, new SpotifyCallback<Playlist>() {

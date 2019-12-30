@@ -76,7 +76,8 @@ public class UserPlaylistsActivity extends SyncableActivity {
         }
     }
 
-    public void startSync(){
+    @Override
+    void startSync() {
         dataReady = false;
         userPlaylistsData = new UserPlaylistsData(user.id);
         Map<String, Object> options  = new HashMap<>();
