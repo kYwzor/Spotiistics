@@ -32,7 +32,7 @@ public class PlaylistInfoFragment extends ItemFragment {
         sync.setText(Helper.timestampToReadable(playlistData.timestamp));
 
         TextView n_track = rootview.findViewById(R.id.playlist_n_track);
-        String n_track_string = String.format(getResources().getString(R.string.n_tracks), playlistData.trackNames.size());
+        String n_track_string = getResources().getString(R.string.n_tracks, playlistData.trackNames.size());
         n_track.setText(n_track_string);
 
         LinearLayout base = rootview.findViewById(R.id.lista_tracks);

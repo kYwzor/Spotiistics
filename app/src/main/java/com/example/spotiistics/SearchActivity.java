@@ -1,6 +1,7 @@
 package com.example.spotiistics;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -29,6 +30,7 @@ import retrofit.client.Response;
 
 
 public class SearchActivity extends BaseLoggedActivity {
+    private static final String TAG = SearchActivity.class.getSimpleName();
     EditText et;
 
     @Override
@@ -63,8 +65,8 @@ public class SearchActivity extends BaseLoggedActivity {
         spotify.searchArtists(et.getText().toString(), options, new SpotifyCallback<ArtistsPager>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(SearchActivity.this,
-                        "Error loading content", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
+                Log.e(TAG, spotifyError.getMessage());
             }
 
             @Override
@@ -76,8 +78,8 @@ public class SearchActivity extends BaseLoggedActivity {
         spotify.searchAlbums(et.getText().toString(), options, new SpotifyCallback<AlbumsPager>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(SearchActivity.this,
-                        "Error loading content", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
+                Log.e(TAG, spotifyError.getMessage());
             }
 
             @Override
@@ -89,8 +91,8 @@ public class SearchActivity extends BaseLoggedActivity {
         spotify.searchTracks(et.getText().toString(), options, new SpotifyCallback<TracksPager>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(SearchActivity.this,
-                        "Error loading content", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
+                Log.e(TAG, spotifyError.getMessage());
             }
 
             @Override
@@ -102,8 +104,8 @@ public class SearchActivity extends BaseLoggedActivity {
         spotify.searchPlaylists(et.getText().toString(), options, new SpotifyCallback<PlaylistsPager>() {
             @Override
             public void failure(SpotifyError spotifyError) {
-                Toast.makeText(SearchActivity.this,
-                        "Error loading content", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.sync_fail, Toast.LENGTH_LONG).show();
+                Log.e(TAG, spotifyError.getMessage());
             }
 
             @Override

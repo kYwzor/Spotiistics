@@ -1,12 +1,8 @@
 <resources>
     <string name="app_name">Spotiistics</string>
-    <string name="warning_need_token">You need to request an access token first</string>
-    <string name="code">Code: %1$s</string>
-    <string name="token">Access Token: %1$s</string>
-    <string name="nameApp">Spotiistics</string>
     <string name="login">Login</string>
 
-    <string name="loading_placeholder">Loading</string>
+    <string name="loading_placeholder">Carregando</string>
 
     <!--Menu Playlist-->
     <string name="your_playlist">Tuas Playlists</string>
@@ -32,7 +28,7 @@
     <string name="lista_track">Lista de Músicas</string> <!--Playlist e Album-->
     <string name="average_bpm">%1$f bpm</string><!--Playlist e Album-->
     <string name="n_tracks">%1$d tracks</string><!--Playlist e Album-->
-    <string name="duration">%1$d min %2$d sec</string> <!--Playlist e Album e Track-->
+    <string name="duration">%1$d min %2$d seg</string> <!--Playlist e Album e Track-->
     <string-array name="popularity">
         <item>1- O que é isto?</item>
         <item>2- Underground</item>
@@ -75,4 +71,11 @@
     <string name="track_search">Músicas</string>
     <string name="playlist_search">Playlists</string>
 
+    <!--Toasts e Notifications-->
+    <string name="login_request_code">Request Code errado, tente novamente</string>
+    <string name="login_fail">Login falhado, tente novamente</string>
+    <string name="sync_fail">Erro a sincronizar</string>
+    <string name="already_syncing">Sincronização já está em curso</string>
+    <string name="sync_done">Sincronização completa</string>
+    <string name="sync_done_context">A sincronização do Spotiistics foi completada</string>
 </resources>
