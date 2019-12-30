@@ -39,8 +39,8 @@ public class ArtistStatsFragment extends ItemFragment {
         followers.setText(String.valueOf(artistData.n_followers));
 
         TextView isFollowing = rootview.findViewById(R.id.follow_artist);
-        if(artistData.isFollowing) isFollowing.setText(getResources().getString(R.string.yes));
-        else isFollowing.setText(getResources().getString(R.string.no));
+        if(artistData.isFollowing) isFollowing.setText(R.string.yes);
+        else isFollowing.setText(R.string.no);
 
         TextView pop = rootview.findViewById(R.id.popularidade);
         String[] popText = getResources().getStringArray(R.array.popularity);
@@ -48,7 +48,7 @@ public class ArtistStatsFragment extends ItemFragment {
 
         TextView genero = rootview.findViewById(R.id.artista_genero);
         if(artistData.genres.size()!=0) genero.setText(TextUtils.join(" | ", artistData.genres));
-        else genero.setText(getResources().getString(R.string.not_available));
+        else genero.setText(R.string.not_available);
 
         TextView n_album = rootview.findViewById(R.id.n_track_album);
         n_album.setText(String.valueOf(artistData.albumNames.size()));

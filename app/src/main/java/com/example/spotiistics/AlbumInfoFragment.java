@@ -35,7 +35,7 @@ public class AlbumInfoFragment extends ItemFragment {
         data_lancamento.setText(a.releaseDate);
 
         TextView n_track = rootview.findViewById(R.id.n_track);
-        String n_track_string = String.format(getResources().getString(R.string.n_tracks), a.trackNames.size());
+        String n_track_string = getResources().getString(R.string.n_tracks, a.trackNames.size());
         n_track.setText(n_track_string);
 
         LinearLayout base = rootview.findViewById(R.id.lista_tracks);

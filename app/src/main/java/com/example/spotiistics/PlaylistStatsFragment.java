@@ -67,7 +67,7 @@ public class PlaylistStatsFragment extends ItemFragment {
         }
 
         TextView ritmo = rootview.findViewById(R.id.ritmo);
-        String ritmo_string = String.format(getResources().getString(R.string.average_bpm), playlistData.meanTempo);
+        String ritmo_string = getResources().getString(R.string.average_bpm, playlistData.meanTempo);
         ritmo.setText(ritmo_string);
 
         TextView mood = rootview.findViewById(R.id.mood);
